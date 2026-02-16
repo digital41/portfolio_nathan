@@ -3,8 +3,14 @@
 # Hostinger shared hosting
 # =============================================
 
-# --- Force HTTPS ---
+# --- Enable Rewrite ---
 RewriteEngine On
+RewriteBase /
+
+# --- Allow .well-known (SSL, etc.) ---
+RewriteRule ^\.well-known/ - [L]
+
+# --- Force HTTPS ---
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
@@ -15,7 +21,7 @@ RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
 # --- Clean URLs: /contact -> /contact.html ---
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^(.+)$ $1.html [L]
 
 # --- Custom error pages ---
