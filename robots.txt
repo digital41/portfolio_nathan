@@ -1,0 +1,12 @@
+# Robots.txt - Nathan Ibgui Portfolio
+# https://nathanibgui.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nathanibgui.com/sitemap.xml
+
+# Disallow admin/private paths
+Disallow: /admin/
+Disallow: /private/
