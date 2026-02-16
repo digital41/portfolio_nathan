@@ -13,20 +13,20 @@
     var TESTS = {
         'header-cta': {
             selector: '[data-ab="header-cta"]',
-            variants: ['Consultation Call', 'Audit Gratuit', 'Prendre RDV']
+            variants: ['Consultation Call', 'Audit', 'Prendre RDV']
         },
         'hero-cta': {
             selector: '[data-ab="hero-cta"]',
             variants: [
                 "Lancer l'Audit Express",
-                "Diagnostic Gratuit",
+                "Diagnostic",
                 "Analyser Mon Entreprise"
             ]
         },
         'audit-cta': {
             selector: '[data-ab="audit-cta"]',
             variants: [
-                'R\u00e9server mon Audit Gratuit',
+                'R\u00e9server mon Audit',
                 'Obtenir Mon Diagnostic',
                 'D\u00e9marrer l\'Analyse'
             ]
