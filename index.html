@@ -28,8 +28,11 @@
     <meta name="twitter:image" content="https://nathanibgui.com/assets/images/nathanibguiProfile.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
 
     <!-- Alternate languages -->
     <link rel="alternate" hreflang="fr" href="https://nathanibgui.com/">
@@ -333,7 +336,10 @@
                 </div>
                 <div class="lg:col-span-2 relative reveal-photo">
                     <div class="absolute -inset-1 bg-gradient-to-tr from-blue-600/30 to-transparent rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] blur-2xl" aria-hidden="true"></div>
-                    <img src="assets/images/nathanibguiProfile.png" alt="Nathan Ibgui, CIO Executive de KLY Groupe, expert en stratégie IA et transformation digitale" class="relative rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 object-cover object-top lg:object-center h-[320px] sm:h-[380px] md:h-[450px] lg:h-[600px] w-full max-w-md mx-auto lg:max-w-none" width="600" height="600" loading="eager">
+                    <picture>
+                        <source srcset="assets/images/nathanibguiProfile.webp" type="image/webp">
+                        <img src="assets/images/nathanibguiProfile.png" alt="Nathan Ibgui, CIO Executive de KLY Groupe, expert en stratégie IA et transformation digitale" class="relative rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 object-cover object-top lg:object-center h-[320px] sm:h-[380px] md:h-[450px] lg:h-[600px] w-full max-w-md mx-auto lg:max-w-none" width="600" height="600" loading="eager">
+                    </picture>
 
                     <!-- Floating Badge -->
                     <div class="absolute -bottom-5 -left-2 sm:-bottom-6 sm:-left-4 lg:-bottom-8 lg:-left-8 glass p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-white/10 shadow-2xl backdrop-blur-xl">

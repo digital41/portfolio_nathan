@@ -28,8 +28,11 @@
     <meta name="twitter:image" content="https://nathanibgui.com/assets/images/nathanibguiProfile.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
 
     <!-- Alternate languages -->
     <link rel="alternate" hreflang="fr" href="https://nathanibgui.com/solutions/dsi-externalise.html">
@@ -639,7 +642,10 @@
                     <!-- Photo -->
                     <div class="lg:col-span-2 relative reveal-scroll hidden lg:block">
                         <div class="absolute -inset-1 bg-gradient-to-tr from-blue-600/30 to-transparent rounded-[50px] blur-2xl" aria-hidden="true"></div>
-                        <img src="../assets/images/nathanibguiProfile.png" alt="Nathan Ibgui, DSI externalis&eacute; et CIO de KLY Groupe (&euro;65M)" class="relative rounded-[50px] border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 object-cover h-[500px] w-full" width="500" height="500" loading="lazy">
+                        <picture>
+                            <source srcset="../assets/images/nathanibguiProfile.webp" type="image/webp">
+                            <img src="../assets/images/nathanibguiProfile.png" alt="Nathan Ibgui, DSI externalis&eacute; et CIO de KLY Groupe (&euro;65M)" class="relative rounded-[50px] border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 object-cover h-[500px] w-full" width="500" height="500" loading="lazy">
+                        </picture>
                     </div>
 
                     <!-- Text -->
