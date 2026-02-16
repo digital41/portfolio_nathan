@@ -1,4 +1,16 @@
 /* ================================================
+   COPY PROTECTION
+   ================================================ */
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Allow selection in form inputs */
+input, textarea, select { -webkit-user-select: text; user-select: text; }
+
+/* ================================================
    THEME SYSTEM - LIGHT MODE OVERRIDES
    Default: Dark (existing inline styles)
    Light: Applied via [data-theme="light"] on <html>

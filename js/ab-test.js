@@ -13,7 +13,7 @@
     var TESTS = {
         'header-cta': {
             selector: '[data-ab="header-cta"]',
-            variants: ['Consultation Call', 'Audit', 'Prendre RDV']
+            variants: ['Consultation Call', 'Consultation Call', 'Consultation Call']
         },
         'hero-cta': {
             selector: '[data-ab="hero-cta"]',
