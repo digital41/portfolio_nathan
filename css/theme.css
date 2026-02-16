@@ -202,8 +202,8 @@
 /* ================================================
    TERMINAL EFFECT (index.html)
    ================================================ */
-[data-theme="light"] [style*="background:#03050a"],
-[data-theme="light"] [style*="background: #03050a"] {
+[data-theme="light"] [style*="background:#0c1524"],
+[data-theme="light"] [style*="background: #0c1524"] {
     background: #f1f5f9 !important;
 }
 
