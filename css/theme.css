@@ -200,11 +200,10 @@
 }
 
 /* ================================================
-   TERMINAL EFFECT (index.html)
+   TERMINAL / CODE BLOCKS
    ================================================ */
-[data-theme="light"] [style*="background:#0c1524"],
-[data-theme="light"] [style*="background: #0c1524"] {
-    background: #f1f5f9 !important;
+[data-theme="light"] [class*="bg-[#0c1524]"] {
+    background-color: #e8edf5 !important;
 }
 
 /* ================================================
