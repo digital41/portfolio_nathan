@@ -89,6 +89,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/theme.css">
+    <script src="js/components.js"></script>
 
     <!-- Libraries -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -204,65 +205,7 @@
 </head>
 <body x-data="{ mobileMenu: false }">
 
-    <!-- Skip to content -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-6 focus:py-3 focus:rounded-lg focus:font-bold">
-        Aller au contenu principal
-    </a>
-
-    <!-- Noscript fallback -->
-    <noscript>
-        <div style="background:#1e3a8a;color:white;text-align:center;padding:16px;font-family:sans-serif;">
-            Ce site fonctionne mieux avec JavaScript activé.
-            <a href="https://calendly.com/ibguinathan/30min" style="color:#93c5fd;text-decoration:underline;">Réservez directement votre consultation ici.</a>
-        </div>
-    </noscript>
-
-    <!-- HEADER -->
-    <header class="fixed top-0 w-full z-50 glass py-5 px-4 sm:px-8 flex justify-between items-center border-b border-white/5" role="banner">
-        <a href="/" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>
-
-        <nav class="hidden lg:flex gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500" aria-label="Navigation principale">
-            <a href="index.html#vision" class="hover:text-white transition-colors duration-300">Vision</a>
-            <a href="index.html#audit" class="hover:text-white transition-colors duration-300">Diagnostic</a>
-            <a href="index.html#skills" class="hover:text-white transition-colors duration-300">Performance</a>
-            <a href="index.html#solutions" class="hover:text-white transition-colors duration-300">Solutions</a>
-            <a href="index.html#impact" class="hover:text-white transition-colors duration-300">Impact</a>
-        </nav>
-
-        <div class="flex items-center gap-4">
-            <!-- Theme Toggle Desktop -->
-            <button class="theme-toggle hidden lg:inline-flex" aria-label="Changer le thème">
-                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
-            </button>
-            <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="hidden sm:inline-flex bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10" aria-label="Réserver une consultation gratuite">
-                Consultation Call
-            </button>
-
-            <!-- Mobile Menu Button -->
-            <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-white text-xl p-2" aria-label="Ouvrir le menu" :aria-expanded="mobileMenu.toString()">
-                <i class="fas" :class="mobileMenu ? 'fa-times' : 'fa-bars'"></i>
-            </button>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4" class="fixed top-[73px] inset-x-0 z-40 glass border-b border-white/5 p-6 lg:hidden" @click.away="mobileMenu = false">
-        <nav class="flex flex-col gap-6 text-sm font-bold uppercase tracking-widest text-slate-400" aria-label="Navigation mobile">
-            <a href="index.html#vision" @click="mobileMenu = false" class="hover:text-white transition-colors">Vision</a>
-            <a href="index.html#audit" @click="mobileMenu = false" class="hover:text-white transition-colors">Diagnostic</a>
-            <a href="index.html#skills" @click="mobileMenu = false" class="hover:text-white transition-colors">Performance</a>
-            <a href="index.html#solutions" @click="mobileMenu = false" class="hover:text-white transition-colors">Solutions</a>
-            <a href="index.html#impact" @click="mobileMenu = false" class="hover:text-white transition-colors">Impact</a>
-            <!-- Theme Toggle Mobile -->
-            <button class="theme-toggle theme-toggle-mobile" @click="mobileMenu = false" aria-label="Changer le thème">
-                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
-                <span>Thème</span>
-            </button>
-            <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="sm:hidden bg-cobalt-gradient text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest text-center">
-                Consultation Call
-            </button>
-        </nav>
-    </div>
+    <script>document.write(SiteComponents.header())</script>
 
     <main id="main-content">
 
@@ -720,66 +663,7 @@
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="py-12 sm:py-16 lg:py-20 border-t border-white/5 bg-black" role="contentinfo">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-16">
-                <!-- Brand -->
-                <div>
-                    <a href="/" class="premium-logo inline-block mb-4">Nathan<span>Ibgui.</span></a>
-                    <p class="text-sm text-slate-500 max-w-xs">CIO Executive & Architecte de Profit. Stratégie IA, automation et transformation digitale pour PME et ETI industrielles.</p>
-                </div>
-
-                <!-- Solutions IT -->
-                <div>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Solutions IT</h4>
-                    <nav aria-label="Solutions IT" class="flex flex-col gap-3">
-                        <a href="solutions/strategie-ia.html" class="text-sm text-slate-500 hover:text-white transition-colors">Stratégie IA & Agents</a>
-                        <a href="solutions/automation-n8n.html" class="text-sm text-slate-500 hover:text-white transition-colors">Automation n8n</a>
-                        <a href="solutions/audit-performance-it.html" class="text-sm text-slate-500 hover:text-white transition-colors">Audit Performance IT</a>
-                        <a href="solutions/dsi-externalise.html" class="text-sm text-slate-500 hover:text-white transition-colors">DSI Externalisé</a>
-                        <a href="solutions/data-erp.html" class="text-sm text-slate-500 hover:text-white transition-colors">Data & ERP</a>
-                        <a href="solutions/cybersecurite-infrastructure.html" class="text-sm text-slate-500 hover:text-white transition-colors">Cybersécurité & Cloud</a>
-                    </nav>
-                </div>
-
-                <!-- Marketing & Visibilité -->
-                <div>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Marketing & Visibilité</h4>
-                    <nav aria-label="Marketing et Visibilité" class="flex flex-col gap-3">
-                        <a href="solutions/strategie-marketing-branding.html" class="text-sm text-slate-500 hover:text-white transition-colors">Marketing & Branding</a>
-                        <a href="solutions/seo-acquisition-digitale.html" class="text-sm text-slate-500 hover:text-white transition-colors">SEO & Référencement</a>
-                        <a href="solutions/geo-referencement-ia.html" class="text-sm text-slate-500 hover:text-white transition-colors">GEO Référencement IA</a>
-                        <a href="solutions/google-business-profile.html" class="text-sm text-slate-500 hover:text-white transition-colors">Google Business Profile</a>
-                        <a href="solutions/publicite-digitale.html" class="text-sm text-slate-500 hover:text-white transition-colors">Publicité Digitale & Ads</a>
-                    </nav>
-                </div>
-
-                <!-- Contact & Legal -->
-                <div>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Contact</h4>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://fr.linkedin.com/in/nathan-ibgui" target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-2">
-                            <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
-                        </a>
-                        <a href="https://www.instagram.com/nathan.ibgui/" target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-2">
-                            <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
-                        </a>
-                        <a href="contact.html" class="text-sm text-white font-bold transition-colors flex items-center gap-2" aria-current="page">
-                            <i class="fas fa-envelope" aria-hidden="true"></i> Contact
-                        </a>
-                        <hr class="border-white/5 my-2">
-                        <a href="mentions-legales.html" class="text-sm text-slate-500 hover:text-white transition-colors">Mentions légales</a>
-                        <a href="mentions-legales.html#confidentialite" class="text-sm text-slate-500 hover:text-white transition-colors">Politique de confidentialité</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-white/5 pt-8 text-center">
-                <p class="text-[9px] text-white font-black uppercase tracking-[0.5em]">NathanIbgui. &bull; CIO &bull; STRATEGY & AUDIT &bull; 2026</p>
-            </div>
-        </div>
-    </footer>
+    <script>document.write(SiteComponents.footer())</script>
 
     <script>
         // ANIMATIONS (respects prefers-reduced-motion)

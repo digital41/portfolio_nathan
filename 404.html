@@ -14,6 +14,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/theme.css">
+    <script src="js/components.js"></script>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <script>
@@ -52,16 +53,7 @@
     </style>
 </head>
 <body>
-    <header class="fixed top-0 w-full z-50 glass py-5 px-4 sm:px-8 flex justify-between items-center border-b border-white/5">
-        <a href="/" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>
-        <!-- Theme Toggle -->
-        <button class="theme-toggle" aria-label="Changer le thème">
-            <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
-        </button>
-        <a href="/" class="bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10">
-            Retour à l'accueil
-        </a>
-    </header>
+    <script>document.write(SiteComponents.header())</script>
 
     <main class="min-h-screen flex items-center justify-center px-4 sm:px-8 bg-gradient-radial relative overflow-hidden">
         <div class="absolute top-1/4 left-1/4 w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 bg-cobalt/10 rounded-full blur-[150px]" aria-hidden="true"></div>
@@ -87,65 +79,7 @@
         </div>
     </main>
 
-    <footer class="py-12 sm:py-16 lg:py-20 border-t border-white/5 bg-black" role="contentinfo">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-16">
-                <!-- Brand -->
-                <div>
-                    <a href="/" class="premium-logo inline-block mb-4">Nathan<span>Ibgui.</span></a>
-                    <p class="text-sm text-slate-500 max-w-xs">CIO Executive & Architecte de Profit. Stratégie IA, automation et transformation digitale pour PME et ETI industrielles.</p>
-                </div>
-
-                <!-- Solutions IT -->
-                <div>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Solutions IT</h4>
-                    <nav aria-label="Solutions IT" class="flex flex-col gap-3">
-                        <a href="solutions/strategie-ia.html" class="text-sm text-slate-500 hover:text-white transition-colors">Stratégie IA & Agents</a>
-                        <a href="solutions/automation-n8n.html" class="text-sm text-slate-500 hover:text-white transition-colors">Automation n8n</a>
-                        <a href="solutions/audit-performance-it.html" class="text-sm text-slate-500 hover:text-white transition-colors">Audit Performance IT</a>
-                        <a href="solutions/dsi-externalise.html" class="text-sm text-slate-500 hover:text-white transition-colors">DSI Externalisé</a>
-                        <a href="solutions/data-erp.html" class="text-sm text-slate-500 hover:text-white transition-colors">Data & ERP</a>
-                        <a href="solutions/cybersecurite-infrastructure.html" class="text-sm text-slate-500 hover:text-white transition-colors">Cybersécurité & Cloud</a>
-                    </nav>
-                </div>
-
-                <!-- Marketing & Visibilité -->
-                <div>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Marketing & Visibilité</h4>
-                    <nav aria-label="Marketing et Visibilité" class="flex flex-col gap-3">
-                        <a href="solutions/strategie-marketing-branding.html" class="text-sm text-slate-500 hover:text-white transition-colors">Marketing & Branding</a>
-                        <a href="solutions/seo-acquisition-digitale.html" class="text-sm text-slate-500 hover:text-white transition-colors">SEO & Référencement</a>
-                        <a href="solutions/geo-referencement-ia.html" class="text-sm text-slate-500 hover:text-white transition-colors">GEO Référencement IA</a>
-                        <a href="solutions/google-business-profile.html" class="text-sm text-slate-500 hover:text-white transition-colors">Google Business Profile</a>
-                        <a href="solutions/publicite-digitale.html" class="text-sm text-slate-500 hover:text-white transition-colors">Publicité Digitale & Ads</a>
-                    </nav>
-                </div>
-
-                <!-- Contact & Legal -->
-                <div>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Contact</h4>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://fr.linkedin.com/in/nathan-ibgui" target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-2">
-                            <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
-                        </a>
-                        <a href="https://www.instagram.com/nathan.ibgui/" target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-2">
-                            <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
-                        </a>
-                        <a href="contact.html" class="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-2">
-                            <i class="fas fa-envelope" aria-hidden="true"></i> Contact
-                        </a>
-                        <hr class="border-white/5 my-2">
-                        <a href="mentions-legales.html" class="text-sm text-slate-500 hover:text-white transition-colors">Mentions légales</a>
-                        <a href="mentions-legales.html#confidentialite" class="text-sm text-slate-500 hover:text-white transition-colors">Politique de confidentialité</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-white/5 pt-8 text-center">
-                <p class="text-[9px] text-white font-black uppercase tracking-[0.5em]">NathanIbgui. &bull; CIO &bull; STRATEGY & AUDIT &bull; 2026</p>
-            </div>
-        </div>
-    </footer>
+    <script>document.write(SiteComponents.footer())</script>
     <!-- Theme System JS -->
     <script src="js/theme.js"></script>
 </body>
