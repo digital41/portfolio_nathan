@@ -41,6 +41,9 @@ var SiteComponents = (function () {
         var isSimple = cur === 'mentions-legales.html' || cur === '404.html';
         var html = '';
 
+        // Analytics (Umami Cloud - RGPD-friendly, no cookies)
+        html += '<script defer src="https://cloud.umami.is/script.js" data-website-id="VOTRE_WEBSITE_ID"><\/script>';
+
         // Skip to content
         html += '<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-6 focus:py-3 focus:rounded-lg focus:font-bold">Aller au contenu principal</a>';
 
