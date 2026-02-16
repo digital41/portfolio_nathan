@@ -667,38 +667,68 @@
 
         <!-- DIAGNOSTIC EXPRESS & IMPACT -->
         <section id="audit" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-8 relative overflow-hidden" aria-label="Offre Diagnostic Express">
-            <!-- Glow background -->
+            <!-- Glow backgrounds -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[500px] md:w-[650px] lg:w-[800px] h-[400px] sm:h-[500px] md:h-[650px] lg:h-[800px] bg-blue-900/10 rounded-full blur-[200px] pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute top-1/4 right-1/4 w-64 h-64 bg-indigo-600/8 rounded-full blur-[150px] pointer-events-none" aria-hidden="true"></div>
 
             <div class="max-w-7xl mx-auto space-y-12 sm:space-y-16 lg:space-y-20 relative z-10">
                 <div class="text-center">
                     <span class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Votre opportunité</span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-white">Offre Diagnostic Express.</h2>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-white">Offre Diagnostic <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Express.</span></h2>
                     <p class="text-slate-400 mt-4">Ce que nous allons auditer en 30 minutes (Gratuit).</p>
                 </div>
 
                 <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-                    <div class="glass p-6 sm:p-8 rounded-2xl sm:rounded-3xl text-center hover:bg-white/5 transition-all cursor-default">
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-blue-400 text-xl sm:text-2xl"><i class="fas fa-server" aria-hidden="true"></i></div>
-                        <h3 class="font-bold text-white mb-2 text-sm sm:text-base">Audit Infrastructure</h3>
-                        <p class="text-xs text-slate-400">Détection des freins à la scalabilité et failles de sécurité.</p>
+
+                    <!-- Card 1: Audit Infrastructure -->
+                    <div class="border-gradient-wrapper p-[1px] hover:scale-[1.03] transition-all duration-500 group">
+                        <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] text-center h-full relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-400 text-2xl sm:text-3xl group-hover:shadow-lg group-hover:shadow-blue-500/20 transition-all duration-500 border border-blue-500/10 group-hover:border-blue-500/30">
+                                    <i class="fas fa-server" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="font-black text-white mb-3 text-base sm:text-lg uppercase tracking-tight">Audit Infrastructure</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Détection des freins à la scalabilité et failles de sécurité.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="glass p-6 sm:p-8 rounded-2xl sm:rounded-3xl text-center hover:bg-white/5 transition-all cursor-default border border-blue-500/30">
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-blue-400 text-xl sm:text-2xl"><i class="fas fa-brain" aria-hidden="true"></i></div>
-                        <h3 class="font-bold text-white mb-2 text-sm sm:text-base">Potentiel IA</h3>
-                        <p class="text-xs text-slate-400">Identification des tâches automatisables immédiatement.</p>
+
+                    <!-- Card 2: Potentiel IA (Featured) -->
+                    <div class="border-gradient-wrapper p-[1px] hover:scale-[1.03] transition-all duration-500 group relative">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full text-[9px] font-black text-white uppercase tracking-widest z-20 shadow-lg shadow-blue-500/30">Recommandé</div>
+                        <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] text-center h-full relative overflow-hidden border border-blue-500/20">
+                            <div class="absolute inset-0 bg-gradient-to-b from-blue-500/8 to-transparent" aria-hidden="true"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500/25 to-indigo-600/15 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-400 text-2xl sm:text-3xl shadow-lg shadow-blue-500/15 transition-all duration-500 border border-blue-500/20 group-hover:border-blue-400/40 group-hover:shadow-blue-500/30">
+                                    <i class="fas fa-brain" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="font-black text-white mb-3 text-base sm:text-lg uppercase tracking-tight">Potentiel IA</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Identification des tâches automatisables immédiatement.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="glass p-6 sm:p-8 rounded-2xl sm:rounded-3xl text-center hover:bg-white/5 transition-all cursor-default sm:col-span-2 md:col-span-1">
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 text-blue-400 text-xl sm:text-2xl"><i class="fas fa-database" aria-hidden="true"></i></div>
-                        <h3 class="font-bold text-white mb-2 text-sm sm:text-base">Valorisation Data</h3>
-                        <p class="text-xs text-slate-400">Comment transformer vos données dormantes en actifs.</p>
+
+                    <!-- Card 3: Valorisation Data -->
+                    <div class="border-gradient-wrapper p-[1px] hover:scale-[1.03] transition-all duration-500 group sm:col-span-2 md:col-span-1">
+                        <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] text-center h-full relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+                            <div class="relative z-10">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500/20 to-indigo-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-400 text-2xl sm:text-3xl group-hover:shadow-lg group-hover:shadow-blue-500/20 transition-all duration-500 border border-blue-500/10 group-hover:border-blue-500/30">
+                                    <i class="fas fa-database" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="font-black text-white mb-3 text-base sm:text-lg uppercase tracking-tight">Valorisation Data</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Comment transformer vos données dormantes en actifs.</p>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
                 <!-- Call to Action -->
-                <div class="text-center pt-10">
-                    <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="bg-cobalt-gradient text-white px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-full font-black text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl shadow-blue-500/20 border border-white/20" aria-label="Réserver un audit gratuit de 30 minutes">
-                        Réserver mon Audit Gratuit
+                <div class="text-center pt-6 sm:pt-10">
+                    <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="relative bg-cobalt-gradient text-white px-8 sm:px-12 md:px-16 py-4 sm:py-5 md:py-6 rounded-full font-black text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] hover:scale-105 transition-all duration-300 shadow-2xl shadow-blue-500/25 border border-white/20 hover:shadow-blue-500/40" aria-label="Réserver un audit gratuit de 30 minutes">
+                        <span class="relative z-10 flex items-center gap-3">Réserver mon Audit Gratuit <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                     </button>
                     <p class="mt-6 text-[10px] text-slate-600 uppercase tracking-widest font-bold">Disponibilité limitée cette semaine</p>
                 </div>
