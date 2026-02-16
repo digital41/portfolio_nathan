@@ -49,14 +49,14 @@ var SiteComponents = (function () {
 
         if (isSimple) {
             // Simple header: logo + theme toggle + back button
-            html += '<header class="fixed top-0 w-full z-50 glass py-5 px-4 sm:px-8 flex justify-between items-center border-b border-white/5" role="banner">';
+            html += '<header class="fixed top-0 w-full z-50 glass py-5 px-4 sm:px-8 flex justify-between items-center border-b border-white/5" style="background:rgba(11,17,32,0.92);backdrop-filter:blur(20px)" role="banner">';
             html += '<a href="' + p + 'index.html" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>';
             html += '<button class="theme-toggle" aria-label="Changer le thème"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>';
             html += '<a href="' + p + 'index.html" class="bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10">Retour à l\'accueil</a>';
             html += '</header>';
         } else {
             // Full header: logo + nav + theme toggle + CTA + mobile menu
-            html += '<header class="fixed top-0 w-full z-50 glass py-5 px-4 sm:px-8 flex justify-between items-center border-b border-white/5" role="banner">';
+            html += '<header class="fixed top-0 w-full z-50 glass py-5 px-4 sm:px-8 flex justify-between items-center border-b border-white/5" style="background:rgba(11,17,32,0.92);backdrop-filter:blur(20px)" role="banner">';
             html += '<a href="' + (isIndex ? '/' : p + 'index.html') + '" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>';
 
             // Desktop nav
@@ -77,7 +77,7 @@ var SiteComponents = (function () {
             html += '</header>';
 
             // Mobile menu
-            html += '<div x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4" class="fixed top-[73px] inset-x-0 z-40 glass border-b border-white/5 p-6 lg:hidden" @click.away="mobileMenu = false">';
+            html += '<div x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4" class="fixed top-[73px] inset-x-0 z-40 glass border-b border-white/5 p-6 lg:hidden" style="background:rgba(11,17,32,0.95);backdrop-filter:blur(20px)" @click.away="mobileMenu = false">';
             html += '<nav class="flex flex-col gap-6 text-sm font-bold uppercase tracking-widest text-slate-400" aria-label="Navigation mobile">';
             html += '<a href="' + nav + 'vision" @click="mobileMenu = false" class="hover:text-white transition-colors">Vision</a>';
             html += '<a href="' + nav + 'audit" @click="mobileMenu = false" class="hover:text-white transition-colors">Diagnostic</a>';
@@ -99,7 +99,7 @@ var SiteComponents = (function () {
     function footer() {
         var html = '';
 
-        html += '<footer class="py-12 sm:py-16 lg:py-20 border-t border-white/5 bg-black" role="contentinfo">';
+        html += '<footer class="py-12 sm:py-16 lg:py-20 border-t border-white/5 bg-black" style="background-color:#0a1020" role="contentinfo">';
         html += '<div class="max-w-7xl mx-auto px-4 sm:px-8">';
         html += '<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-16">';
 
