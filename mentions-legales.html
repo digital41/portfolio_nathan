@@ -59,8 +59,8 @@
     </a>
 
     <header class="fixed top-0 w-full z-50 glass py-5 px-4 sm:px-8 flex justify-between items-center border-b border-white/5" role="banner">
-        <a href="/" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>
-        <a href="/" class="bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10">
+        <a href="index.html" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>
+        <a href="index.html" class="bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10">
             Retour à l'accueil
         </a>
     </header>
@@ -70,7 +70,7 @@
 
             <!-- BREADCRUMB -->
             <nav aria-label="Fil d'Ariane" class="text-sm text-slate-500">
-                <a href="/" class="hover:text-white transition-colors">Accueil</a>
+                <a href="index.html" class="hover:text-white transition-colors">Accueil</a>
                 <span class="mx-2">/</span>
                 <span class="text-white">Mentions légales</span>
             </nav>
@@ -201,16 +201,19 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="py-20 border-t border-white/5 bg-black" role="contentinfo">
+    <footer class="py-12 sm:py-16 lg:py-20 border-t border-white/5 bg-black" role="contentinfo">
         <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="grid md:grid-cols-3 gap-12 mb-16">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-16">
+                <!-- Brand -->
                 <div>
                     <a href="/" class="premium-logo inline-block mb-4">Nathan<span>Ibgui.</span></a>
-                    <p class="text-sm text-slate-500 max-w-xs">CIO Executive & Architecte de Profit. Stratégie IA, automation et transformation digitale pour PME et ETI.</p>
+                    <p class="text-sm text-slate-500 max-w-xs">CIO Executive & Architecte de Profit. Stratégie IA, automation et transformation digitale pour PME et ETI industrielles.</p>
                 </div>
+
+                <!-- Solutions IT -->
                 <div>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Solutions</h4>
-                    <nav aria-label="Solutions" class="flex flex-col gap-3">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Solutions IT</h4>
+                    <nav aria-label="Solutions IT" class="flex flex-col gap-3">
                         <a href="solutions/strategie-ia.html" class="text-sm text-slate-500 hover:text-white transition-colors">Stratégie IA & Agents</a>
                         <a href="solutions/automation-n8n.html" class="text-sm text-slate-500 hover:text-white transition-colors">Automation n8n</a>
                         <a href="solutions/audit-performance-it.html" class="text-sm text-slate-500 hover:text-white transition-colors">Audit Performance IT</a>
@@ -219,6 +222,20 @@
                         <a href="solutions/cybersecurite-infrastructure.html" class="text-sm text-slate-500 hover:text-white transition-colors">Cybersécurité & Cloud</a>
                     </nav>
                 </div>
+
+                <!-- Marketing & Visibilité -->
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Marketing & Visibilité</h4>
+                    <nav aria-label="Marketing et Visibilité" class="flex flex-col gap-3">
+                        <a href="solutions/strategie-marketing-branding.html" class="text-sm text-slate-500 hover:text-white transition-colors">Marketing & Branding</a>
+                        <a href="solutions/seo-acquisition-digitale.html" class="text-sm text-slate-500 hover:text-white transition-colors">SEO & Référencement</a>
+                        <a href="solutions/geo-referencement-ia.html" class="text-sm text-slate-500 hover:text-white transition-colors">GEO Référencement IA</a>
+                        <a href="solutions/google-business-profile.html" class="text-sm text-slate-500 hover:text-white transition-colors">Google Business Profile</a>
+                        <a href="solutions/publicite-digitale.html" class="text-sm text-slate-500 hover:text-white transition-colors">Publicité Digitale & Ads</a>
+                    </nav>
+                </div>
+
+                <!-- Contact & Legal -->
                 <div>
                     <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Contact</h4>
                     <div class="flex flex-col gap-3">
@@ -228,12 +245,16 @@
                         <a href="https://www.instagram.com/nathan.ibgui/" target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-2">
                             <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
                         </a>
+                        <a href="contact.html" class="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-2">
+                            <i class="fas fa-envelope" aria-hidden="true"></i> Contact
+                        </a>
                         <hr class="border-white/5 my-2">
-                        <span class="text-sm text-white font-bold">Mentions légales</span>
-                        <a href="#confidentialite" class="text-sm text-slate-500 hover:text-white transition-colors">Politique de confidentialité</a>
+                        <a href="mentions-legales.html" class="text-sm text-white font-bold transition-colors" aria-current="page">Mentions légales</a>
+                        <a href="mentions-legales.html#confidentialite" class="text-sm text-slate-500 hover:text-white transition-colors">Politique de confidentialité</a>
                     </div>
                 </div>
             </div>
+
             <div class="border-t border-white/5 pt-8 text-center">
                 <p class="text-[9px] text-slate-700 font-black uppercase tracking-[0.5em]">NathanIbgui. &bull; CIO &bull; STRATEGY & AUDIT &bull; 2026</p>
             </div>

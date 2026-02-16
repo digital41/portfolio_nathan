@@ -301,11 +301,11 @@
         <a href="/" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>
 
         <nav class="hidden lg:flex gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500" aria-label="Navigation principale">
-            <a href="/" class="hover:text-white transition-colors duration-300">Accueil</a>
-            <a href="/#solutions" class="hover:text-white transition-colors duration-300">Solutions</a>
-            <a href="/#skills" class="hover:text-white transition-colors duration-300">Performance</a>
-            <a href="/#audit" class="hover:text-white transition-colors duration-300">Diagnostic</a>
-            <a href="/#impact" class="hover:text-white transition-colors duration-300">Impact</a>
+            <a href="../index.html#vision" class="hover:text-white transition-colors duration-300">Vision</a>
+            <a href="../index.html#audit" class="hover:text-white transition-colors duration-300">Diagnostic</a>
+            <a href="../index.html#skills" class="hover:text-white transition-colors duration-300">Performance</a>
+            <a href="../index.html#solutions" class="hover:text-white transition-colors duration-300">Solutions</a>
+            <a href="../index.html#impact" class="hover:text-white transition-colors duration-300">Impact</a>
         </nav>
 
         <div class="flex items-center gap-4">
@@ -323,11 +323,11 @@
     <!-- Mobile Navigation -->
     <div x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4" class="fixed top-[73px] inset-x-0 z-40 glass border-b border-white/5 p-6 lg:hidden" @click.away="mobileMenu = false">
         <nav class="flex flex-col gap-6 text-sm font-bold uppercase tracking-widest text-slate-400" aria-label="Navigation mobile">
-            <a href="/" @click="mobileMenu = false" class="hover:text-white transition-colors">Accueil</a>
-            <a href="/#solutions" @click="mobileMenu = false" class="hover:text-white transition-colors">Solutions</a>
-            <a href="/#skills" @click="mobileMenu = false" class="hover:text-white transition-colors">Performance</a>
-            <a href="/#audit" @click="mobileMenu = false" class="hover:text-white transition-colors">Diagnostic</a>
-            <a href="/#impact" @click="mobileMenu = false" class="hover:text-white transition-colors">Impact</a>
+            <a href="../index.html#vision" @click="mobileMenu = false" class="hover:text-white transition-colors">Vision</a>
+            <a href="../index.html#audit" @click="mobileMenu = false" class="hover:text-white transition-colors">Diagnostic</a>
+            <a href="../index.html#skills" @click="mobileMenu = false" class="hover:text-white transition-colors">Performance</a>
+            <a href="../index.html#solutions" @click="mobileMenu = false" class="hover:text-white transition-colors">Solutions</a>
+            <a href="../index.html#impact" @click="mobileMenu = false" class="hover:text-white transition-colors">Impact</a>
             <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="sm:hidden bg-cobalt-gradient text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest text-center">
                 Consultation Call
             </button>
@@ -340,6 +340,8 @@
         <nav class="pt-24 pb-0 px-4 sm:px-8 max-w-7xl mx-auto" aria-label="Fil d'Ariane">
             <ol class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-600">
                 <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+                <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
+                <li><a href="../index.html#solutions" class="hover:text-white transition-colors">Solutions</a></li>
                 <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
                 <li><span class="text-blue-400" aria-current="page">Data, ERP & Intelligence Décisionnelle</span></li>
             </ol>
@@ -978,25 +980,37 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="py-20 border-t border-white/5 bg-black" role="contentinfo">
+    <footer class="py-12 sm:py-16 lg:py-20 border-t border-white/5 bg-black" role="contentinfo">
         <div class="max-w-7xl mx-auto px-4 sm:px-8">
-            <div class="grid md:grid-cols-3 gap-12 mb-16">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-16">
                 <!-- Brand -->
                 <div>
                     <a href="/" class="premium-logo inline-block mb-4">Nathan<span>Ibgui.</span></a>
                     <p class="text-sm text-slate-500 max-w-xs">CIO Executive & Architecte de Profit. Stratégie IA, automation et transformation digitale pour PME et ETI industrielles.</p>
                 </div>
 
-                <!-- Solutions -->
+                <!-- Solutions IT -->
                 <div>
-                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Solutions</h4>
-                    <nav aria-label="Solutions" class="flex flex-col gap-3">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Solutions IT</h4>
+                    <nav aria-label="Solutions IT" class="flex flex-col gap-3">
                         <a href="strategie-ia.html" class="text-sm text-slate-500 hover:text-white transition-colors">Stratégie IA & Agents</a>
                         <a href="automation-n8n.html" class="text-sm text-slate-500 hover:text-white transition-colors">Automation n8n</a>
                         <a href="audit-performance-it.html" class="text-sm text-slate-500 hover:text-white transition-colors">Audit Performance IT</a>
                         <a href="dsi-externalise.html" class="text-sm text-slate-500 hover:text-white transition-colors">DSI Externalisé</a>
-                        <a href="data-erp.html" class="text-sm text-slate-500 hover:text-white transition-colors" aria-current="page">Data & ERP</a>
+                        <a href="data-erp.html" class="text-sm text-white font-bold transition-colors" aria-current="page">Data & ERP</a>
                         <a href="cybersecurite-infrastructure.html" class="text-sm text-slate-500 hover:text-white transition-colors">Cybersécurité & Cloud</a>
+                    </nav>
+                </div>
+
+                <!-- Marketing & Visibilité -->
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Marketing & Visibilité</h4>
+                    <nav aria-label="Marketing et Visibilité" class="flex flex-col gap-3">
+                        <a href="strategie-marketing-branding.html" class="text-sm text-slate-500 hover:text-white transition-colors">Marketing & Branding</a>
+                        <a href="seo-acquisition-digitale.html" class="text-sm text-slate-500 hover:text-white transition-colors">SEO & Référencement</a>
+                        <a href="geo-referencement-ia.html" class="text-sm text-slate-500 hover:text-white transition-colors">GEO Référencement IA</a>
+                        <a href="google-business-profile.html" class="text-sm text-slate-500 hover:text-white transition-colors">Google Business Profile</a>
+                        <a href="publicite-digitale.html" class="text-sm text-slate-500 hover:text-white transition-colors">Publicité Digitale & Ads</a>
                     </nav>
                 </div>
 
@@ -1009,6 +1023,9 @@
                         </a>
                         <a href="https://www.instagram.com/nathan.ibgui/" target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-2">
                             <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+                        </a>
+                        <a href="../contact.html" class="text-sm text-slate-500 hover:text-white transition-colors flex items-center gap-2">
+                            <i class="fas fa-envelope" aria-hidden="true"></i> Contact
                         </a>
                         <hr class="border-white/5 my-2">
                         <a href="../mentions-legales.html" class="text-sm text-slate-500 hover:text-white transition-colors">Mentions légales</a>
