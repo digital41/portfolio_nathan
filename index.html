@@ -282,8 +282,12 @@
         /* Skill Cards - Hover Glow & Accents */
         .skill-card {
             --accent: 59, 130, 246;
+            border-radius: 22px;
+            overflow: hidden;
             transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
         }
+        @media (min-width: 640px) { .skill-card { border-radius: 32px; } }
+        @media (min-width: 768px) { .skill-card { border-radius: 40px; } }
         .skill-card:hover {
             transform: scale(1.02);
             box-shadow: 0 0 30px rgba(var(--accent), 0.12), 0 0 60px rgba(var(--accent), 0.06);
