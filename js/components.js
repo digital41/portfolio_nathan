@@ -42,7 +42,7 @@ var SiteComponents = (function () {
         var html = '';
 
         // Analytics (Umami Cloud - RGPD-friendly, no cookies)
-        html += '<script defer src="https://cloud.umami.is/script.js" data-website-id="VOTRE_WEBSITE_ID"><\/script>';
+        html += '<script defer src="https://cloud.umami.is/script.js" data-website-id="cedce968-49c4-4613-a89f-c967db893af0"><\/script>';
 
         // Skip to content
         html += '<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-6 focus:py-3 focus:rounded-lg focus:font-bold">Aller au contenu principal</a>';
