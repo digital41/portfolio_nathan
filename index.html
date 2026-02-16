@@ -348,8 +348,8 @@
         .cursor-blink { animation: blink 1s step-end infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        .marquee-content { animation: scroll 40s linear infinite; }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+        .marquee-content { animation: scroll 30s linear infinite; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
         .bg-gradient-radial { background: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.18) 0%, transparent 65%); }
 
@@ -416,14 +416,20 @@
         </section>
 
         <!-- LOGO SCROLL -->
-        <div class="marquee py-12 sm:py-16 lg:py-20 border-y border-white/5 bg-slate-950/30 overflow-hidden" role="region" aria-label="Entreprises de référence">
+        <div class="marquee py-8 sm:py-10 lg:py-12 border-y border-white/5 bg-slate-950/30 overflow-hidden" role="region" aria-label="Entreprises de référence">
             <div class="marquee-content flex gap-12 sm:gap-16 whitespace-nowrap text-slate-600" aria-hidden="true">
-                <span class="text-xl sm:text-2xl md:text-3xl font-black italic hover:text-white transition-colors">KLY GROUPE</span>
-                <span class="text-xl sm:text-2xl md:text-3xl font-black italic hover:text-white transition-colors">LG ELECTRONICS</span>
-                <span class="text-xl sm:text-2xl md:text-3xl font-black italic hover:text-white transition-colors">ARISTON</span>
-                <span class="text-xl sm:text-2xl md:text-3xl font-black italic hover:text-white transition-colors">TOSHIBA</span>
-                <span class="text-xl sm:text-2xl md:text-3xl font-black italic hover:text-white transition-colors">MITSUBISHI</span>
-                <span class="text-xl sm:text-2xl md:text-3xl font-black italic hover:text-white transition-colors">SAGE</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">KLY GROUPE</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">LG ELECTRONICS</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">ARISTON</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">TOSHIBA</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">MITSUBISHI</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">SAGE</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">KLY GROUPE</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">LG ELECTRONICS</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">ARISTON</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">TOSHIBA</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">MITSUBISHI</span>
+                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">SAGE</span>
             </div>
             <!-- Screen reader version -->
             <p class="sr-only">Entreprises de référence : KLY Groupe, LG Electronics, Ariston, Toshiba, Mitsubishi, Sage</p>
