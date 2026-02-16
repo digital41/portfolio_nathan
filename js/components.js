@@ -68,13 +68,13 @@ var SiteComponents = (function () {
             html += '<a href="' + nav + 'audit" class="hover:text-white transition-colors duration-300">Diagnostic</a>';
             html += '<a href="' + nav + 'skills" class="hover:text-white transition-colors duration-300">Performance</a>';
             html += '<a href="' + nav + 'solutions" class="hover:text-white transition-colors duration-300">Solutions</a>';
-            html += '<a href="' + nav + 'impact" class="hover:text-white transition-colors duration-300">Impact</a>';
+            html += '<a href="' + p + 'contact.html" class="hover:text-white transition-colors duration-300">Contact</a>';
             html += '</nav>';
 
             // Right side: theme toggle + CTA + hamburger
             html += '<div class="flex items-center gap-4">';
             html += '<button class="theme-toggle hidden lg:inline-flex" aria-label="Changer le thème"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>';
-            html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="hidden sm:inline-flex bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10" aria-label="Réserver une consultation gratuite" data-ab="header-cta"><span data-ab-text>Consultation Call</span></button>';
+            html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="hidden sm:inline-flex bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10" aria-label="Réserver une consultation" data-ab="header-cta"><span data-ab-text>Consultation Call</span></button>';
             html += '<button @click="mobileMenu = !mobileMenu" class="lg:hidden text-white text-xl p-2" aria-label="Ouvrir le menu" :aria-expanded="mobileMenu.toString()"><i class="fas" :class="mobileMenu ? \'fa-times\' : \'fa-bars\'"></i></button>';
             html += '</div>';
             html += '</header>';
@@ -86,7 +86,7 @@ var SiteComponents = (function () {
             html += '<a href="' + nav + 'audit" @click="mobileMenu = false" class="hover:text-white transition-colors">Diagnostic</a>';
             html += '<a href="' + nav + 'skills" @click="mobileMenu = false" class="hover:text-white transition-colors">Performance</a>';
             html += '<a href="' + nav + 'solutions" @click="mobileMenu = false" class="hover:text-white transition-colors">Solutions</a>';
-            html += '<a href="' + nav + 'impact" @click="mobileMenu = false" class="hover:text-white transition-colors">Impact</a>';
+            html += '<a href="' + p + 'contact.html" @click="mobileMenu = false" class="hover:text-white transition-colors">Contact</a>';
             html += '<button class="theme-toggle theme-toggle-mobile" @click="mobileMenu = false" aria-label="Changer le thème"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span>Thème</span></button>';
             html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="sm:hidden bg-cobalt-gradient text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest text-center" data-ab="header-cta"><span data-ab-text>Consultation Call</span></button>';
             html += '</nav>';
@@ -161,7 +161,7 @@ var SiteComponents = (function () {
         html += '</footer>';
 
         // WhatsApp floating widget
-        html += '<a href="https://wa.me/33618852010" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Nous contacter sur WhatsApp">';
+        html += '<a href="https://wa.me/33618852010" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Nous contacter sur WhatsApp" style="position:fixed;bottom:28px;right:28px;z-index:9999;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 14px rgba(37,211,102,0.4);text-decoration:none">';
         html += '<i class="fab fa-whatsapp" aria-hidden="true"></i>';
         html += '</a>';
 
