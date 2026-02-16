@@ -33,6 +33,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
     <link rel="manifest" href="/assets/site.webmanifest">
+    <meta name="theme-color" content="#030712">
 
     <!-- Alternate languages -->
     <link rel="alternate" hreflang="fr" href="https://nathanibgui.com/">
@@ -284,6 +285,10 @@
             --accent: 59, 130, 246;
             border-radius: 22px;
             overflow: hidden;
+            background: #141c2e;
+            box-shadow: none;
+            outline: none;
+            -webkit-backface-visibility: hidden;
             transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
         }
         @media (min-width: 640px) { .skill-card { border-radius: 32px; } }
@@ -293,10 +298,11 @@
             box-shadow: 0 0 30px rgba(var(--accent), 0.12), 0 0 60px rgba(var(--accent), 0.06);
         }
         .skill-card .border-gradient-wrapper::before {
-            background: linear-gradient(135deg, rgba(var(--accent), 0.35), transparent 60%) !important;
-            transition: background 0.5s ease;
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
         .skill-card:hover .border-gradient-wrapper::before {
+            opacity: 1;
             background: linear-gradient(135deg, rgba(var(--accent), 0.6), rgba(var(--accent), 0.1) 50%, transparent 80%) !important;
         }
         .skill-icon {
@@ -333,6 +339,9 @@
         }
 
         /* Light mode skill card adjustments */
+        [data-theme="light"] .skill-card {
+            background: #ffffff;
+        }
         [data-theme="light"] .skill-card:hover {
             box-shadow: 0 0 25px rgba(var(--accent), 0.08), 0 8px 32px rgba(0, 0, 0, 0.06);
         }

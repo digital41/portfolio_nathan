@@ -1,7 +1,10 @@
-var CACHE_NAME = 'ni-v1';
-var ASSETS = [
+var CACHE_NAME = 'ni-v2';
+var CORE_ASSETS = [
     '/',
     '/index.html',
+    '/contact.html',
+    '/mentions-legales.html',
+    '/404.html',
     '/css/theme.css',
     '/js/components.js',
     '/js/theme.js',
@@ -12,7 +15,7 @@ var ASSETS = [
 self.addEventListener('install', function (e) {
     e.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
-            return cache.addAll(ASSETS);
+            return cache.addAll(CORE_ASSETS);
         })
     );
     self.skipWaiting();
@@ -31,19 +34,42 @@ self.addEventListener('activate', function (e) {
 });
 
 self.addEventListener('fetch', function (e) {
-    // Network first, fallback to cache
-    e.respondWith(
-        fetch(e.request).then(function (res) {
-            // Cache successful GET responses
-            if (e.request.method === 'GET' && res.status === 200) {
+    var url = new URL(e.request.url);
+
+    // Only handle same-origin GET requests
+    if (e.request.method !== 'GET' || url.origin !== location.origin) return;
+
+    // HTML pages: network first, fallback to cache, then offline page
+    if (e.request.headers.get('accept') && e.request.headers.get('accept').indexOf('text/html') !== -1) {
+        e.respondWith(
+            fetch(e.request).then(function (res) {
                 var clone = res.clone();
                 caches.open(CACHE_NAME).then(function (cache) {
                     cache.put(e.request, clone);
                 });
-            }
-            return res;
-        }).catch(function () {
-            return caches.match(e.request);
+                return res;
+            }).catch(function () {
+                return caches.match(e.request).then(function (cached) {
+                    return cached || caches.match('/404.html');
+                });
+            })
+        );
+        return;
+    }
+
+    // Static assets: cache first, fallback to network
+    e.respondWith(
+        caches.match(e.request).then(function (cached) {
+            if (cached) return cached;
+            return fetch(e.request).then(function (res) {
+                if (res.status === 200) {
+                    var clone = res.clone();
+                    caches.open(CACHE_NAME).then(function (cache) {
+                        cache.put(e.request, clone);
+                    });
+                }
+                return res;
+            });
         })
     );
 });

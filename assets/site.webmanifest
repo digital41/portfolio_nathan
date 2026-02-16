@@ -1,1 +1,15 @@
-{"name":"Nathan Ibgui - CIO Executive","short_name":"NathanIbgui","icons":[{"src":"/assets/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/assets/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#010205","background_color":"#010205","display":"standalone"}
+{
+  "name": "Nathan Ibgui - CIO Executive",
+  "short_name": "NathanIbgui",
+  "description": "CIO Executive & Architecte de Profit. Strategie IA, automation et transformation digitale pour PME et ETI industrielles.",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    { "src": "/assets/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#030712",
+  "background_color": "#030712",
+  "display": "standalone"
+}
