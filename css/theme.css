@@ -569,3 +569,57 @@
         animation: none !important;
     }
 }
+
+/* Element-specific view transitions */
+.premium-logo {
+    view-transition-name: site-logo;
+}
+
+header {
+    view-transition-name: site-header;
+}
+
+footer {
+    view-transition-name: site-footer;
+}
+
+/* Header stays pinned during transition */
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+/* Logo morphs smoothly between pages */
+::view-transition-old(site-logo),
+::view-transition-new(site-logo) {
+    animation-duration: 0.25s;
+}
+
+/* Footer slides up on new page */
+::view-transition-old(site-footer) {
+    animation: vt-slide-down 0.2s ease-in;
+}
+::view-transition-new(site-footer) {
+    animation: vt-slide-up 0.3s ease-out;
+}
+
+@keyframes vt-slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes vt-slide-down {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(20px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(site-header),
+    ::view-transition-new(site-header),
+    ::view-transition-old(site-footer),
+    ::view-transition-new(site-footer),
+    ::view-transition-old(site-logo),
+    ::view-transition-new(site-logo) {
+        animation: none !important;
+    }
+}
