@@ -74,7 +74,7 @@ var SiteComponents = (function () {
             // Right side: theme toggle + CTA + hamburger
             html += '<div class="flex items-center gap-4">';
             html += '<button class="theme-toggle hidden lg:inline-flex" aria-label="Changer le thème"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>';
-            html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="hidden sm:inline-flex bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10" aria-label="Réserver une consultation gratuite">Consultation Call</button>';
+            html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="hidden sm:inline-flex bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10" aria-label="Réserver une consultation gratuite" data-ab="header-cta"><span data-ab-text>Consultation Call</span></button>';
             html += '<button @click="mobileMenu = !mobileMenu" class="lg:hidden text-white text-xl p-2" aria-label="Ouvrir le menu" :aria-expanded="mobileMenu.toString()"><i class="fas" :class="mobileMenu ? \'fa-times\' : \'fa-bars\'"></i></button>';
             html += '</div>';
             html += '</header>';
@@ -88,7 +88,7 @@ var SiteComponents = (function () {
             html += '<a href="' + nav + 'solutions" @click="mobileMenu = false" class="hover:text-white transition-colors">Solutions</a>';
             html += '<a href="' + nav + 'impact" @click="mobileMenu = false" class="hover:text-white transition-colors">Impact</a>';
             html += '<button class="theme-toggle theme-toggle-mobile" @click="mobileMenu = false" aria-label="Changer le thème"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span>Thème</span></button>';
-            html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="sm:hidden bg-cobalt-gradient text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest text-center">Consultation Call</button>';
+            html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="sm:hidden bg-cobalt-gradient text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest text-center" data-ab="header-cta"><span data-ab-text>Consultation Call</span></button>';
             html += '</nav>';
             html += '</div>';
         }
@@ -159,6 +159,11 @@ var SiteComponents = (function () {
 
         html += '</div>'; // max-w
         html += '</footer>';
+
+        // WhatsApp floating widget
+        html += '<a href="https://wa.me/33618852010" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Nous contacter sur WhatsApp">';
+        html += '<i class="fab fa-whatsapp" aria-hidden="true"></i>';
+        html += '</a>';
 
         return html;
     }
