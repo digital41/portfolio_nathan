@@ -205,8 +205,8 @@
 
     <!-- Libraries -->
     <script defer src="https://unpkg.com/alpinejs@3.15.8/dist/cdn.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <!-- Calendly -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -222,10 +222,10 @@
                         mono: ['Fira Code', 'monospace']
                     },
                     colors: {
-                        dark: '#010205',
+                        dark: '#060b18',
                         cobalt: '#2e51a2',
                         electric: '#4f46e5',
-                        surface: '#080b14'
+                        surface: '#0a1020'
                     },
                     backgroundImage: {
                         'cobalt-gradient': 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
@@ -238,14 +238,14 @@
 
     <style>
         [x-cloak] { display: none !important; }
-        body { background-color: #010205; color: #f8fafc; overflow-x: hidden; }
+        body { background-color: #030712; color: #f8fafc; overflow-x: hidden; }
 
         /* Glass Elite */
         .glass {
-            background: rgba(10, 15, 30, 0.7);
+            background: rgba(10, 18, 36, 0.6);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
         /* Text Glow Cobalt */
@@ -254,7 +254,7 @@
         /* Thin Gradient Border Utility */
         .border-gradient-wrapper {
             position: relative;
-            background: #080b14;
+            background: #0a1020;
             border-radius: 22px;
             z-index: 1;
         }
@@ -294,24 +294,6 @@
         }
         .skill-card:hover .border-gradient-wrapper::before {
             background: linear-gradient(135deg, rgba(var(--accent), 0.6), rgba(var(--accent), 0.1) 50%, transparent 80%) !important;
-        }
-        .skill-card-inner {
-            position: relative;
-            overflow: hidden;
-        }
-        .skill-card-glow {
-            position: absolute;
-            top: -20%;
-            right: -20%;
-            width: 60%;
-            height: 60%;
-            background: radial-gradient(circle, rgba(var(--accent), 0.06) 0%, transparent 70%);
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-            opacity: 0.5;
-        }
-        .skill-card:hover .skill-card-glow {
-            opacity: 1;
         }
         .skill-icon {
             width: 44px;
@@ -358,9 +340,6 @@
             background: rgba(var(--accent), 0.1);
             border-color: rgba(var(--accent), 0.2);
         }
-        [data-theme="light"] .skill-card-glow {
-            opacity: 0.3;
-        }
 
         .premium-logo { font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: -0.05em; font-size: 1.6rem; }
         .premium-logo span { font-weight: 200; color: #3b82f6; }
@@ -372,7 +351,7 @@
         .marquee-content { animation: scroll 40s linear infinite; }
         @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
 
-        .bg-gradient-radial { background: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.15) 0%, transparent 60%); }
+        .bg-gradient-radial { background: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.18) 0%, transparent 65%); }
 
         /* Focus Visible */
         button:focus-visible, a:focus-visible {
@@ -437,7 +416,7 @@
         </section>
 
         <!-- LOGO SCROLL -->
-        <div class="marquee py-8 sm:py-12 lg:py-16 border-y border-white/5 bg-slate-950/30 overflow-hidden" role="region" aria-label="Entreprises de référence">
+        <div class="marquee py-12 sm:py-16 lg:py-20 border-y border-white/5 bg-slate-950/30 overflow-hidden" role="region" aria-label="Entreprises de référence">
             <div class="marquee-content flex gap-12 sm:gap-16 whitespace-nowrap text-slate-600" aria-hidden="true">
                 <span class="text-xl sm:text-2xl md:text-3xl font-black italic hover:text-white transition-colors">KLY GROUPE</span>
                 <span class="text-xl sm:text-2xl md:text-3xl font-black italic hover:text-white transition-colors">LG ELECTRONICS</span>
@@ -451,7 +430,7 @@
         </div>
 
         <!-- VISION & TERMINAL INTERACTIF -->
-        <section id="vision" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-8" aria-label="Vision Executive">
+        <section id="vision" class="py-20 sm:py-28 lg:py-36 px-4 sm:px-8" aria-label="Vision Executive">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-24 items-start">
 
                 <!-- Storytelling -->
@@ -510,7 +489,7 @@
         </section>
 
         <!-- KPI SKILLS (PERFORMANCE) -->
-        <section id="skills" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-8 bg-surface" aria-label="Expertises et performance">
+        <section id="skills" class="py-20 sm:py-28 lg:py-36 px-4 sm:px-8 bg-surface" aria-label="Expertises et performance">
             <div class="max-w-7xl mx-auto space-y-12 sm:space-y-16 lg:space-y-24">
                 <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
                     <div class="text-center md:text-left">
@@ -520,23 +499,22 @@
                     <p class="text-slate-400 max-w-sm text-sm text-right hidden md:block">Chaque compétence est orientée vers un seul but : augmenter l'efficience et réduire les coûts opérationnels.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
                     <!-- Skill Card 1: Management CIO -->
                     <a href="solutions/dsi-externalise.html" class="skill-card reveal-scroll block" style="--accent: 59, 130, 246">
                         <div class="border-gradient-wrapper p-[1px]">
-                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                                <div class="skill-card-glow" aria-hidden="true"></div>
-                                <div class="relative z-10">
+                            <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div>
                                     <div class="flex justify-between items-start mb-6">
                                         <h3 class="text-xl font-black text-white uppercase italic">Management CIO</h3>
                                         <div class="skill-icon">
                                             <i class="fas fa-users-cog text-blue-500 text-lg" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Pilotage budgétaire groupe, stratégie IT transverse et conduite du changement.</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Pilotage budgétaire groupe, stratégie IT transverse et conduite du changement.</p>
                                 </div>
-                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                <div class="pt-6 border-t border-white/5 flex justify-between items-end">
                                     <div>
                                         <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
                                         <p class="text-3xl font-black text-white skill-kpi-value">-20% <span class="text-sm font-medium text-green-400">OPEX</span></p>
@@ -550,18 +528,17 @@
                     <!-- Skill Card 2: IA & RAG -->
                     <a href="solutions/strategie-ia.html" class="skill-card reveal-scroll block" style="--accent: 168, 85, 247">
                         <div class="border-gradient-wrapper p-[1px]">
-                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                                <div class="skill-card-glow" aria-hidden="true"></div>
-                                <div class="relative z-10">
+                            <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div>
                                     <div class="flex justify-between items-start mb-6">
                                         <h3 class="text-xl font-black text-white uppercase italic">IA & RAG</h3>
                                         <div class="skill-icon">
                                             <i class="fas fa-brain text-purple-500 text-lg" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Systèmes RAG pour interroger la donnée métier. Prompt Engineering avancé et Agents autonomes.</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Systèmes RAG pour interroger la donnée métier. Prompt Engineering avancé et Agents autonomes.</p>
                                 </div>
-                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                <div class="pt-6 border-t border-white/5 flex justify-between items-end">
                                     <div>
                                         <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
                                         <p class="text-3xl font-black text-white skill-kpi-value">x5 <span class="text-sm font-medium text-green-400">Productivité</span></p>
@@ -575,18 +552,17 @@
                     <!-- Skill Card 3: Automation -->
                     <a href="solutions/automation-n8n.html" class="skill-card reveal-scroll block" style="--accent: 234, 179, 8">
                         <div class="border-gradient-wrapper p-[1px]">
-                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                                <div class="skill-card-glow" aria-hidden="true"></div>
-                                <div class="relative z-10">
+                            <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div>
                                     <div class="flex justify-between items-start mb-6">
                                         <h3 class="text-xl font-black text-white uppercase italic">Automation</h3>
                                         <div class="skill-icon">
                                             <i class="fas fa-bolt text-yellow-500 text-lg" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Workflows n8n End-to-End. Orchestration API pour supprimer la saisie manuelle.</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Workflows n8n End-to-End. Orchestration API pour supprimer la saisie manuelle.</p>
                                 </div>
-                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                <div class="pt-6 border-t border-white/5 flex justify-between items-end">
                                     <div>
                                         <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
                                         <p class="text-3xl font-black text-white skill-kpi-value">0% <span class="text-sm font-medium text-green-400">Erreur Humaine</span></p>
@@ -600,18 +576,17 @@
                     <!-- Skill Card 4: Infra & Cyber -->
                     <a href="solutions/cybersecurite-infrastructure.html" class="skill-card reveal-scroll block" style="--accent: 6, 182, 212">
                         <div class="border-gradient-wrapper p-[1px]">
-                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                                <div class="skill-card-glow" aria-hidden="true"></div>
-                                <div class="relative z-10">
+                            <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div>
                                     <div class="flex justify-between items-start mb-6">
                                         <h3 class="text-xl font-black text-white uppercase italic">Infra & Cyber</h3>
                                         <div class="skill-icon">
                                             <i class="fas fa-shield-alt text-cyan-500 text-lg" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Architecture Cloud, Zero-Trust, RGPD et Plan de Continuité d'Activité critique.</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Architecture Cloud, Zero-Trust, RGPD et Plan de Continuité d'Activité critique.</p>
                                 </div>
-                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                <div class="pt-6 border-t border-white/5 flex justify-between items-end">
                                     <div>
                                         <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
                                         <p class="text-3xl font-black text-white skill-kpi-value">99.9% <span class="text-sm font-medium text-green-400">Uptime</span></p>
@@ -625,18 +600,17 @@
                     <!-- Skill Card 5: Data & ERP -->
                     <a href="solutions/data-erp.html" class="skill-card reveal-scroll block" style="--accent: 96, 165, 250">
                         <div class="border-gradient-wrapper p-[1px]">
-                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                                <div class="skill-card-glow" aria-hidden="true"></div>
-                                <div class="relative z-10">
+                            <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div>
                                     <div class="flex justify-between items-start mb-6">
                                         <h3 class="text-xl font-black text-white uppercase italic">Data & ERP</h3>
                                         <div class="skill-icon">
                                             <i class="fas fa-database text-blue-400 text-lg" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Modernisation Sage 100. BI temps réel pour des décisions basées sur la data.</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Modernisation Sage 100. BI temps réel pour des décisions basées sur la data.</p>
                                 </div>
-                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                <div class="pt-6 border-t border-white/5 flex justify-between items-end">
                                     <div>
                                         <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
                                         <p class="text-3xl font-black text-white skill-kpi-value">Real-Time <span class="text-sm font-medium text-green-400">Vision</span></p>
@@ -650,18 +624,17 @@
                     <!-- Skill Card 6: Supply Chain -->
                     <div class="skill-card reveal-scroll" style="--accent: 249, 115, 22">
                         <div class="border-gradient-wrapper p-[1px]">
-                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                                <div class="skill-card-glow" aria-hidden="true"></div>
-                                <div class="relative z-10">
+                            <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div>
                                     <div class="flex justify-between items-start mb-6">
                                         <h3 class="text-xl font-black text-white uppercase italic">Supply Chain</h3>
                                         <div class="skill-icon">
                                             <i class="fas fa-truck text-orange-500 text-lg" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Optimisation des flux B2B, traçabilité et automatisation de la logistique.</p>
+                                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Optimisation des flux B2B, traçabilité et automatisation de la logistique.</p>
                                 </div>
-                                <div class="relative z-10 pt-6 border-t border-white/5">
+                                <div class="pt-6 border-t border-white/5">
                                     <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
                                     <p class="text-3xl font-black text-white skill-kpi-value">+30% <span class="text-sm font-medium text-green-400">Vélocité</span></p>
                                 </div>
@@ -674,7 +647,7 @@
         </section>
 
         <!-- SOLUTIONS (NEW SECTION - Internal linking for SEO) -->
-        <section id="solutions" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-8" aria-label="Nos solutions">
+        <section id="solutions" class="py-20 sm:py-28 lg:py-36 px-4 sm:px-8" aria-label="Nos solutions">
             <div class="max-w-7xl mx-auto space-y-12 sm:space-y-16 lg:space-y-20">
                 <div class="text-center">
                     <span class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Solutions sur-mesure</span>
@@ -682,7 +655,7 @@
                     <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Chaque solution est taillée pour répondre aux défis réels des PME et ETI industrielles qui veulent accélérer leur croissance.</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <a href="solutions/strategie-ia.html" class="glass p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-blue-500/30 block">
                         <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 text-purple-400 text-xl group-hover:scale-110 transition-transform">
                             <i class="fas fa-brain" aria-hidden="true"></i>
@@ -742,7 +715,7 @@
         </section>
 
         <!-- DIAGNOSTIC EXPRESS & IMPACT -->
-        <section id="audit" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-8 relative overflow-hidden" aria-label="Offre Diagnostic Express">
+        <section id="audit" class="py-20 sm:py-28 lg:py-36 px-4 sm:px-8 relative overflow-hidden" aria-label="Offre Diagnostic Express">
             <!-- Glow backgrounds -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[500px] md:w-[650px] lg:w-[800px] h-[400px] sm:h-[500px] md:h-[650px] lg:h-[800px] bg-blue-900/10 rounded-full blur-[200px] pointer-events-none" aria-hidden="true"></div>
             <div class="absolute top-1/4 right-1/4 w-64 h-64 bg-indigo-600/8 rounded-full blur-[150px] pointer-events-none" aria-hidden="true"></div>
@@ -754,7 +727,7 @@
                     <p class="text-slate-400 mt-4">Ce que nous allons auditer en 30 minutes (Gratuit).</p>
                 </div>
 
-                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
 
                     <!-- Card 1: Audit Infrastructure -->
                     <div class="border-gradient-wrapper p-[1px] hover:scale-[1.03] transition-all duration-500 group">
@@ -876,17 +849,19 @@
         });
 
         // ANIMATIONS (respects prefers-reduced-motion)
-        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.from(".reveal-hero", { duration: 1.5, y: 100, opacity: 0, ease: "power4.out" });
-            gsap.from(".reveal-photo", { duration: 1.5, x: 100, opacity: 0, delay: 0.3, ease: "power4.out" });
-            gsap.utils.toArray(".reveal-scroll").forEach(section => {
-                gsap.from(section, {
-                    scrollTrigger: { trigger: section, start: "top 85%" },
-                    y: 50, opacity: 0, duration: 1, ease: "power3.out"
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.from(".reveal-hero", { duration: 1.5, y: 100, opacity: 0, ease: "power4.out" });
+                gsap.from(".reveal-photo", { duration: 1.5, x: 100, opacity: 0, delay: 0.3, ease: "power4.out" });
+                gsap.utils.toArray(".reveal-scroll").forEach(section => {
+                    gsap.from(section, {
+                        scrollTrigger: { trigger: section, start: "top 85%" },
+                        y: 50, opacity: 0, duration: 1, ease: "power3.out"
+                    });
                 });
-            });
-        }
+            }
+        });
     </script>
 
     <!-- Theme System JS -->
