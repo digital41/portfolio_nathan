@@ -424,12 +424,6 @@
                 <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">TOSHIBA</span>
                 <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">MITSUBISHI</span>
                 <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">SAGE</span>
-                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">KLY GROUPE</span>
-                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">LG ELECTRONICS</span>
-                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">ARISTON</span>
-                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">TOSHIBA</span>
-                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">MITSUBISHI</span>
-                <span class="text-lg sm:text-xl md:text-2xl font-black italic hover:text-white transition-colors">SAGE</span>
             </div>
             <!-- Screen reader version -->
             <p class="sr-only">Entreprises de référence : KLY Groupe, LG Electronics, Ariston, Toshiba, Mitsubishi, Sage</p>
@@ -852,6 +846,12 @@
                     this.intervals.forEach(interval => clearInterval(interval));
                 }
             }))
+        });
+
+        // MARQUEE: clone content at runtime for seamless infinite scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            var mc = document.querySelector('.marquee-content');
+            if (mc) mc.innerHTML += mc.innerHTML;
         });
 
         // ANIMATIONS (respects prefers-reduced-motion)
