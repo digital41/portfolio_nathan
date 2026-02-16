@@ -369,6 +369,14 @@
             .marquee-content { animation: none; }
             .reveal-hero, .reveal-photo, .reveal-scroll { opacity: 1 !important; transform: none !important; }
         }
+
+        /* GSAP fallback: if animation doesn't fire within 4s, show elements */
+        .reveal-hero, .reveal-photo, .reveal-scroll {
+            animation: gsapFallback 0s 4s both;
+        }
+        @keyframes gsapFallback {
+            to { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body x-data="{ configurator: false, mobileMenu: false }">
@@ -377,7 +385,7 @@
 
     <main id="main-content">
         <!-- HERO SECTION -->
-        <section class="min-h-screen flex items-center justify-center pt-28 sm:pt-32 pb-12 sm:pb-0 px-4 sm:px-8 bg-gradient-radial relative overflow-hidden">
+        <section class="lg:min-h-screen flex lg:items-center justify-center pt-28 sm:pt-32 pb-12 sm:pb-16 px-4 sm:px-8 bg-gradient-radial relative overflow-hidden">
             <!-- Background Elements -->
             <div class="absolute top-1/4 left-1/4 w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 bg-cobalt/10 rounded-full blur-[150px]" aria-hidden="true"></div>
 
