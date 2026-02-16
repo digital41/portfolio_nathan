@@ -315,8 +315,7 @@
 
 /* Show active icon based on mode */
 [data-theme-mode="dark"] .theme-toggle .fa-moon,
-[data-theme-mode="light"] .theme-toggle .fa-sun,
-[data-theme-mode="system"] .theme-toggle .fa-desktop {
+[data-theme-mode="light"] .theme-toggle .fa-sun {
     opacity: 1;
     transform: scale(1) rotate(0deg);
 }
@@ -389,8 +388,7 @@
 }
 
 [data-theme-mode="dark"] .theme-toggle-mobile .fa-moon,
-[data-theme-mode="light"] .theme-toggle-mobile .fa-sun,
-[data-theme-mode="system"] .theme-toggle-mobile .fa-desktop {
+[data-theme-mode="light"] .theme-toggle-mobile .fa-sun {
     display: inline-block;
     opacity: 1 !important;
     transform: none !important;

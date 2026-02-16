@@ -184,7 +184,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Inter:wght@900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <!-- Theme System - Anti-FOUC -->
-    <script>(function(){var t=localStorage.getItem('theme')||'system';var d=t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme-mode',t);if(!d)document.documentElement.setAttribute('data-theme','light');})();</script>
+    <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme-mode',t);if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/theme.css">
@@ -312,7 +312,7 @@
         <div class="flex items-center gap-4">
             <!-- Theme Toggle Desktop -->
             <button class="theme-toggle hidden lg:inline-flex" aria-label="Changer le thème">
-                <i class="fas fa-moon"></i><i class="fas fa-sun"></i><i class="fas fa-desktop"></i>
+                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
             </button>
 
             <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="hidden sm:inline-flex bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10" aria-label="Réserver une consultation gratuite">
@@ -336,7 +336,7 @@
             <a href="../index.html#impact" @click="mobileMenu = false" class="hover:text-white transition-colors">Impact</a>
             <!-- Theme Toggle Mobile -->
             <button class="theme-toggle theme-toggle-mobile" @click="mobileMenu = false" aria-label="Changer le thème">
-                <i class="fas fa-moon"></i><i class="fas fa-sun"></i><i class="fas fa-desktop"></i>
+                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
                 <span>Thème</span>
             </button>
             <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="sm:hidden bg-cobalt-gradient text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest text-center">
