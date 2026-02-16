@@ -52,7 +52,6 @@
             "jobTitle": "CIO Executive & Consultant IT & Marketing",
             "url": "https://nathanibgui.com",
             "image": "https://nathanibgui.com/assets/images/nathanibguiProfile.png",
-            "email": "ibguinathan@gmail.com",
             "sameAs": [
                 "https://fr.linkedin.com/in/nathan-ibgui",
                 "https://www.instagram.com/nathan.ibgui/"
@@ -248,6 +247,8 @@
         <section class="py-16 sm:py-20 px-4 sm:px-8" aria-label="Formulaire de contact et informations"
             x-data="{
                 step: 1,
+                _ep: ['ibguinathan','gmail.com'],
+                get _em() { return this._ep[0] + '@' + this._ep[1] },
                 formData: {
                     besoin: '',
                     nom: '',
@@ -307,7 +308,7 @@
                             </div>
 
                             <!-- Form -->
-                            <form x-ref="contactForm" action="https://formsubmit.co/ibguinathan@gmail.com" method="POST">
+                            <form x-ref="contactForm" :action="'https://formsubmit.co/' + _em" method="POST">
                                 <!-- Hidden fields for FormSubmit -->
                                 <input type="hidden" name="_next" value="https://nathanibgui.com/contact.html?sent=true">
                                 <input type="hidden" name="_captcha" value="false">
@@ -626,14 +627,14 @@
                                     <i class="fas fa-arrow-up-right-from-square text-slate-600 text-xs ml-auto" aria-hidden="true"></i>
                                 </a>
 
-                                <a href="mailto:ibguinathan@gmail.com"
+                                <a :href="'mailto:' + _em"
                                     class="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-all group">
                                     <div class="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center text-green-400 shrink-0 group-hover:bg-green-500/20 transition-colors">
                                         <i class="fas fa-envelope" aria-hidden="true"></i>
                                     </div>
                                     <div>
                                         <p class="text-sm font-bold text-white group-hover:text-green-400 transition-colors">Email</p>
-                                        <p class="text-xs text-slate-500">ibguinathan@gmail.com</p>
+                                        <p class="text-xs text-slate-500" x-text="_em"></p>
                                     </div>
                                     <i class="fas fa-arrow-up-right-from-square text-slate-600 text-xs ml-auto" aria-hidden="true"></i>
                                 </a>
