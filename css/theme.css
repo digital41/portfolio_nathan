@@ -399,6 +399,126 @@
 }
 
 /* ================================================
+   MOBILE CONTENT DENSITY — AERER LES PAGES
+   Le contenu reste dans le DOM pour le SEO,
+   mais est tronqué ou masqué visuellement sur mobile.
+   ================================================ */
+@media (max-width: 639px) {
+
+    /* --- Reduce section vertical padding --- */
+    section[class*="py-32"] {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+    section[class*="py-24"] {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    /* --- Section intro paragraphs: hide on mobile --- */
+    /* These sit after <h2> in centered header blocks */
+    .reveal-scroll.text-center > p,
+    .text-center.reveal-scroll > p {
+        display: none !important;
+    }
+
+    /* --- Section side descriptions (hidden on md+ already or shown) --- */
+    .reveal-scroll > p.text-slate-400.text-right {
+        display: none !important;
+    }
+
+    /* --- Card body descriptions: clamp to 2 lines --- */
+    .border-gradient-wrapper p.text-slate-400 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Pain point / glass cards: clamp to 3 lines */
+    section .glass > p.text-sm.text-slate-400,
+    section .glass p.text-sm.text-slate-400.leading-relaxed {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* --- Timeline step descriptions: clamp to 2 lines --- */
+    .relative.flex.gap-8 .glass p.text-slate-400 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* --- Reduce card padding on mobile --- */
+    .glass[class*="p-10"] {
+        padding: 1.5rem !important;
+    }
+    .border-gradient-wrapper .bg-dark[class*="p-10"] {
+        padding: 1.5rem !important;
+    }
+
+    /* --- Section spacing inside --- */
+    .space-y-20 {
+        --tw-space-y-reverse: 0;
+        row-gap: 3rem;
+    }
+    .space-y-20 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 3rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* --- Hero description: clamp to 3 lines --- */
+    section[class*="min-h-"] p.text-lg,
+    section[class*="min-h-"] p.text-xl {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* --- CTA section description: clamp to 2 lines --- */
+    section[aria-label*="Reservation"] p.text-lg,
+    section[aria-label*="eservation"] p.text-lg,
+    section[aria-label*="Consultation"] p.text-lg {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* --- KPI descriptions: hide on mobile (keep number + label) --- */
+    .grid-cols-2 .glass p.text-xs.text-slate-500 {
+        display: none !important;
+    }
+
+    /* --- Timeline tags row: keep compact --- */
+    .flex.flex-wrap.gap-3.mt-6 {
+        margin-top: 0.75rem !important;
+    }
+
+    /* --- FAQ: reduce padding --- */
+    details summary {
+        padding: 1rem 1.25rem !important;
+    }
+    details .faq-answer {
+        padding: 0 1.25rem 1rem !important;
+    }
+
+    /* --- "Autres solutions" link cards: compact --- */
+    section[aria-label*="autres solutions"] .glass.p-6,
+    section[aria-label*="Autres solutions"] .glass.p-6,
+    section[aria-label*="solutions"] .grid a.glass {
+        padding: 1rem !important;
+    }
+    section[aria-label*="solutions"] .grid a.glass h3 {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* ================================================
    REDUCED MOTION
    ================================================ */
 @media (prefers-reduced-motion: reduce) {
