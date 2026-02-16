@@ -279,6 +279,89 @@
             .border-gradient-wrapper::before { border-radius: 41px; }
         }
 
+        /* Skill Cards - Hover Glow & Accents */
+        .skill-card {
+            --accent: 59, 130, 246;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
+        }
+        .skill-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(var(--accent), 0.12), 0 0 60px rgba(var(--accent), 0.06);
+        }
+        .skill-card .border-gradient-wrapper::before {
+            background: linear-gradient(135deg, rgba(var(--accent), 0.35), transparent 60%) !important;
+            transition: background 0.5s ease;
+        }
+        .skill-card:hover .border-gradient-wrapper::before {
+            background: linear-gradient(135deg, rgba(var(--accent), 0.6), rgba(var(--accent), 0.1) 50%, transparent 80%) !important;
+        }
+        .skill-card-inner {
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-card-glow {
+            position: absolute;
+            top: -20%;
+            right: -20%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(var(--accent), 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            opacity: 0.5;
+        }
+        .skill-card:hover .skill-card-glow {
+            opacity: 1;
+        }
+        .skill-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(var(--accent), 0.08);
+            border: 1px solid rgba(var(--accent), 0.12);
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+        }
+        .skill-card:hover .skill-icon {
+            background: rgba(var(--accent), 0.14);
+            border-color: rgba(var(--accent), 0.25);
+            box-shadow: 0 0 20px rgba(var(--accent), 0.15);
+        }
+        .skill-kpi-value {
+            transition: text-shadow 0.4s ease;
+        }
+        .skill-card:hover .skill-kpi-value {
+            text-shadow: 0 0 30px rgba(var(--accent), 0.3);
+        }
+        .skill-arrow {
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.4s ease;
+        }
+        .skill-card:hover .skill-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Light mode skill card adjustments */
+        [data-theme="light"] .skill-card:hover {
+            box-shadow: 0 0 25px rgba(var(--accent), 0.08), 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+        [data-theme="light"] .skill-icon {
+            background: rgba(var(--accent), 0.06);
+            border-color: rgba(var(--accent), 0.1);
+        }
+        [data-theme="light"] .skill-card:hover .skill-icon {
+            background: rgba(var(--accent), 0.1);
+            border-color: rgba(var(--accent), 0.2);
+        }
+        [data-theme="light"] .skill-card-glow {
+            opacity: 0.3;
+        }
+
         .premium-logo { font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: -0.05em; font-size: 1.6rem; }
         .premium-logo span { font-weight: 200; color: #3b82f6; }
 
@@ -439,104 +522,149 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    <!-- Skill Card 1 -->
-                    <a href="solutions/dsi-externalise.html" class="border-gradient-wrapper p-[1px] hover:scale-[1.01] transition-transform duration-500 reveal-scroll block">
-                        <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-start mb-6">
-                                    <h3 class="text-xl font-black text-white uppercase italic">Management CIO</h3>
-                                    <i class="fas fa-users-cog text-blue-500 text-xl" aria-hidden="true"></i>
+                    <!-- Skill Card 1: Management CIO -->
+                    <a href="solutions/dsi-externalise.html" class="skill-card reveal-scroll block" style="--accent: 59, 130, 246">
+                        <div class="border-gradient-wrapper p-[1px]">
+                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div class="skill-card-glow" aria-hidden="true"></div>
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-6">
+                                        <h3 class="text-xl font-black text-white uppercase italic">Management CIO</h3>
+                                        <div class="skill-icon">
+                                            <i class="fas fa-users-cog text-blue-500 text-lg" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Pilotage budgétaire groupe, stratégie IT transverse et conduite du changement.</p>
                                 </div>
-                                <p class="text-slate-400 text-xs leading-relaxed mb-6">Pilotage budgétaire groupe, stratégie IT transverse et conduite du changement.</p>
-                            </div>
-                            <div class="pt-6 border-t border-white/5">
-                                <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
-                                <p class="text-3xl font-black text-white">-20% <span class="text-sm font-medium text-green-400">OPEX</span></p>
+                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                    <div>
+                                        <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
+                                        <p class="text-3xl font-black text-white skill-kpi-value">-20% <span class="text-sm font-medium text-green-400">OPEX</span></p>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-slate-600 skill-arrow" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Skill Card 2 -->
-                    <a href="solutions/strategie-ia.html" class="border-gradient-wrapper p-[1px] hover:scale-[1.01] transition-transform duration-500 reveal-scroll block">
-                        <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-start mb-6">
-                                    <h3 class="text-xl font-black text-white uppercase italic">IA & RAG</h3>
-                                    <i class="fas fa-brain text-purple-500 text-xl" aria-hidden="true"></i>
+                    <!-- Skill Card 2: IA & RAG -->
+                    <a href="solutions/strategie-ia.html" class="skill-card reveal-scroll block" style="--accent: 168, 85, 247">
+                        <div class="border-gradient-wrapper p-[1px]">
+                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div class="skill-card-glow" aria-hidden="true"></div>
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-6">
+                                        <h3 class="text-xl font-black text-white uppercase italic">IA & RAG</h3>
+                                        <div class="skill-icon">
+                                            <i class="fas fa-brain text-purple-500 text-lg" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Systèmes RAG pour interroger la donnée métier. Prompt Engineering avancé et Agents autonomes.</p>
                                 </div>
-                                <p class="text-slate-400 text-xs leading-relaxed mb-6">Systèmes RAG pour interroger la donnée métier. Prompt Engineering avancé et Agents autonomes.</p>
-                            </div>
-                            <div class="pt-6 border-t border-white/5">
-                                <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
-                                <p class="text-3xl font-black text-white">x5 <span class="text-sm font-medium text-green-400">Productivité</span></p>
+                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                    <div>
+                                        <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
+                                        <p class="text-3xl font-black text-white skill-kpi-value">x5 <span class="text-sm font-medium text-green-400">Productivité</span></p>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-slate-600 skill-arrow" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Skill Card 3 -->
-                    <a href="solutions/automation-n8n.html" class="border-gradient-wrapper p-[1px] hover:scale-[1.01] transition-transform duration-500 reveal-scroll block">
-                        <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-start mb-6">
-                                    <h3 class="text-xl font-black text-white uppercase italic">Automation</h3>
-                                    <i class="fas fa-bolt text-yellow-500 text-xl" aria-hidden="true"></i>
+                    <!-- Skill Card 3: Automation -->
+                    <a href="solutions/automation-n8n.html" class="skill-card reveal-scroll block" style="--accent: 234, 179, 8">
+                        <div class="border-gradient-wrapper p-[1px]">
+                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div class="skill-card-glow" aria-hidden="true"></div>
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-6">
+                                        <h3 class="text-xl font-black text-white uppercase italic">Automation</h3>
+                                        <div class="skill-icon">
+                                            <i class="fas fa-bolt text-yellow-500 text-lg" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Workflows n8n End-to-End. Orchestration API pour supprimer la saisie manuelle.</p>
                                 </div>
-                                <p class="text-slate-400 text-xs leading-relaxed mb-6">Workflows n8n End-to-End. Orchestration API pour supprimer la saisie manuelle.</p>
-                            </div>
-                            <div class="pt-6 border-t border-white/5">
-                                <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
-                                <p class="text-3xl font-black text-white">0% <span class="text-sm font-medium text-green-400">Erreur Humaine</span></p>
+                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                    <div>
+                                        <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
+                                        <p class="text-3xl font-black text-white skill-kpi-value">0% <span class="text-sm font-medium text-green-400">Erreur Humaine</span></p>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-slate-600 skill-arrow" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Skill Card 4 -->
-                    <a href="solutions/cybersecurite-infrastructure.html" class="border-gradient-wrapper p-[1px] hover:scale-[1.01] transition-transform duration-500 reveal-scroll block">
-                        <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-start mb-6">
-                                    <h3 class="text-xl font-black text-white uppercase italic">Infra & Cyber</h3>
-                                    <i class="fas fa-shield-alt text-cyan-500 text-xl" aria-hidden="true"></i>
+                    <!-- Skill Card 4: Infra & Cyber -->
+                    <a href="solutions/cybersecurite-infrastructure.html" class="skill-card reveal-scroll block" style="--accent: 6, 182, 212">
+                        <div class="border-gradient-wrapper p-[1px]">
+                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div class="skill-card-glow" aria-hidden="true"></div>
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-6">
+                                        <h3 class="text-xl font-black text-white uppercase italic">Infra & Cyber</h3>
+                                        <div class="skill-icon">
+                                            <i class="fas fa-shield-alt text-cyan-500 text-lg" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Architecture Cloud, Zero-Trust, RGPD et Plan de Continuité d'Activité critique.</p>
                                 </div>
-                                <p class="text-slate-400 text-xs leading-relaxed mb-6">Architecture Cloud, Zero-Trust, RGPD et Plan de Continuité d'Activité critique.</p>
-                            </div>
-                            <div class="pt-6 border-t border-white/5">
-                                <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
-                                <p class="text-3xl font-black text-white">99.9% <span class="text-sm font-medium text-green-400">Uptime</span></p>
+                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                    <div>
+                                        <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
+                                        <p class="text-3xl font-black text-white skill-kpi-value">99.9% <span class="text-sm font-medium text-green-400">Uptime</span></p>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-slate-600 skill-arrow" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Skill Card 5 -->
-                    <a href="solutions/data-erp.html" class="border-gradient-wrapper p-[1px] hover:scale-[1.01] transition-transform duration-500 reveal-scroll block">
-                        <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-start mb-6">
-                                    <h3 class="text-xl font-black text-white uppercase italic">Data & ERP</h3>
-                                    <i class="fas fa-database text-blue-400 text-xl" aria-hidden="true"></i>
+                    <!-- Skill Card 5: Data & ERP -->
+                    <a href="solutions/data-erp.html" class="skill-card reveal-scroll block" style="--accent: 96, 165, 250">
+                        <div class="border-gradient-wrapper p-[1px]">
+                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div class="skill-card-glow" aria-hidden="true"></div>
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-6">
+                                        <h3 class="text-xl font-black text-white uppercase italic">Data & ERP</h3>
+                                        <div class="skill-icon">
+                                            <i class="fas fa-database text-blue-400 text-lg" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Modernisation Sage 100. BI temps réel pour des décisions basées sur la data.</p>
                                 </div>
-                                <p class="text-slate-400 text-xs leading-relaxed mb-6">Modernisation Sage 100. BI temps réel pour des décisions basées sur la data.</p>
-                            </div>
-                            <div class="pt-6 border-t border-white/5">
-                                <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
-                                <p class="text-3xl font-black text-white">Real-Time <span class="text-sm font-medium text-green-400">Vision</span></p>
+                                <div class="relative z-10 pt-6 border-t border-white/5 flex justify-between items-end">
+                                    <div>
+                                        <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
+                                        <p class="text-3xl font-black text-white skill-kpi-value">Real-Time <span class="text-sm font-medium text-green-400">Vision</span></p>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-slate-600 skill-arrow" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Skill Card 6 -->
-                    <div class="border-gradient-wrapper p-[1px] hover:scale-[1.01] transition-transform duration-500 reveal-scroll">
-                        <div class="bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
-                            <div>
-                                <div class="flex justify-between items-start mb-6">
-                                    <h3 class="text-xl font-black text-white uppercase italic">Supply Chain</h3>
-                                    <i class="fas fa-truck text-orange-500 text-xl" aria-hidden="true"></i>
+                    <!-- Skill Card 6: Supply Chain -->
+                    <div class="skill-card reveal-scroll" style="--accent: 249, 115, 22">
+                        <div class="border-gradient-wrapper p-[1px]">
+                            <div class="skill-card-inner bg-dark p-6 sm:p-8 md:p-10 rounded-[20px] sm:rounded-[30px] md:rounded-[39px] h-full flex flex-col justify-between">
+                                <div class="skill-card-glow" aria-hidden="true"></div>
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-6">
+                                        <h3 class="text-xl font-black text-white uppercase italic">Supply Chain</h3>
+                                        <div class="skill-icon">
+                                            <i class="fas fa-truck text-orange-500 text-lg" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Optimisation des flux B2B, traçabilité et automatisation de la logistique.</p>
                                 </div>
-                                <p class="text-slate-400 text-xs leading-relaxed mb-6">Optimisation des flux B2B, traçabilité et automatisation de la logistique.</p>
-                            </div>
-                            <div class="pt-6 border-t border-white/5">
-                                <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
-                                <p class="text-3xl font-black text-white">+30% <span class="text-sm font-medium text-green-400">Vélocité</span></p>
+                                <div class="relative z-10 pt-6 border-t border-white/5">
+                                    <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mb-1">Impact KPI</p>
+                                    <p class="text-3xl font-black text-white skill-kpi-value">+30% <span class="text-sm font-medium text-green-400">Vélocité</span></p>
+                                </div>
                             </div>
                         </div>
                     </div>

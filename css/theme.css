@@ -60,6 +60,12 @@
 [data-theme="light"] .border-gradient-wrapper::before {
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), transparent 60%) !important;
 }
+[data-theme="light"] .skill-card .border-gradient-wrapper::before {
+    background: linear-gradient(135deg, rgba(var(--accent), 0.2), transparent 60%) !important;
+}
+[data-theme="light"] .skill-card:hover .border-gradient-wrapper::before {
+    background: linear-gradient(135deg, rgba(var(--accent), 0.35), transparent 70%) !important;
+}
 
 /* ================================================
    TEXT COLORS
