@@ -56,4 +56,10 @@
     } else {
         init();
     }
+
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+        var swPath = location.pathname.includes('/solutions/') ? '../sw.js' : 'sw.js';
+        navigator.serviceWorker.register(swPath, { scope: '/' }).catch(function () {});
+    }
 })();
