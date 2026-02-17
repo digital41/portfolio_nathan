@@ -8,18 +8,17 @@
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://nathanibgui.com/mentions-legales">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Inter:wght@900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/fonts.css?v=1">
     <!-- Theme System - Anti-FOUC -->
     <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme-mode',t);if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/tailwind.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="css/theme.css?v=5">
-    <script src="js/components.js?v=6"></script>
+    <link rel="stylesheet" href="css/theme.css?v=5" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/theme.css?v=5"></noscript>
+    <script src="js/components.js?v=7" defer></script>
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=2">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png?v=2">
@@ -28,30 +27,17 @@
     <link rel="manifest" href="/assets/site.webmanifest">
     <meta name="theme-color" content="#030712">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-                        logo: ['Inter', 'sans-serif']
-                    },
-                    colors: {
-                        dark: '#060b18',
-                        cobalt: '#2e51a2',
-                        electric: '#4f46e5',
-                        surface: '#0a1020'
-                    },
-                    backgroundImage: {
-                        'cobalt-gradient': 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)'
-                    }
-                }
-            }
-        }
-    </script>
+    
 
     <style>
-        body { background-color: #030712; color: #f8fafc; overflow-x: hidden; }
+        body { background-color: #030712; color: #f8fafc; overflow-x: hidden; -webkit-user-select:none;user-select:none; }
+        input,textarea,select{-webkit-user-select:text;user-select:text}
+        [data-theme="light"] body{background-color:#f8fafc!important;color:#1e293b!important}
+        [data-theme="light"] .glass{background:rgba(255,255,255,.85)!important;border:1px solid rgba(0,0,0,.08)!important;box-shadow:0 4px 30px rgba(0,0,0,.06)!important}
+        [data-theme="light"] .text-white{color:#0f172a!important}
+        [data-theme="light"] .bg-dark{background-color:#fff!important}
+        [data-theme="light"] .premium-logo{color:#0f172a!important}
+        [data-theme="light"] .premium-logo span{color:#3b82f6!important}
         .glass {
             background: rgba(10, 16, 32, 0.65);
             backdrop-filter: blur(20px);
@@ -67,7 +53,7 @@
     </style>
 </head>
 <body>
-    <script>document.write(SiteComponents.header())</script>
+    <div id="site-header"></div>
 
     <main id="main-content" class="pt-32 pb-20 px-4 sm:px-8">
         <div class="max-w-4xl mx-auto space-y-20">
@@ -90,7 +76,7 @@
                 <div class="glass p-8 rounded-3xl space-y-3 text-slate-300">
                     <p><strong class="text-white">Nom :</strong> Nathan Ibgui</p>
                     <p><strong class="text-white">Statut :</strong> CIO Executive - KLY Groupe</p>
-                    <p><strong class="text-white">Adresse :</strong> [Adresse à compléter]</p>
+                    <p><strong class="text-white">Adresse :</strong> Île-de-France</p>
                     <p><strong class="text-white">Email :</strong> <a id="ml-email" class="text-blue-400 hover:text-white transition-colors cursor-pointer"></a></p>
                     <p><strong class="text-white">Téléphone :</strong> <a id="ml-phone" class="text-blue-400 hover:text-white transition-colors cursor-pointer"></a></p>
                     <script>
@@ -209,7 +195,7 @@
         </div>
     </main>
 
-    <script>document.write(SiteComponents.footer())</script>
+    <div id="site-footer"></div>
     <!-- Theme System JS -->
     <script src="js/theme.js?v=5"></script>
 </body>

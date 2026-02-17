@@ -176,5 +176,11 @@ var SiteComponents = (function () {
     });
     document.addEventListener('dragstart', function (e) { e.preventDefault(); });
 
+    // Auto-inject header & footer into placeholder elements
+    var h = document.getElementById('site-header');
+    if (h) h.outerHTML = header();
+    var f = document.getElementById('site-footer');
+    if (f) f.outerHTML = footer();
+
     return { header: header, footer: footer };
 })();
