@@ -12,7 +12,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://nathanibgui.com/blog/">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nathanibgui.com/blog/">
     <meta property="og:title" content="Blog | Nathan Ibgui - CIO Executive & Consultant">
@@ -53,30 +53,7 @@
             "name": "Nathan Ibgui",
             "jobTitle": "CIO Executive",
             "url": "https://nathanibgui.com"
-        },
-        "blogPost": [
-            {
-                "@type": "BlogPosting",
-                "headline": "Comment integrer l'IA dans votre PME : le guide complet 2026",
-                "url": "https://nathanibgui.com/blog/ia-pme-guide-2026",
-                "datePublished": "2026-02-17",
-                "author": { "@type": "Person", "name": "Nathan Ibgui" }
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Audit IT : les 30 points critiques a verifier dans votre PME",
-                "url": "https://nathanibgui.com/blog/audit-it-checklist-30-points",
-                "datePublished": "2026-02-17",
-                "author": { "@type": "Person", "name": "Nathan Ibgui" }
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "SEO et IA generative : comment etre cite par ChatGPT en 2026",
-                "url": "https://nathanibgui.com/blog/seo-ia-generative-chatgpt-2026",
-                "datePublished": "2026-02-17",
-                "author": { "@type": "Person", "name": "Nathan Ibgui" }
-            }
-        ]
+        }
     }
     </script>
 
@@ -86,18 +63,8 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Accueil",
-                "item": "https://nathanibgui.com/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://nathanibgui.com/blog/"
-            }
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://nathanibgui.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://nathanibgui.com/blog/" }
         ]
     }
     </script>
@@ -168,76 +135,88 @@
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-white">
                     Le Blog <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Expert.</span>
                 </h1>
-                <p class="text-slate-400 mt-6 max-w-2xl mx-auto text-lg font-light">Guides pratiques, analyses et retours d'experience sur la transformation digitale des PME. Par Nathan Ibgui, CIO Executive.</p>
+                <p class="text-slate-400 mt-6 max-w-2xl mx-auto text-lg font-light">Guides pratiques, analyses et retours d'experience sur la transformation digitale des PME.</p>
             </div>
         </section>
 
-        <!-- ARTICLES -->
-        <section class="py-16 sm:py-20 px-4 sm:px-8" aria-label="Articles du blog">
-            <div class="max-w-5xl mx-auto space-y-8">
+        <!-- ARTICLES (Dynamic from articles.json) -->
+        <section class="py-16 sm:py-20 px-4 sm:px-8" aria-label="Articles du blog"
+                 x-data="{
+                     articles: [],
+                     filter: 'all',
+                     get tags() { return [...new Set(this.articles.map(a => a.tag))]; },
+                     get filtered() {
+                         let list = this.filter === 'all' ? this.articles : this.articles.filter(a => a.tag === this.filter);
+                         return list.sort((a, b) => new Date(b.date) - new Date(a.date));
+                     },
+                     formatDate(d) {
+                         return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+                     }
+                 }"
+                 x-init="fetch('articles.json').then(r => r.json()).then(d => articles = d)">
 
-                <!-- Article 1 -->
-                <a href="ia-pme-guide-2026.html" class="glass p-8 sm:p-10 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-purple-500/30 block">
-                    <div class="flex flex-col md:flex-row gap-6 md:gap-10">
-                        <div class="flex-shrink-0">
-                            <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 text-2xl group-hover:scale-110 transition-transform">
-                                <i class="fas fa-brain" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <div class="flex-grow">
-                            <div class="flex flex-wrap items-center gap-3 mb-3">
-                                <span class="px-3 py-1 bg-purple-500/10 rounded-full text-[9px] font-black text-purple-400 uppercase tracking-widest">Strategie IA</span>
-                                <time class="text-[10px] text-slate-500 font-medium" datetime="2026-02-17">17 Fevrier 2026</time>
-                                <span class="text-[10px] text-slate-500">12 min de lecture</span>
-                            </div>
-                            <h2 class="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-purple-300 transition-colors">Comment integrer l'IA dans votre PME : le guide complet 2026</h2>
-                            <p class="text-sm text-slate-400 leading-relaxed mb-4">De l'audit de maturite IA au deploiement d'agents autonomes, decouvrez la methodologie en 5 etapes pour transformer votre PME avec l'intelligence artificielle. Cas concrets, pieges a eviter et ROI attendu.</p>
-                            <span class="text-purple-400 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire l'article <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                </a>
+            <div class="max-w-5xl mx-auto">
 
-                <!-- Article 2 -->
-                <a href="audit-it-checklist-30-points.html" class="glass p-8 sm:p-10 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-green-500/30 block">
-                    <div class="flex flex-col md:flex-row gap-6 md:gap-10">
-                        <div class="flex-shrink-0">
-                            <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 text-2xl group-hover:scale-110 transition-transform">
-                                <i class="fas fa-clipboard-check" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <div class="flex-grow">
-                            <div class="flex flex-wrap items-center gap-3 mb-3">
-                                <span class="px-3 py-1 bg-green-500/10 rounded-full text-[9px] font-black text-green-400 uppercase tracking-widest">Audit IT</span>
-                                <time class="text-[10px] text-slate-500 font-medium" datetime="2026-02-17">17 Fevrier 2026</time>
-                                <span class="text-[10px] text-slate-500">10 min de lecture</span>
-                            </div>
-                            <h2 class="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-green-300 transition-colors">Audit IT : les 30 points critiques a verifier dans votre PME</h2>
-                            <p class="text-sm text-slate-400 leading-relaxed mb-4">La checklist complete pour evaluer la sante de votre systeme d'information. Infrastructure, securite, processus, data, budget et conformite : les 30 controles que chaque dirigeant devrait connaitre.</p>
-                            <span class="text-green-400 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire l'article <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                </a>
+                <!-- FILTERS -->
+                <div class="flex flex-wrap items-center gap-3 mb-10 justify-center">
+                    <button @click="filter = 'all'"
+                            :class="filter === 'all' ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
+                            class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all">
+                        Tous
+                    </button>
+                    <template x-for="tag in tags" :key="tag">
+                        <button @click="filter = tag"
+                                :class="filter === tag ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
+                                class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all"
+                                x-text="tag">
+                        </button>
+                    </template>
+                </div>
 
-                <!-- Article 3 -->
-                <a href="seo-ia-generative-chatgpt-2026.html" class="glass p-8 sm:p-10 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-orange-500/30 block">
-                    <div class="flex flex-col md:flex-row gap-6 md:gap-10">
-                        <div class="flex-shrink-0">
-                            <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-400 text-2xl group-hover:scale-110 transition-transform">
-                                <i class="fas fa-robot" aria-hidden="true"></i>
+                <!-- COUNT -->
+                <p class="text-slate-500 text-sm mb-6 text-center" x-text="filtered.length + ' article' + (filtered.length > 1 ? 's' : '')"></p>
+
+                <!-- ARTICLE CARDS -->
+                <div class="space-y-8">
+                    <template x-for="article in filtered" :key="article.slug">
+                        <a :href="article.slug + '.html'" class="glass p-8 sm:p-10 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 block">
+                            <div class="flex flex-col md:flex-row gap-6 md:gap-10">
+                                <!-- Image or Icon -->
+                                <div class="flex-shrink-0">
+                                    <template x-if="article.image">
+                                        <div class="w-full md:w-48 h-32 rounded-2xl overflow-hidden">
+                                            <img :src="article.image" :alt="article.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform" loading="lazy">
+                                        </div>
+                                    </template>
+                                    <template x-if="!article.image">
+                                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform"
+                                             :class="'bg-' + article.color + '-500/10 text-' + article.color + '-400'">
+                                            <i :class="'fas ' + article.icon" aria-hidden="true"></i>
+                                        </div>
+                                    </template>
+                                </div>
+                                <!-- Content -->
+                                <div class="flex-grow">
+                                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                                        <span class="px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest"
+                                              :class="'bg-' + article.color + '-500/10 text-' + article.color + '-400'"
+                                              x-text="article.tag"></span>
+                                        <time class="text-[10px] text-slate-500 font-medium" :datetime="article.date" x-text="formatDate(article.date)"></time>
+                                        <span class="text-[10px] text-slate-500" x-text="article.readingTime + ' min de lecture'"></span>
+                                    </div>
+                                    <h2 class="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-blue-300 transition-colors" x-text="article.title"></h2>
+                                    <p class="text-sm text-slate-400 leading-relaxed mb-4" x-text="article.description"></p>
+                                    <span class="text-blue-400 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire l'article <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex-grow">
-                            <div class="flex flex-wrap items-center gap-3 mb-3">
-                                <span class="px-3 py-1 bg-orange-500/10 rounded-full text-[9px] font-black text-orange-400 uppercase tracking-widest">SEO & IA</span>
-                                <time class="text-[10px] text-slate-500 font-medium" datetime="2026-02-17">17 Fevrier 2026</time>
-                                <span class="text-[10px] text-slate-500">8 min de lecture</span>
-                            </div>
-                            <h2 class="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-orange-300 transition-colors">SEO et IA generative : comment etre cite par ChatGPT en 2026</h2>
-                            <p class="text-sm text-slate-400 leading-relaxed mb-4">Le SEO ne se limite plus a Google. ChatGPT, Perplexity, Gemini generent des reponses directes. Decouvrez le GEO (Generative Engine Optimization) et les strategies pour positionner votre marque dans les reponses IA.</p>
-                            <span class="text-orange-400 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire l'article <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                </a>
+                        </a>
+                    </template>
+                </div>
+
+                <!-- EMPTY STATE -->
+                <div x-show="filtered.length === 0" class="text-center py-16">
+                    <p class="text-slate-500 text-lg">Aucun article dans cette categorie pour le moment.</p>
+                </div>
 
             </div>
         </section>
@@ -251,7 +230,7 @@
                 </h2>
                 <p class="text-slate-400 mt-4 max-w-xl mx-auto">Reservez un diagnostic de 30 minutes. Nous analyserons ensemble vos enjeux et identifierons les quick wins pour accelerer votre croissance.</p>
                 <div class="mt-8">
-                    <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="bg-cobalt-gradient text-white px-12 sm:px-16 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl shadow-blue-500/20 border border-white/20" aria-label="Reserver un diagnostic">
+                    <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="bg-gradient-to-r from-blue-600 to-indigo-500 text-white px-12 sm:px-16 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl shadow-blue-500/20 border border-white/20" aria-label="Reserver un diagnostic">
                         Reserver mon Diagnostic
                     </button>
                 </div>
