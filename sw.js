@@ -1,4 +1,4 @@
-var CACHE_NAME = 'ni-v2';
+var CACHE_NAME = 'ni-v3';
 var CORE_ASSETS = [
     '/',
     '/index.html',
@@ -8,8 +8,20 @@ var CORE_ASSETS = [
     '/css/theme.css',
     '/js/components.js',
     '/js/theme.js',
+    '/js/ab-test.js',
     '/assets/favicon.ico',
-    '/assets/images/nathanibguiProfile.webp'
+    '/assets/images/nathanibguiProfile.webp',
+    '/solutions/audit-performance-it.html',
+    '/solutions/automation-n8n.html',
+    '/solutions/cybersecurite-infrastructure.html',
+    '/solutions/data-erp.html',
+    '/solutions/dsi-externalise.html',
+    '/solutions/geo-referencement-ia.html',
+    '/solutions/google-business-profile.html',
+    '/solutions/publicite-digitale.html',
+    '/solutions/seo-acquisition-digitale.html',
+    '/solutions/strategie-ia.html',
+    '/solutions/strategie-marketing-branding.html'
 ];
 
 self.addEventListener('install', function (e) {
@@ -39,7 +51,7 @@ self.addEventListener('fetch', function (e) {
     // Only handle same-origin GET requests
     if (e.request.method !== 'GET' || url.origin !== location.origin) return;
 
-    // HTML pages: network first, fallback to cache, then offline page
+    // HTML pages: network first, fallback to cache, then 404
     if (e.request.headers.get('accept') && e.request.headers.get('accept').indexOf('text/html') !== -1) {
         e.respondWith(
             fetch(e.request).then(function (res) {
@@ -57,19 +69,18 @@ self.addEventListener('fetch', function (e) {
         return;
     }
 
-    // Static assets: cache first, fallback to network
+    // Static assets: network first, fallback to cache
     e.respondWith(
-        caches.match(e.request).then(function (cached) {
-            if (cached) return cached;
-            return fetch(e.request).then(function (res) {
-                if (res.status === 200) {
-                    var clone = res.clone();
-                    caches.open(CACHE_NAME).then(function (cache) {
-                        cache.put(e.request, clone);
-                    });
-                }
-                return res;
-            });
+        fetch(e.request).then(function (res) {
+            if (res.status === 200) {
+                var clone = res.clone();
+                caches.open(CACHE_NAME).then(function (cache) {
+                    cache.put(e.request, clone);
+                });
+            }
+            return res;
+        }).catch(function () {
+            return caches.match(e.request);
         })
     );
 });
