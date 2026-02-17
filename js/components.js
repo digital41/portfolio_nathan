@@ -68,7 +68,7 @@ var SiteComponents = (function () {
             html += '<a href="' + nav + 'audit" class="hover:text-white transition-colors duration-300">Diagnostic</a>';
             html += '<a href="' + nav + 'skills" class="hover:text-white transition-colors duration-300">Performance</a>';
             html += '<a href="' + nav + 'solutions" class="hover:text-white transition-colors duration-300">Solutions</a>';
-            html += '<a href="' + nav + 'impact" class="hover:text-white transition-colors duration-300">Impact</a>';
+            html += '<a href="contact.html" class="hover:text-white transition-colors duration-300">Contact</a>';
             html += '</nav>';
 
             // Right side: theme toggle + CTA + hamburger
@@ -86,7 +86,7 @@ var SiteComponents = (function () {
             html += '<a href="' + nav + 'audit" @click="mobileMenu = false" class="hover:text-white transition-colors">Diagnostic</a>';
             html += '<a href="' + nav + 'skills" @click="mobileMenu = false" class="hover:text-white transition-colors">Performance</a>';
             html += '<a href="' + nav + 'solutions" @click="mobileMenu = false" class="hover:text-white transition-colors">Solutions</a>';
-            html += '<a href="' + nav + 'impact" @click="mobileMenu = false" class="hover:text-white transition-colors">Impact</a>';
+            html += '<a href="contact.html" @click="mobileMenu = false" class="hover:text-white transition-colors">Contact</a>';
             html += '<button class="theme-toggle theme-toggle-mobile" @click="mobileMenu = false" aria-label="Changer le thème"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span>Thème</span></button>';
             html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="sm:hidden bg-cobalt-gradient text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest text-center" data-ab="header-cta"><span data-ab-text>Consultation Call</span></button>';
             html += '</nav>';
