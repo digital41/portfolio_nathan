@@ -1,0 +1,28 @@
+# Claude Code local settings (may contain credentials)
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment & secrets
+.env
+.env.*
+*.pem
+*.key
+credentials.*
+
+# Node (if ever added)
+node_modules/
+package-lock.json
+
+# Logs
+*.log
