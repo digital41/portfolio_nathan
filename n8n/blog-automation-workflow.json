@@ -260,7 +260,7 @@
     },
     {
       "parameters": {
-        "content": "## Blog Automation Pipeline v6\n\n### Flow\n1. **Trigger** : Cron hebdo (lundi 9h) ou manuel\n2. **Sheets Read** : Lit les articles publies (deduplication)\n3. **Theme** : Rotation hebdo sur les 11 solutions\n4. **Agent IA** : Choisit le sujet + redige avec sections typees\n5. **Parse** : Extrait JSON + valide les types de sections\n6. **Unsplash** : Image (query choisie par l'agent)\n7. **HTML Builder** : 10 templates de sections (identiques aux manuels)\n8. **SFTP** : Deploie sur Hostinger\n9. **Sheets + Telegram + articles.json** : Log et notification\n\n### Templates de sections\nprose, icon_prose, numbered_steps, level_cards,\nborder_left_list, icon_list, metric_grid,\ncomparison_grid, checklist_domain, inline_cta\n\n### Deduplication\nL'agent recoit la liste des articles publies et doit\nproposer un angle unique a chaque fois.\n\n### Modele\nGPT-4o via langchain Agent.",
+        "content": "## Blog Automation Pipeline v7\n\n### Flow\n1. **Trigger** : Cron hebdo (lundi 9h) ou manuel\n2. **Sheets Read** : Lit les articles publies (deduplication)\n3. **Theme** : Selection intelligente (le moins couvert, random si ex-aequo)\n4. **Agent IA** : Choisit le sujet + redige avec sections typees\n5. **Parse** : Extrait JSON + valide les types de sections\n6. **Unsplash** : Image (query choisie par l'agent)\n7. **HTML Builder** : 10 templates de sections (identiques aux manuels)\n8. **SFTP** : Deploie sur Hostinger\n9. **Sheets + Telegram + articles.json** : Log et notification\n10. **Sitemap** : Regenere sitemap.xml dynamique + ping Google\n\n### Templates de sections\nprose, icon_prose, numbered_steps, level_cards,\nborder_left_list, icon_list, metric_grid,\ncomparison_grid, checklist_domain, inline_cta\n\n### SEO automatique\n- sitemap.xml regenere a chaque publication\n- Ping Google apres chaque deploy\n- Deduplication via Google Sheets\n\n### Modele\nGPT-4o via langchain Agent.",
         "height": 520,
         "width": 460
       },
@@ -323,6 +323,57 @@
           "name": "Hostinger SFTP"
         }
       }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generer sitemap.xml dynamique avec tous les articles\nconst buildData = $('Assembler HTML').first().json;\nconst today = buildData.date;\n\n// Pages statiques du site\nconst staticPages = [\n  { loc: 'https://nathanibgui.com/', changefreq: 'weekly', priority: '1.0' },\n  { loc: 'https://nathanibgui.com/solutions/strategie-ia', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/automation-n8n', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/audit-performance-it', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/dsi-externalise', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/data-erp', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/cybersecurite-infrastructure', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/strategie-marketing-branding', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/geo-referencement-ia', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/seo-acquisition-digitale', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/google-business-profile', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/solutions/publicite-digitale', changefreq: 'monthly', priority: '0.9' },\n  { loc: 'https://nathanibgui.com/contact', changefreq: 'monthly', priority: '0.8' },\n  { loc: 'https://nathanibgui.com/blog/', changefreq: 'weekly', priority: '0.8' }\n];\n\n// Recuperer la liste articles depuis le node precedent\nconst articlesCount = $input.first().json.articlesCount || 0;\n\n// Recuperer articles depuis Mettre a jour articles.json\nlet articles = [];\ntry {\n  const updateNode = $('Mettre a jour articles.json').first().json;\n  // On reconstruit depuis articles.json fetch + le nouvel article\n  const fetchItems = $('Fetch articles.json').all();\n  const first = fetchItems[0]?.json;\n  if (Array.isArray(first)) { articles = first; }\n  else if (first && first.slug) { articles = fetchItems.map(i => i.json); }\n  else if (first && typeof first === 'object') {\n    for (const k of Object.keys(first)) {\n      if (Array.isArray(first[k])) { articles = first[k]; break; }\n    }\n  }\n  // Ajouter le nouvel article s'il n'y est pas\n  const newSlug = buildData.topic.slug;\n  if (!articles.find(a => a.slug === newSlug)) {\n    articles.unshift({ slug: newSlug, date: today });\n  }\n} catch(e) {\n  // Fallback : au moins le nouvel article\n  articles = [{ slug: buildData.topic.slug, date: today }];\n}\n\n// Generer les URLs des articles\nconst articleUrls = articles.map(a => ({\n  loc: 'https://nathanibgui.com/blog/' + a.slug,\n  lastmod: a.date || today,\n  changefreq: 'monthly',\n  priority: '0.7'\n}));\n\n// Assembler le XML\nconst allUrls = [...staticPages.map(p => ({ ...p, lastmod: today })), ...articleUrls];\nconst urlEntries = allUrls.map(u => `    <url>\\n        <loc>${u.loc}</loc>\\n        <lastmod>${u.lastmod}</lastmod>\\n        <changefreq>${u.changefreq}</changefreq>\\n        <priority>${u.priority}</priority>\\n    </url>`).join('\\n');\n\nconst sitemapXml = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\\n${urlEntries}\\n    <url>\\n        <loc>https://nathanibgui.com/mentions-legales</loc>\\n        <lastmod>${today}</lastmod>\\n        <changefreq>yearly</changefreq>\\n        <priority>0.3</priority>\\n    </url>\\n</urlset>\\n`;\n\nconst buffer = Buffer.from(sitemapXml, 'utf-8');\n\nreturn [{\n  json: { totalUrls: allUrls.length + 1, articlesInSitemap: articleUrls.length },\n  binary: {\n    data: {\n      data: buffer.toString('base64'),\n      mimeType: 'application/xml',\n      fileName: 'sitemap.xml',\n      fileExtension: 'xml'\n    }\n  }\n}];"
+      },
+      "id": "generate-sitemap",
+      "name": "Generer Sitemap",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4200,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "path": "/home/u234542620/websites/zOcu31T6k/public_html/sitemap.xml",
+        "binaryPropertyName": "data"
+      },
+      "id": "sftp-sitemap",
+      "name": "SFTP Deploy sitemap.xml",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [
+        4500,
+        700
+      ],
+      "credentials": {
+        "sftp": {
+          "id": "WZMzFNcPARYTOqQQ",
+          "name": "Hostinger SFTP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://www.google.com/ping?sitemap=https://nathanibgui.com/sitemap.xml",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "ping-google",
+      "name": "Ping Google Sitemap",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4800,
+        700
+      ],
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -529,6 +580,39 @@
         [
           {
             "node": "SFTP Deploy articles.json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SFTP Deploy articles.json": {
+      "main": [
+        [
+          {
+            "node": "Generer Sitemap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generer Sitemap": {
+      "main": [
+        [
+          {
+            "node": "SFTP Deploy sitemap.xml",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SFTP Deploy sitemap.xml": {
+      "main": [
+        [
+          {
+            "node": "Ping Google Sitemap",
             "type": "main",
             "index": 0
           }
