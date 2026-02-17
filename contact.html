@@ -209,7 +209,7 @@
         }
 
         /* Hide reCAPTCHA badge (required legal text added below form) */
-        .grecaptcha-badge { visibility: hidden; }
+        .grecaptcha-badge { visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
         .selection-card.active {
             border-color: rgba(59, 130, 246, 0.6);
             background: rgba(59, 130, 246, 0.1);
