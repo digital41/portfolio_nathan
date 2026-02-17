@@ -158,7 +158,8 @@
                          for (let i = 1; i <= this.totalPages; i++) pages.push(i);
                          return pages;
                      },
-                     setFilter(f) { this.filter = f; this.page = 1; },
+                     scrollToFilters() { document.getElementById('filters').scrollIntoView({ behavior: 'smooth', block: 'start' }); },
+                     setFilter(f) { this.filter = f; this.page = 1; this.$nextTick(() => this.scrollToFilters()); },
                      formatDate(d) {
                          return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
                      }
@@ -168,7 +169,7 @@
             <div class="max-w-5xl mx-auto">
 
                 <!-- FILTERS -->
-                <div class="flex flex-wrap items-center gap-3 mb-10 justify-center">
+                <div id="filters" class="flex flex-wrap items-center gap-3 mb-10 justify-center">
                     <button @click="setFilter('all')"
                             :class="filter === 'all' ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
                             class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all">
@@ -218,21 +219,21 @@
 
                 <!-- PAGINATION -->
                 <nav x-show="totalPages > 1" class="flex items-center justify-center gap-2 mt-12" aria-label="Pagination">
-                    <button @click="page = Math.max(1, page - 1)" :disabled="page === 1"
+                    <button @click="page = Math.max(1, page - 1); $nextTick(() => scrollToFilters())" :disabled="page === 1"
                             :class="page === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10'"
                             class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 transition-all"
                             aria-label="Page precedente">
                         <i class="fas fa-chevron-left text-xs" aria-hidden="true"></i>
                     </button>
                     <template x-for="p in pageNumbers" :key="p">
-                        <button @click="page = p"
+                        <button @click="page = p; $nextTick(() => scrollToFilters())"
                                 :class="page === p ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
                                 class="w-10 h-10 rounded-full border flex items-center justify-center text-sm font-bold transition-all"
                                 x-text="p"
                                 :aria-current="page === p ? 'page' : false">
                         </button>
                     </template>
-                    <button @click="page = Math.min(totalPages, page + 1)" :disabled="page === totalPages"
+                    <button @click="page = Math.min(totalPages, page + 1); $nextTick(() => scrollToFilters())" :disabled="page === totalPages"
                             :class="page === totalPages ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10'"
                             class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 transition-all"
                             aria-label="Page suivante">
