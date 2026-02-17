@@ -108,6 +108,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>emailjs.init('6hYZ1iz7zgLGgNn8t');</script>
 
+    <!-- reCAPTCHA v2 Invisible -->
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -268,13 +271,27 @@
                 submitted: false,
                 sending: false,
                 sendError: false,
+                captchaId: null,
                 get canNext1() { return this.formData.besoin !== '' },
                 get canNext2() { return this.formData.nom.trim() !== '' && this.formData.email.trim() !== '' },
                 nextStep() { if (this.step < 4) this.step++ },
                 prevStep() { if (this.step > 1) this.step-- },
+                initCaptcha() {
+                    if (typeof grecaptcha !== 'undefined' && this.captchaId === null) {
+                        this.captchaId = grecaptcha.render('recaptcha-container', {
+                            sitekey: '6LdbrW4sAAAALm6t9NE22grG3xNs1QZZLVrXRSN',
+                            size: 'invisible',
+                            callback: (token) => { this.sendEmail(token); }
+                        });
+                    }
+                },
                 submitForm() {
                     this.sending = true;
                     this.sendError = false;
+                    if (this.captchaId === null) this.initCaptcha();
+                    grecaptcha.execute(this.captchaId);
+                },
+                sendEmail(captchaToken) {
                     emailjs.send('service_so44t3i', 'template_cg0zj97', {
                         besoin: this.formData.besoin,
                         from_name: this.formData.nom,
@@ -284,7 +301,8 @@
                         telephone: this.formData.telephone || 'Non renseigné',
                         budget: this.formData.budget || 'Non renseigné',
                         message: this.formData.message || 'Aucun message',
-                        reply_to: this.formData.email
+                        reply_to: this.formData.email,
+                        'g-recaptcha-response': captchaToken
                     }).then(() => {
                         this.sending = false;
                         this.submitted = true;
@@ -292,6 +310,7 @@
                     }).catch((err) => {
                         this.sending = false;
                         this.sendError = true;
+                        grecaptcha.reset(this.captchaId);
                         console.error('EmailJS error:', err);
                     });
                 }
@@ -332,9 +351,11 @@
                             </div>
 
                             <!-- Form -->
-                            <form x-ref="contactForm" @submit.prevent="submitForm()">
+                            <form x-ref="contactForm" @submit.prevent="submitForm()" x-init="$nextTick(() => { let w = setInterval(() => { if(typeof grecaptcha !== 'undefined' && grecaptcha.render) { initCaptcha(); clearInterval(w); } }, 200); })">
                                 <!-- Honeypot anti-spam -->
                                 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                                <!-- reCAPTCHA invisible container -->
+                                <div id="recaptcha-container"></div>
 
                                 <!-- STEP 1: Votre Projet -->
                                 <div x-show="step === 1"
