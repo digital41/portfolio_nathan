@@ -190,20 +190,13 @@
                 <div class="space-y-8">
                     <template x-for="article in paginated" :key="article.slug">
                         <a :href="article.slug + '.html'" class="glass p-8 sm:p-10 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 block">
-                            <div class="flex flex-col md:flex-row gap-6 md:gap-10">
-                                <!-- Image or Icon -->
+                            <div class="flex gap-6 md:gap-8">
+                                <!-- Icon -->
                                 <div class="flex-shrink-0">
-                                    <template x-if="article.image">
-                                        <div class="w-full md:w-48 h-32 rounded-2xl overflow-hidden">
-                                            <img :src="article.image" :alt="article.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform" loading="lazy">
-                                        </div>
-                                    </template>
-                                    <template x-if="!article.image">
-                                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform"
-                                             :class="'bg-' + article.color + '-500/10 text-' + article.color + '-400'">
-                                            <i :class="'fas ' + article.icon" aria-hidden="true"></i>
-                                        </div>
-                                    </template>
+                                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform"
+                                         :class="'bg-' + article.color + '-500/10 text-' + article.color + '-400'">
+                                        <i :class="'fas ' + article.icon" aria-hidden="true"></i>
+                                    </div>
                                 </div>
                                 <!-- Content -->
                                 <div class="flex-grow">
