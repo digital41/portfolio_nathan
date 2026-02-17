@@ -8,8 +8,10 @@ var SiteComponents = (function () {
     // --- Auto-detect context ---
     var path = location.pathname;
     var inSolutions = path.includes('/solutions/');
-    var p = inSolutions ? '../' : '';           // prefix to root
-    var s = inSolutions ? '' : 'solutions/';    // prefix to solutions/
+    var inBlog = path.includes('/blog/');
+    var inSub = inSolutions || inBlog;
+    var p = inSub ? '../' : '';                  // prefix to root
+    var s = inBlog ? '../solutions/' : (inSolutions ? '' : 'solutions/'); // prefix to solutions/
     var cur = path.split('/').pop().replace(/\.html$/, '') || 'index';
     var isIndex = cur === 'index' || cur === '' || cur === '/';
 
@@ -144,6 +146,7 @@ var SiteComponents = (function () {
         html += fLinkIcon('https://fr.linkedin.com/in/nathan-ibgui', 'fab fa-linkedin', 'LinkedIn', '', true);
         html += fLinkIcon('https://www.instagram.com/nathan.ibgui/', 'fab fa-instagram', 'Instagram', '', true);
         html += fLinkIcon(p + 'contact.html', 'fas fa-envelope', 'Contact', 'contact', false);
+        html += fLinkIcon((inBlog ? '' : p + 'blog/') + 'index.html', 'fas fa-newspaper', 'Blog', 'blog-index', false);
         html += '<hr class="border-white/5 my-2">';
         html += fLink(p + 'mentions-legales.html', 'Mentions légales', 'mentions-legales');
         html += '<a href="' + p + 'mentions-legales.html#confidentialite" class="text-sm text-slate-500 hover:text-white transition-colors">Politique de confidentialité</a>';

@@ -1,4 +1,4 @@
-var CACHE_NAME = 'ni-v6';
+var CACHE_NAME = 'ni-v7';
 var CORE_ASSETS = [
     '/',
     '/index.html',
@@ -21,7 +21,11 @@ var CORE_ASSETS = [
     '/solutions/publicite-digitale.html',
     '/solutions/seo-acquisition-digitale.html',
     '/solutions/strategie-ia.html',
-    '/solutions/strategie-marketing-branding.html'
+    '/solutions/strategie-marketing-branding.html',
+    '/blog/index.html',
+    '/blog/ia-pme-guide-2026.html',
+    '/blog/audit-it-checklist-30-points.html',
+    '/blog/seo-ia-generative-chatgpt-2026.html'
 ];
 
 self.addEventListener('install', function (e) {

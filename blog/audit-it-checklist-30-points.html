@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Audit IT : 30 Points Critiques pour votre PME | Nathan Ibgui</title>
+    <meta name="description" content="Checklist complète des 30 points critiques à vérifier lors d'un audit IT de PME. Infrastructure, sécurité, processus, gouvernance : évaluez la santé de votre SI.">
+    <meta name="keywords" content="audit IT PME, checklist audit informatique, vérification système information, audit infrastructure IT, audit sécurité informatique, Nathan Ibgui">
+    <meta name="author" content="Nathan Ibgui">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://nathanibgui.com/blog/audit-it-checklist-30-points">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://nathanibgui.com/blog/audit-it-checklist-30-points">
+    <meta property="og:title" content="Audit IT : 30 Points Critiques pour votre PME">
+    <meta property="og:description" content="La checklist complète pour évaluer la santé de votre système d'information. 30 contrôles essentiels pour dirigeants de PME.">
+    <meta property="og:image" content="https://nathanibgui.com/assets/images/nathanibguiProfile.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Nathan Ibgui - CIO Executive">
+    <meta property="article:published_time" content="2026-02-17">
+    <meta property="article:author" content="Nathan Ibgui">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Audit IT : 30 Points Critiques pour votre PME">
+    <meta name="twitter:description" content="La checklist complète pour évaluer la santé de votre système d'information. 30 contrôles essentiels pour dirigeants de PME.">
+    <meta name="twitter:image" content="https://nathanibgui.com/assets/images/nathanibguiProfile.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    <meta name="theme-color" content="#030712">
+
+    <!-- Alternate languages -->
+    <link rel="alternate" hreflang="fr" href="https://nathanibgui.com/blog/audit-it-checklist-30-points">
+    <link rel="alternate" hreflang="x-default" href="https://nathanibgui.com/blog/audit-it-checklist-30-points">
+
+    <!-- JSON-LD: BlogPosting -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Audit IT : les 30 points critiques à vérifier dans votre PME",
+        "description": "Checklist complète des 30 points critiques à vérifier lors d'un audit IT de PME.",
+        "url": "https://nathanibgui.com/blog/audit-it-checklist-30-points",
+        "datePublished": "2026-02-17",
+        "dateModified": "2026-02-17",
+        "author": {
+            "@type": "Person",
+            "name": "Nathan Ibgui",
+            "jobTitle": "CIO Executive",
+            "url": "https://nathanibgui.com"
+        },
+        "publisher": { "@type": "Person", "name": "Nathan Ibgui" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nathanibgui.com/blog/audit-it-checklist-30-points" },
+        "wordCount": "2200",
+        "timeRequired": "PT10M"
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://nathanibgui.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://nathanibgui.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Audit IT : 30 Points Critiques", "item": "https://nathanibgui.com/blog/audit-it-checklist-30-points" }
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "À quelle fréquence faut-il réaliser un audit IT dans une PME ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un audit IT complet est recommandé au minimum une fois par an. Cependant, certains contrôles critiques comme la vérification des sauvegardes, la revue des accès et la conformité RGPD devraient être effectués trimestriellement. Après un incident majeur, une croissance rapide ou un changement d'infrastructure, un audit intermédiaire est également conseillé."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Combien coûte un audit IT pour une PME ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le coût d'un audit IT varie selon le périmètre et la taille de l'entreprise. Pour une PME de 20 à 100 collaborateurs, comptez entre 3 000 et 15 000 euros pour un audit complet couvrant les 30 points de cette checklist. Un diagnostic initial de cadrage peut être réalisé en 48 heures pour identifier les urgences avant de lancer un audit exhaustif."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Peut-on réaliser un audit IT en interne ou faut-il un consultant externe ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Les deux approches sont complémentaires. Un responsable IT interne peut assurer le suivi régulier des points techniques (sauvegardes, mises à jour, monitoring). En revanche, un regard externe apporte une objectivité indispensable sur la gouvernance, le benchmark sectoriel, la conformité réglementaire et l'identification des angles morts. Un DSI externalisé combine les avantages des deux approches."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quels sont les signes qu'un audit IT est urgent pour mon entreprise ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Plusieurs signaux doivent vous alerter : des pannes récurrentes ou des lenteurs inexpliquées, une augmentation des incidents de sécurité, un budget IT qui croît sans amélioration visible, des collaborateurs qui contournent les outils officiels (shadow IT), l'absence de plan de reprise d'activité testé, ou encore une croissance rapide de l'effectif sans adaptation de l'infrastructure."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <style>
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/plus-jakarta-sans-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/plus-jakarta-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/inter-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/inter-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    </style>
+    <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme-mode',t);if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+    <link rel="stylesheet" href="../css/tailwind.css?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="../css/theme.css?v=5" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/theme.css?v=5"></noscript>
+    <script src="../js/components.js?v=8" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.15.8/dist/cdn.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        body { background-color: #030712; color: #f8fafc; overflow-x: hidden; -webkit-user-select:none;user-select:none; }
+        input,textarea,select{-webkit-user-select:text;user-select:text}
+        [data-theme="light"] body{background-color:#f8fafc!important;color:#1e293b!important}
+        [data-theme="light"] .glass{background:rgba(255,255,255,.85)!important;border:1px solid rgba(0,0,0,.08)!important;box-shadow:0 4px 30px rgba(0,0,0,.06)!important}
+        [data-theme="light"] .text-white{color:#0f172a!important}
+        [data-theme="light"] .bg-dark{background-color:#fff!important}
+        [data-theme="light"] .premium-logo{color:#0f172a!important}
+        [data-theme="light"] .premium-logo span{color:#3b82f6!important}
+        .glass { background: rgba(10, 16, 32, 0.65); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15); }
+        .premium-logo { font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: -0.05em; font-size: 1.6rem; }
+        .premium-logo span { font-weight: 200; color: #3b82f6; }
+        .bg-gradient-radial { background: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.15) 0%, transparent 60%); }
+        button:focus-visible, a:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) { .reveal-hero, .reveal-scroll { opacity: 1 !important; transform: none !important; } }
+    </style>
+</head>
+<body x-data="{ mobileMenu: false }">
+
+    <div id="site-header"></div>
+
+    <main id="main-content">
+
+        <!-- BREADCRUMB -->
+        <nav class="pt-24 pb-4 px-4 sm:px-8 max-w-7xl mx-auto" aria-label="Fil d'Ariane">
+            <ol class="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
+                <li><a href="../index.html" class="hover:text-white transition-colors">Accueil</a></li>
+                <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
+                <li><a href="index.html" class="hover:text-white transition-colors">Blog</a></li>
+                <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
+                <li class="text-green-400" aria-current="page">Audit IT : 30 Points Critiques</li>
+            </ol>
+        </nav>
+
+        <!-- HERO -->
+        <section class="py-20 sm:py-28 px-4 sm:px-8 bg-gradient-radial" aria-label="En-tête de l'article">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-6">
+                    <span class="px-3 py-1 bg-green-500/10 rounded-full text-[9px] font-black text-green-400 uppercase tracking-widest">Audit IT</span>
+                    <time class="text-[10px] text-slate-500 font-medium" datetime="2026-02-17">17 Février 2026</time>
+                    <span class="text-[10px] text-slate-500">10 min de lecture</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-white leading-tight">
+                    Audit IT : les 30 points critiques à vérifier <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">dans votre PME</span>
+                </h1>
+                <p class="text-slate-400 mt-6 max-w-2xl mx-auto text-lg font-light">La checklist opérationnelle pour évaluer la santé de votre système d'information. Infrastructure, sécurité, applications, processus et gouvernance : 30 contrôles essentiels passés au crible.</p>
+                <div class="flex items-center justify-center gap-3 mt-8">
+                    <div class="w-10 h-10 bg-green-500/10 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-green-400 text-sm" aria-hidden="true"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-white text-sm font-bold">Nathan Ibgui</p>
+                        <p class="text-slate-500 text-[10px] uppercase tracking-widest">CIO Executive</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTICLE CONTENT -->
+        <article class="py-16 sm:py-20 px-4 sm:px-8">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- INTRODUCTION -->
+                <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 mb-10">
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        Dans la plupart des PME que j'accompagne en tant que <a href="../solutions/dsi-externalise.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">DSI externalisé</a>, le constat est souvent le même : le système d'information s'est construit par sédimentation, au fil des urgences et de la croissance. Personne n'a jamais pris le temps de faire un état des lieux global. Résultat : des vulnérabilités ignorées, des coûts cachés qui s'accumulent et des processus qui freinent l'activité au lieu de la porter.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        Un audit IT n'est pas un exercice théorique réservé aux grands groupes. C'est un diagnostic concret, structuré, qui révèle précisément où votre SI performe et où il vous expose. Pour une PME, c'est souvent le point de départ d'une transformation digitale réussie.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        J'ai condensé dans cet article les 30 points que je vérifie systématiquement lors d'un <a href="../solutions/audit-performance-it.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">audit de performance IT</a>. Cette checklist est organisée en cinq domaines et vous permet d'évaluer immédiatement la maturité de votre infrastructure, votre posture de sécurité, la santé de vos applications, l'efficacité de vos processus et la solidité de votre gouvernance IT.
+                    </p>
+                </div>
+
+                <!-- DOMAINE 1 : INFRASTRUCTURE & RÉSEAU -->
+                <section class="mb-10" aria-labelledby="domaine-infra">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 text-xl flex-shrink-0">
+                            <i class="fas fa-server" aria-hidden="true"></i>
+                        </div>
+                        <h2 id="domaine-infra" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Domaine 1 : Infrastructure & Réseau</h2>
+                    </div>
+                    <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 space-y-6">
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">1. Inventaire des serveurs et postes de travail</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Disposez-vous d'un inventaire exhaustif et à jour de l'ensemble de vos équipements ? Âge du matériel, fin de garantie, cycle de renouvellement : chaque serveur et poste non référencé est un angle mort potentiel.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">2. Topologie réseau et segmentation</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Votre réseau est-il documenté avec un schéma à jour ? La segmentation entre les services (comptabilité, production, invités) limite la propagation en cas d'incident et réduit la surface d'attaque.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">3. Stratégie de sauvegarde (règle 3-2-1)</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Appliquez-vous la règle 3-2-1 : trois copies de vos données, sur deux supports différents, dont une hors site ? Vérifiez surtout que vos restaurations sont testées régulièrement. Une sauvegarde jamais testée ne vaut rien.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">4. Architecture cloud et hybride</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Si vous utilisez des services cloud (Azure, AWS, GCP), avez-vous une visibilité claire sur les ressources déployées, leur dimensionnement et leurs coûts ? Le cloud mal piloté peut coûter deux à trois fois plus cher qu'un hébergement on-premise équivalent.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">5. Monitoring et alerting</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Disposez-vous d'un système de supervision temps réel (uptime, charge CPU, espace disque, latence réseau) ? Sans monitoring proactif, vous découvrez les pannes en même temps que vos collaborateurs, quand il est déjà trop tard.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- DOMAINE 2 : SÉCURITÉ & CONFORMITÉ -->
+                <section class="mb-10" aria-labelledby="domaine-secu">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 text-xl flex-shrink-0">
+                            <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                        </div>
+                        <h2 id="domaine-secu" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Domaine 2 : Sécurité & Conformité</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">La sécurité est le domaine où les PME accumulent le plus de dette technique. Pour un accompagnement complet sur ces sujets, consultez notre offre de <a href="../solutions/cybersecurite-infrastructure.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">cybersécurité et infrastructure cloud</a>.</p>
+                    <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 space-y-6">
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">6. Solution antivirus / EDR déployée</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Un antivirus classique ne suffit plus face aux menaces actuelles. Les solutions EDR (Endpoint Detection and Response) analysent les comportements suspects en temps réel et permettent une réponse automatisée aux incidents.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">7. Pare-feu et filtrage réseau</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Votre pare-feu est-il de nouvelle génération (NGFW) avec inspection du trafic chiffré ? Les règles sont-elles revues régulièrement ? Des règles trop permissives accumulées au fil du temps créent des failles invisibles.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">8. Authentification multi-facteurs (MFA)</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Le MFA est-il activé sur tous les accès critiques : messagerie, VPN, applications métier, consoles d'administration ? C'est la mesure unique la plus efficace contre le vol de credentials, responsable de plus de 80 % des intrusions.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">9. Politique de mots de passe et gestion des accès</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Les comptes inactifs (anciens collaborateurs, prestataires) sont-ils désactivés sous 24 heures ? Une politique de mots de passe robuste combinée à une revue trimestrielle des droits d'accès est indispensable.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">10. Mises à jour et gestion des vulnérabilités</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Vos systèmes d'exploitation, firmwares et applications sont-ils patchés dans un délai raisonnable (moins de 30 jours pour les failles critiques) ? Les vulnérabilités non corrigées restent le vecteur d'attaque le plus exploité.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">11. Conformité RGPD et protection des données</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Votre registre de traitements est-il à jour ? Les données personnelles sont-elles chiffrées au repos et en transit ? La conformité RGPD n'est pas qu'une obligation légale : c'est un gage de confiance pour vos clients et partenaires.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">12. Plan de Continuité et de Reprise d'Activité (PCA/PRA)</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Disposez-vous d'un PCA/PRA documenté, testé au moins une fois par an ? En cas de sinistre majeur (ransomware, incendie, panne datacenter), quel est votre RTO (délai de reprise) et RPO (perte de données maximale tolérée) ?</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- DOMAINE 3 : APPLICATIONS & LICENCES -->
+                <section class="mb-10" aria-labelledby="domaine-apps">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 text-xl flex-shrink-0">
+                            <i class="fas fa-cubes" aria-hidden="true"></i>
+                        </div>
+                        <h2 id="domaine-apps" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Domaine 3 : Applications & Licences</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Le parc applicatif est souvent le parent pauvre de l'audit. Pour optimiser votre écosystème logiciel et votre <a href="../solutions/data-erp.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">gestion des données et ERP</a>, un état des lieux précis est la première étape.</p>
+                    <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 space-y-6">
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">13. Cartographie applicative complète</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Avez-vous une liste exhaustive de toutes les applications utilisées, avec leur criticité métier, le nombre d'utilisateurs et le responsable fonctionnel ? Cette cartographie est le socle de toute rationalisation.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">14. ERP et logiciels métier</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Votre ERP est-il à jour et exploité à son plein potentiel ? Dans beaucoup de PME, seules 30 à 40 % des fonctionnalités de l'ERP sont réellement utilisées, tandis que des outils parallèles (tableurs Excel) compensent les manques.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">15. Détection du Shadow IT</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Le shadow IT, ce sont toutes les applications adoptées par les équipes sans validation de la DSI : Dropbox personnel, WhatsApp pour le partage de documents, tableurs partagés par email. Identifiez-les et proposez des alternatives sécurisées.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">16. Gestion des licences et conformité</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Êtes-vous en conformité avec vos contrats de licence ? Les audits éditeurs (Microsoft, Adobe, Oracle) peuvent entraîner des régularisations de plusieurs dizaines de milliers d'euros. Inversement, vous payez peut-être des licences inutilisées.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">17. Dette technique et obsolescence</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Utilisez-vous des applications en fin de vie (Windows Server 2012, PHP 7, frameworks non maintenus) ? La dette technique s'accumule silencieusement et finit par bloquer toute évolution. Identifiez les composants à risque dès maintenant.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">18. Intégrations et flux de données entre applications</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Vos applications communiquent-elles entre elles via des API ou par des exports/imports manuels (CSV, copier-coller) ? Chaque saisie manuelle est une source d'erreur et un coût caché. Cartographiez les flux pour identifier les priorités d'intégration.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- DOMAINE 4 : PROCESSUS & AUTOMATISATION -->
+                <section class="mb-10" aria-labelledby="domaine-process">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 text-xl flex-shrink-0">
+                            <i class="fas fa-gears" aria-hidden="true"></i>
+                        </div>
+                        <h2 id="domaine-process" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Domaine 4 : Processus & Automatisation</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">L'automatisation est le levier le plus rapide pour améliorer la productivité. Découvrez comment l'<a href="../solutions/automation-n8n.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">automatisation des workflows</a> peut transformer vos opérations quotidiennes.</p>
+                    <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 space-y-6">
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">19. Identification des workflows manuels répétitifs</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Quels sont les processus que vos équipes exécutent manuellement chaque jour ou chaque semaine ? Saisie de données, envoi de rapports, relances clients, validation de factures : listez-les et estimez le temps perdu.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">20. Potentiel RPA et automatisation low-code</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Pour chaque workflow manuel identifié, évaluez le potentiel d'automatisation. Des outils comme n8n, Make ou Power Automate permettent d'automatiser des processus entiers sans développement lourd, avec un ROI souvent atteint en quelques semaines.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">21. Qualité des intégrations existantes</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Vos intégrations actuelles sont-elles fiables et supervisées ? Des connecteurs qui tombent silencieusement en erreur créent des incohérences de données qui se propagent dans tout le SI. Un monitoring des flux est indispensable.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">22. Documentation des processus métier</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Vos processus critiques sont-ils documentés et accessibles ? Si un collaborateur clé quitte l'entreprise demain, ses tâches peuvent-elles être reprises immédiatement ? La documentation est une assurance contre la perte de savoir.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">23. Exploitation de l'IA dans les processus</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Avez-vous identifié les cas d'usage où l'intelligence artificielle pourrait accélérer vos opérations ? Classification automatique de documents, chatbots internes, prédiction de la demande : une <a href="../solutions/strategie-ia.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">stratégie IA</a> structurée permet des gains considérables.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">24. Mesure de la satisfaction utilisateur</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Interrogez-vous régulièrement vos collaborateurs sur leur expérience avec les outils IT ? Les frictions quotidiennes (lenteurs, doubles saisies, outils inadaptés) ont un coût invisible mais réel sur la productivité et l'engagement.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- DOMAINE 5 : GOUVERNANCE & BUDGET -->
+                <section class="mb-10" aria-labelledby="domaine-gouv">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 text-xl flex-shrink-0">
+                            <i class="fas fa-chart-pie" aria-hidden="true"></i>
+                        </div>
+                        <h2 id="domaine-gouv" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Domaine 5 : Gouvernance & Budget</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">La gouvernance IT est ce qui sépare les PME qui subissent leur informatique de celles qui en font un avantage compétitif. Un <a href="../solutions/dsi-externalise.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">DSI externalisé</a> apporte la structuration nécessaire sans le coût d'un poste à temps plein.</p>
+                    <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 space-y-6">
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">25. Visibilité sur le budget IT total</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Connaissez-vous le coût total de possession (TCO) de votre IT ? Consolidez licences SaaS, hébergement, maintenance, prestataires, temps interne et matériel. La plupart des PME sous-estiment leur budget IT réel de 20 à 40 %.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">26. Mesure du ROI des investissements IT</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Chaque investissement IT récent a-t-il produit les résultats attendus ? Définissez des KPI clairs avant chaque projet (temps gagné, erreurs réduites, chiffre d'affaires généré) et mesurez-les systématiquement à 3 et 6 mois.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">27. Comité de pilotage IT en place</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Un comité de pilotage trimestriel réunissant direction générale, responsable IT et responsables métier permet d'aligner la stratégie IT sur les enjeux business. Sans cette instance, l'IT avance en silo et les projets manquent de priorisation.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">28. Roadmap IT à 12-24 mois</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Disposez-vous d'une feuille de route IT formalisée, priorisée et budgétée ? Une roadmap évite la gestion par l'urgence et permet d'anticiper les renouvellements, les migrations et les projets de transformation.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">29. Plan de formation et montée en compétences</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Vos équipes sont-elles formées sur les outils qu'elles utilisent quotidiennement ? Un investissement de quelques heures de formation par trimestre réduit les erreurs, les tickets support et améliore l'adoption des nouveaux outils.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
+                            <div>
+                                <h3 class="text-white font-bold mb-1">30. Gestion des prestataires et contrats</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed">Vos contrats avec les prestataires IT (infogérance, développement, hébergement) comportent-ils des SLA clairs et mesurés ? Avez-vous une clause de réversibilité ? La dépendance à un prestataire unique sans plan B est un risque majeur pour votre PME.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- EXPLOITER LES RÉSULTATS -->
+                <section class="mb-10" aria-labelledby="exploiter-resultats">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 text-xl flex-shrink-0">
+                            <i class="fas fa-bullseye" aria-hidden="true"></i>
+                        </div>
+                        <h2 id="exploiter-resultats" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Comment exploiter les résultats de votre audit</h2>
+                    </div>
+                    <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5">
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Une checklist remplie n'a de valeur que si elle débouche sur un plan d'action concret. Voici la méthode que j'applique systématiquement après un <a href="../solutions/audit-performance-it.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">audit de performance IT</a> :
+                        </p>
+                        <div class="space-y-4 mt-6">
+                            <div class="flex gap-4">
+                                <span class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0">1</span>
+                                <div>
+                                    <h3 class="text-white font-bold mb-1">Scorer chaque point de 0 à 3</h3>
+                                    <p class="text-slate-400 text-sm">0 = non traité, 1 = partiellement en place, 2 = en place mais non supervisé, 3 = maîtrisé et documenté. Cela vous donne un score global sur 90 et une vision claire de votre maturité IT.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0">2</span>
+                                <div>
+                                    <h3 class="text-white font-bold mb-1">Prioriser par impact et effort</h3>
+                                    <p class="text-slate-400 text-sm">Classez les points faibles dans une matrice impact/effort. Les quick wins (fort impact, faible effort) doivent être traités en premier : activation du MFA, test des sauvegardes, suppression des comptes inactifs.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0">3</span>
+                                <div>
+                                    <h3 class="text-white font-bold mb-1">Construire une roadmap trimestrielle</h3>
+                                    <p class="text-slate-400 text-sm">Transformez vos constats en projets datés, budgétés et assignés. Un plan d'action sans responsable et sans échéance ne sera jamais exécuté.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0">4</span>
+                                <div>
+                                    <h3 class="text-white font-bold mb-1">Mesurer et itérer</h3>
+                                    <p class="text-slate-400 text-sm">Refaites cet audit tous les 6 à 12 mois pour mesurer les progrès. L'amélioration continue de votre SI est un processus permanent, pas un événement ponctuel.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ -->
+                <section class="mb-10" aria-labelledby="faq-audit">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-400 text-xl flex-shrink-0">
+                            <i class="fas fa-circle-question" aria-hidden="true"></i>
+                        </div>
+                        <h2 id="faq-audit" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Questions fréquentes</h2>
+                    </div>
+                    <div class="space-y-4" x-data="{ open: null }">
+
+                        <div class="glass rounded-2xl border border-white/5 overflow-hidden">
+                            <button @click="open = open === 1 ? null : 1" class="w-full flex items-center justify-between p-6 text-left" aria-expanded="false" :aria-expanded="open === 1">
+                                <span class="text-white font-bold text-sm pr-4">À quelle fréquence faut-il réaliser un audit IT dans une PME ?</span>
+                                <i class="fas fa-chevron-down text-green-400 text-xs transition-transform" :class="{ 'rotate-180': open === 1 }" aria-hidden="true"></i>
+                            </button>
+                            <div x-show="open === 1" x-collapse x-cloak class="px-6 pb-6">
+                                <p class="text-slate-400 text-sm leading-relaxed">Un audit IT complet est recommandé au minimum une fois par an. Cependant, certains contrôles critiques comme la vérification des sauvegardes, la revue des accès et la conformité RGPD devraient être effectués trimestriellement. Après un incident majeur, une croissance rapide ou un changement d'infrastructure, un audit intermédiaire est également conseillé.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass rounded-2xl border border-white/5 overflow-hidden">
+                            <button @click="open = open === 2 ? null : 2" class="w-full flex items-center justify-between p-6 text-left" aria-expanded="false" :aria-expanded="open === 2">
+                                <span class="text-white font-bold text-sm pr-4">Combien coûte un audit IT pour une PME ?</span>
+                                <i class="fas fa-chevron-down text-green-400 text-xs transition-transform" :class="{ 'rotate-180': open === 2 }" aria-hidden="true"></i>
+                            </button>
+                            <div x-show="open === 2" x-collapse x-cloak class="px-6 pb-6">
+                                <p class="text-slate-400 text-sm leading-relaxed">Le coût d'un audit IT varie selon le périmètre et la taille de l'entreprise. Pour une PME de 20 à 100 collaborateurs, comptez entre 3 000 et 15 000 euros pour un audit complet couvrant les 30 points de cette checklist. Un diagnostic initial de cadrage peut être réalisé en 48 heures pour identifier les urgences avant de lancer un audit exhaustif.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass rounded-2xl border border-white/5 overflow-hidden">
+                            <button @click="open = open === 3 ? null : 3" class="w-full flex items-center justify-between p-6 text-left" aria-expanded="false" :aria-expanded="open === 3">
+                                <span class="text-white font-bold text-sm pr-4">Peut-on réaliser un audit IT en interne ou faut-il un consultant externe ?</span>
+                                <i class="fas fa-chevron-down text-green-400 text-xs transition-transform" :class="{ 'rotate-180': open === 3 }" aria-hidden="true"></i>
+                            </button>
+                            <div x-show="open === 3" x-collapse x-cloak class="px-6 pb-6">
+                                <p class="text-slate-400 text-sm leading-relaxed">Les deux approches sont complémentaires. Un responsable IT interne peut assurer le suivi régulier des points techniques (sauvegardes, mises à jour, monitoring). En revanche, un regard externe apporte une objectivité indispensable sur la gouvernance, le benchmark sectoriel, la conformité réglementaire et l'identification des angles morts. Un <a href="../solutions/dsi-externalise.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">DSI externalisé</a> combine les avantages des deux approches.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass rounded-2xl border border-white/5 overflow-hidden">
+                            <button @click="open = open === 4 ? null : 4" class="w-full flex items-center justify-between p-6 text-left" aria-expanded="false" :aria-expanded="open === 4">
+                                <span class="text-white font-bold text-sm pr-4">Quels sont les signes qu'un audit IT est urgent pour mon entreprise ?</span>
+                                <i class="fas fa-chevron-down text-green-400 text-xs transition-transform" :class="{ 'rotate-180': open === 4 }" aria-hidden="true"></i>
+                            </button>
+                            <div x-show="open === 4" x-collapse x-cloak class="px-6 pb-6">
+                                <p class="text-slate-400 text-sm leading-relaxed">Plusieurs signaux doivent vous alerter : des pannes récurrentes ou des lenteurs inexpliquées, une augmentation des incidents de sécurité, un budget IT qui croît sans amélioration visible, des collaborateurs qui contournent les outils officiels (shadow IT), l'absence de plan de reprise d'activité testé, ou encore une croissance rapide de l'effectif sans adaptation de l'infrastructure.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+        </article>
+
+        <!-- CTA CALENDLY -->
+        <section class="py-20 sm:py-28 px-4 sm:px-8 bg-surface" aria-label="Passer à l'action">
+            <div class="max-w-3xl mx-auto text-center">
+                <span class="text-green-500 font-black uppercase tracking-[0.4em] text-[10px]">Passez à l'Action</span>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tighter text-white mt-4">
+                    Besoin d'un regard <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">expert ?</span>
+                </h2>
+                <p class="text-slate-400 mt-4 max-w-xl mx-auto">Réservez un diagnostic de 30 minutes. Nous passerons en revue les points critiques de votre SI et identifierons les actions prioritaires pour sécuriser et optimiser votre infrastructure.</p>
+                <div class="mt-8">
+                    <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-12 sm:px-16 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl shadow-green-500/20 border border-white/20" aria-label="Réserver un diagnostic IT">
+                        Réserver mon Diagnostic IT
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTICLES CONNEXES -->
+        <section class="py-16 sm:py-20 px-4 sm:px-8" aria-label="Articles connexes">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight text-center mb-10">Articles connexes</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+
+                    <!-- Article IA -->
+                    <a href="ia-pme-guide-2026.html" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-purple-500/30 block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fas fa-brain" aria-hidden="true"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-purple-500/10 rounded-full text-[9px] font-black text-purple-400 uppercase tracking-widest">Stratégie IA</span>
+                        </div>
+                        <h3 class="text-lg font-black text-white mb-2 group-hover:text-purple-300 transition-colors">Comment intégrer l'IA dans votre PME : le guide complet 2026</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">De l'audit de maturité IA au déploiement d'agents autonomes, découvrez la méthodologie en 5 étapes pour transformer votre PME.</p>
+                        <span class="text-purple-400 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire l'article <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
+                    </a>
+
+                    <!-- Article SEO -->
+                    <a href="seo-ia-generative-chatgpt-2026.html" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-orange-500/30 block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-400 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fas fa-robot" aria-hidden="true"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-orange-500/10 rounded-full text-[9px] font-black text-orange-400 uppercase tracking-widest">SEO & IA</span>
+                        </div>
+                        <h3 class="text-lg font-black text-white mb-2 group-hover:text-orange-300 transition-colors">SEO et IA générative : comment être cité par ChatGPT en 2026</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-4">Le SEO ne se limite plus à Google. Découvrez le GEO et les stratégies pour positionner votre marque dans les réponses IA.</p>
+                        <span class="text-orange-400 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire l'article <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="../js/theme.js?v=5" defer></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.utils.toArray('.glass').forEach(function (el, i) {
+                gsap.from(el, { y: 40, opacity: 0, duration: 0.6, delay: i * 0.1, scrollTrigger: { trigger: el, start: 'top 90%' } });
+            });
+        }
+    });
+    </script>
+</body>
+</html>
