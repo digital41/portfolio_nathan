@@ -1,4 +1,4 @@
-var CACHE_NAME = 'ni-v5';
+var CACHE_NAME = 'ni-v6';
 var CORE_ASSETS = [
     '/',
     '/index.html',
