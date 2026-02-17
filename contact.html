@@ -312,7 +312,8 @@
                             <form x-ref="contactForm" :action="'https://formsubmit.co/' + _em" method="POST">
                                 <!-- Hidden fields for FormSubmit -->
                                 <input type="hidden" name="_next" value="https://nathanibgui.com/contact?sent=true">
-                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_captcha" value="true">
+                                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                                 <input type="hidden" name="_subject" value="Nouveau contact portfolio">
                                 <input type="hidden" name="besoin" :value="formData.besoin">
                                 <input type="hidden" name="nom" :value="formData.nom">
