@@ -144,11 +144,21 @@
                  x-data="{
                      articles: [],
                      filter: 'all',
+                     page: 1,
+                     perPage: 6,
                      get tags() { return [...new Set(this.articles.map(a => a.tag))]; },
                      get filtered() {
                          let list = this.filter === 'all' ? this.articles : this.articles.filter(a => a.tag === this.filter);
                          return list.sort((a, b) => new Date(b.date) - new Date(a.date));
                      },
+                     get totalPages() { return Math.ceil(this.filtered.length / this.perPage); },
+                     get paginated() { return this.filtered.slice((this.page - 1) * this.perPage, this.page * this.perPage); },
+                     get pageNumbers() {
+                         const pages = [];
+                         for (let i = 1; i <= this.totalPages; i++) pages.push(i);
+                         return pages;
+                     },
+                     setFilter(f) { this.filter = f; this.page = 1; },
                      formatDate(d) {
                          return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
                      }
@@ -159,13 +169,13 @@
 
                 <!-- FILTERS -->
                 <div class="flex flex-wrap items-center gap-3 mb-10 justify-center">
-                    <button @click="filter = 'all'"
+                    <button @click="setFilter('all')"
                             :class="filter === 'all' ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
                             class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all">
                         Tous
                     </button>
                     <template x-for="tag in tags" :key="tag">
-                        <button @click="filter = tag"
+                        <button @click="setFilter(tag)"
                                 :class="filter === tag ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
                                 class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all"
                                 x-text="tag">
@@ -174,11 +184,11 @@
                 </div>
 
                 <!-- COUNT -->
-                <p class="text-slate-500 text-sm mb-6 text-center" x-text="filtered.length + ' article' + (filtered.length > 1 ? 's' : '')"></p>
+                <p class="text-slate-500 text-sm mb-6 text-center" x-text="filtered.length + ' article' + (filtered.length > 1 ? 's' : '') + (totalPages > 1 ? ' — page ' + page + '/' + totalPages : '')"></p>
 
                 <!-- ARTICLE CARDS -->
                 <div class="space-y-8">
-                    <template x-for="article in filtered" :key="article.slug">
+                    <template x-for="article in paginated" :key="article.slug">
                         <a :href="article.slug + '.html'" class="glass p-8 sm:p-10 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 block">
                             <div class="flex flex-col md:flex-row gap-6 md:gap-10">
                                 <!-- Image or Icon -->
@@ -212,6 +222,30 @@
                         </a>
                     </template>
                 </div>
+
+                <!-- PAGINATION -->
+                <nav x-show="totalPages > 1" class="flex items-center justify-center gap-2 mt-12" aria-label="Pagination">
+                    <button @click="page = Math.max(1, page - 1)" :disabled="page === 1"
+                            :class="page === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10'"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 transition-all"
+                            aria-label="Page precedente">
+                        <i class="fas fa-chevron-left text-xs" aria-hidden="true"></i>
+                    </button>
+                    <template x-for="p in pageNumbers" :key="p">
+                        <button @click="page = p"
+                                :class="page === p ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
+                                class="w-10 h-10 rounded-full border flex items-center justify-center text-sm font-bold transition-all"
+                                x-text="p"
+                                :aria-current="page === p ? 'page' : false">
+                        </button>
+                    </template>
+                    <button @click="page = Math.min(totalPages, page + 1)" :disabled="page === totalPages"
+                            :class="page === totalPages ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/10'"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 transition-all"
+                            aria-label="Page suivante">
+                        <i class="fas fa-chevron-right text-xs" aria-hidden="true"></i>
+                    </button>
+                </nav>
 
                 <!-- EMPTY STATE -->
                 <div x-show="filtered.length === 0" class="text-center py-16">
