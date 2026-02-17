@@ -50,13 +50,21 @@
     },
     {
       "parameters": {
-        "url": "=https://api.unsplash.com/search/photos?query={{ encodeURIComponent($json.topic.unsplashQuery) }}&per_page=1&orientation=landscape",
-        "sendHeaders": true,
-        "headerParameters": {
+        "url": "https://api.unsplash.com/photos/random",
+        "sendQuery": true,
+        "queryParameters": {
           "parameters": [
             {
-              "name": "Authorization",
-              "value": "Client-ID f4DKrO7Ej-0gzFtXNnvTF4udvGE1yizoUzUczV2yANM"
+              "name": "query",
+              "value": "={{ $json.topic.unsplashQuery }}"
+            },
+            {
+              "name": "client_id",
+              "value": "f4DKrO7Ej-0gzFtXNnvTF4udvGE1yizoUzUczV2yANM"
+            },
+            {
+              "name": "orientation",
+              "value": "landscape"
             }
           ]
         },
@@ -76,7 +84,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Extract Unsplash image data, fallback to default if API fails\nconst input = $input.first().json;\nconst topicData = $('Selectionner Sujet').first().json;\n\nlet imageUrl = 'https://nathanibgui.com/assets/images/nathanibguiProfile.png';\nlet imageAlt = topicData.topic.title;\nlet imageCredit = '';\n\ntry {\n  if (input.results && input.results.length > 0) {\n    const photo = input.results[0];\n    imageUrl = photo.urls.regular;\n    imageAlt = photo.alt_description || topicData.topic.title;\n    imageCredit = `Photo by ${photo.user.name} on Unsplash`;\n  }\n} catch(e) {\n  // Keep defaults\n}\n\nreturn [{\n  json: {\n    ...topicData,\n    image: { url: imageUrl, alt: imageAlt, credit: imageCredit }\n  }\n}];"
+        "jsCode": "// Extract Unsplash image data, fallback to default if API fails\nconst input = $input.first().json;\nconst topicData = $('Selectionner Sujet').first().json;\n\nlet imageUrl = 'https://nathanibgui.com/assets/images/nathanibguiProfile.png';\nlet imageAlt = topicData.topic.title;\nlet imageCredit = '';\n\ntry {\n  // /photos/random returns a single photo object directly\n  if (input.urls && input.urls.regular) {\n    imageUrl = input.urls.regular;\n    imageAlt = input.alt_description || topicData.topic.title;\n    imageCredit = `Photo by ${input.user.name} on Unsplash`;\n  }\n} catch(e) {\n  // Keep defaults\n}\n\nreturn [{\n  json: {\n    ...topicData,\n    image: { url: imageUrl, alt: imageAlt, credit: imageCredit }\n  }\n}];"
       },
       "id": "process-image",
       "name": "Traiter Image",
