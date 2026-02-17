@@ -197,15 +197,15 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "date": "={{ $json.date }}",
-            "title": "={{ $json.topic.title }}",
-            "slug": "={{ $json.topic.slug }}",
-            "url": "={{ $json.canonicalUrl }}",
-            "tag": "={{ $json.topic.tag }}",
-            "keywords": "={{ $json.topic.keywords }}",
-            "readingTime": "={{ $json.topic.readingTime }}",
-            "wordCount": "={{ $json.article.wordCount }}",
-            "imageUrl": "={{ $json.image.url }}",
+            "date": "={{ $('Assembler HTML').first().json.date }}",
+            "title": "={{ $('Assembler HTML').first().json.topic.title }}",
+            "slug": "={{ $('Assembler HTML').first().json.topic.slug }}",
+            "url": "={{ $('Assembler HTML').first().json.canonicalUrl }}",
+            "tag": "={{ $('Assembler HTML').first().json.topic.tag }}",
+            "keywords": "={{ $('Assembler HTML').first().json.topic.keywords }}",
+            "readingTime": "={{ $('Assembler HTML').first().json.topic.readingTime }}",
+            "wordCount": "={{ $('Assembler HTML').first().json.article.wordCount }}",
+            "imageUrl": "={{ $('Assembler HTML').first().json.image.url }}",
             "status": "published"
           },
           "matchingColumns": []
@@ -230,7 +230,7 @@
     {
       "parameters": {
         "chatId": "6001952353",
-        "text": "=*Nouvel article blog publie - nathanibgui.com*\n\n*Titre :* {{ $json.topic.title }}\n*Tag :* {{ $json.topic.tag }}\n*URL :* {{ $json.canonicalUrl }}\n*Mots :* {{ $json.article.wordCount }} | *Lecture :* {{ $json.topic.readingTime }} min\n*Image :* {{ $json.image.url }}\n*Date :* {{ $json.date }}",
+        "text": "=*Nouvel article blog publie - nathanibgui.com*\n\n*Titre :* {{ $('Assembler HTML').first().json.topic.title }}\n*Tag :* {{ $('Assembler HTML').first().json.topic.tag }}\n*URL :* {{ $('Assembler HTML').first().json.canonicalUrl }}\n*Mots :* {{ $('Assembler HTML').first().json.article.wordCount }} | *Lecture :* {{ $('Assembler HTML').first().json.topic.readingTime }} min\n*Image :* {{ $('Assembler HTML').first().json.image.url }}\n*Date :* {{ $('Assembler HTML').first().json.date }}",
         "additionalFields": {
           "parse_mode": "Markdown"
         }
