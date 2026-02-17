@@ -1,5 +1,5 @@
 {
-  "name": "Blog Automation Pipeline v6 - nathanibgui.com",
+  "name": "Blog Automation Pipeline v8 - nathanibgui.com",
   "nodes": [
     {
       "parameters": {
@@ -260,7 +260,7 @@
     },
     {
       "parameters": {
-        "content": "## Blog Automation Pipeline v7\n\n### Flow\n1. **Trigger** : Cron hebdo (lundi 9h) ou manuel\n2. **Sheets Read** : Lit les articles publies (deduplication)\n3. **Theme** : Selection intelligente (le moins couvert, random si ex-aequo)\n4. **Agent IA** : Choisit le sujet + redige avec sections typees\n5. **Parse** : Extrait JSON + valide les types de sections\n6. **Unsplash** : Image (query choisie par l'agent)\n7. **HTML Builder** : 10 templates de sections (identiques aux manuels)\n8. **SFTP** : Deploie sur Hostinger\n9. **Sheets + Telegram + articles.json** : Log et notification\n10. **Sitemap** : Regenere sitemap.xml dynamique + ping Google\n\n### Templates de sections\nprose, icon_prose, numbered_steps, level_cards,\nborder_left_list, icon_list, metric_grid,\ncomparison_grid, checklist_domain, inline_cta\n\n### SEO automatique\n- sitemap.xml regenere a chaque publication\n- Ping Google apres chaque deploy\n- Deduplication via Google Sheets\n\n### Modele\nGPT-4o via langchain Agent.",
+        "content": "## Blog Automation Pipeline v8\n\n### Flow\n1. **Trigger** : Cron hebdo (lundi 9h) ou manuel\n2. **Sheets Read** : Lit les articles publies (deduplication)\n3. **Theme** : Selection intelligente (le moins couvert, random si ex-aequo)\n4. **Agent IA** : Choisit le sujet + redige avec sections typees\n5. **Parse** : Extrait JSON + valide les types de sections\n6. **Unsplash** : Image (query choisie par l'agent)\n7. **HTML Builder** : 10 templates de sections (identiques aux manuels)\n8. **SFTP** : Deploie sur Hostinger\n9. **Sheets + Telegram + articles.json** : Log et notification\n10. **Sitemap** : Regenere sitemap.xml dynamique + deploy SFTP\n\n### Templates de sections\nprose, icon_prose, numbered_steps, level_cards,\nborder_left_list, icon_list, metric_grid,\ncomparison_grid, checklist_domain, inline_cta\n\n### SEO automatique\n- sitemap.xml regenere a chaque publication\n- lastmod mis a jour pour decouverte Google\n- Deduplication via Google Sheets\n- Ping Google deprecie (supprime en v8)\n\n### Modele\nGPT-4o via langchain Agent.",
         "height": 520,
         "width": 460
       },
@@ -357,23 +357,6 @@
           "name": "Hostinger SFTP"
         }
       }
-    },
-    {
-      "parameters": {
-        "url": "https://www.google.com/ping?sitemap=https://nathanibgui.com/sitemap.xml",
-        "options": {
-          "timeout": 10000
-        }
-      },
-      "id": "ping-google",
-      "name": "Ping Google Sitemap",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        4800,
-        700
-      ],
-      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -609,15 +592,7 @@
       ]
     },
     "SFTP Deploy sitemap.xml": {
-      "main": [
-        [
-          {
-            "node": "Ping Google Sitemap",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": []
     }
   },
   "settings": {
