@@ -279,7 +279,7 @@
                 initCaptcha() {
                     if (typeof grecaptcha !== 'undefined' && this.captchaId === null) {
                         this.captchaId = grecaptcha.render('recaptcha-container', {
-                            sitekey: '6LdbrW4sAAAALm6t9NE22grG3xNs1QZZLVrXRSN',
+                            sitekey: '6LdbrW4sAAAAALm6t9NE22grG3xNs1QZZLVrXRSN',
                             size: 'invisible',
                             callback: (token) => { this.sendEmail(token); }
                         });
