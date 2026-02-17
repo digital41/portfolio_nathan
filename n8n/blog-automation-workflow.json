@@ -1,0 +1,248 @@
+{
+  "name": "Blog Automation Pipeline - nathanibgui.com",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [1],
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Hebdo Lundi 9h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Declenchement Manuel",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ============================================\n// CONFIGURATION - Sujets du blog\n// ============================================\n\nconst SOLUTIONS = [\n  { slug: 'strategie-ia', label: 'Stratégie IA & Agents', color: 'purple', icon: 'fa-brain' },\n  { slug: 'automation-n8n', label: 'Automation n8n', color: 'blue', icon: 'fa-robot' },\n  { slug: 'audit-performance-it', label: 'Audit Performance IT', color: 'green', icon: 'fa-clipboard-check' },\n  { slug: 'dsi-externalise', label: 'DSI Externalisé', color: 'indigo', icon: 'fa-building' },\n  { slug: 'data-erp', label: 'Data & ERP', color: 'cyan', icon: 'fa-database' },\n  { slug: 'cybersecurite-infrastructure', label: 'Cybersécurité & Cloud', color: 'red', icon: 'fa-shield-halved' },\n  { slug: 'strategie-marketing-branding', label: 'Marketing & Branding', color: 'pink', icon: 'fa-bullhorn' },\n  { slug: 'seo-acquisition-digitale', label: 'SEO & Référencement', color: 'rose', icon: 'fa-search' },\n  { slug: 'geo-referencement-ia', label: 'GEO Référencement IA', color: 'orange', icon: 'fa-globe' },\n  { slug: 'google-business-profile', label: 'Google Business Profile', color: 'yellow', icon: 'fa-map-marker-alt' },\n  { slug: 'publicite-digitale', label: 'Publicité Digitale', color: 'amber', icon: 'fa-ad' }\n];\n\nconst TOPIC_IDEAS = [\n  {\n    title: 'Automatiser son entreprise avec n8n : guide pratique pour PME',\n    slug: 'automatiser-entreprise-n8n-guide-pme',\n    keywords: 'automatisation PME, n8n tutoriel, workflow automation, automatiser processus entreprise',\n    mainSolution: 'automation-n8n',\n    relatedSolutions: ['strategie-ia', 'dsi-externalise', 'data-erp'],\n    color: 'blue', icon: 'fa-robot', readingTime: 10, tag: 'Automation',\n    unsplashQuery: 'automation technology office'\n  },\n  {\n    title: 'Cybersécurité PME : les 10 menaces de 2026 et comment s\\'en protéger',\n    slug: 'cybersecurite-pme-menaces-2026',\n    keywords: 'cybersécurité PME, menaces informatiques 2026, protection données entreprise',\n    mainSolution: 'cybersecurite-infrastructure',\n    relatedSolutions: ['audit-performance-it', 'dsi-externalise', 'automation-n8n'],\n    color: 'red', icon: 'fa-shield-halved', readingTime: 8, tag: 'Cybersécurité',\n    unsplashQuery: 'cybersecurity digital lock'\n  },\n  {\n    title: 'DSI externalisé vs DSI interne : quel modèle pour votre PME ?',\n    slug: 'dsi-externalise-vs-interne-pme',\n    keywords: 'DSI externalisé, direction informatique PME, CIO as a service',\n    mainSolution: 'dsi-externalise',\n    relatedSolutions: ['audit-performance-it', 'strategie-ia', 'cybersecurite-infrastructure'],\n    color: 'indigo', icon: 'fa-building', readingTime: 9, tag: 'Gouvernance IT',\n    unsplashQuery: 'CTO executive business strategy'\n  },\n  {\n    title: 'ERP pour PME : comment choisir et réussir son déploiement en 2026',\n    slug: 'erp-pme-choix-deploiement-2026',\n    keywords: 'ERP PME, choisir ERP, déploiement ERP, gestion données entreprise',\n    mainSolution: 'data-erp',\n    relatedSolutions: ['automation-n8n', 'audit-performance-it', 'dsi-externalise'],\n    color: 'cyan', icon: 'fa-database', readingTime: 11, tag: 'Data & ERP',\n    unsplashQuery: 'data analytics dashboard business'\n  },\n  {\n    title: 'Google Business Profile : optimiser sa fiche pour dominer le local en 2026',\n    slug: 'google-business-profile-optimisation-2026',\n    keywords: 'Google Business Profile, fiche Google, référencement local, SEO local PME',\n    mainSolution: 'google-business-profile',\n    relatedSolutions: ['seo-acquisition-digitale', 'geo-referencement-ia', 'strategie-marketing-branding'],\n    color: 'yellow', icon: 'fa-map-marker-alt', readingTime: 7, tag: 'SEO Local',\n    unsplashQuery: 'local business storefront google maps'\n  },\n  {\n    title: 'Marketing digital PME : construire une stratégie qui convertit',\n    slug: 'marketing-digital-pme-strategie-conversion',\n    keywords: 'marketing digital PME, stratégie marketing, branding entreprise',\n    mainSolution: 'strategie-marketing-branding',\n    relatedSolutions: ['seo-acquisition-digitale', 'publicite-digitale', 'geo-referencement-ia'],\n    color: 'pink', icon: 'fa-bullhorn', readingTime: 9, tag: 'Marketing',\n    unsplashQuery: 'digital marketing strategy team'\n  },\n  {\n    title: 'Google Ads et Meta Ads pour PME : maximiser le ROI de vos campagnes',\n    slug: 'google-ads-meta-ads-pme-roi-2026',\n    keywords: 'Google Ads PME, Meta Ads, publicité digitale, ROI campagnes publicitaires',\n    mainSolution: 'publicite-digitale',\n    relatedSolutions: ['strategie-marketing-branding', 'seo-acquisition-digitale', 'automation-n8n'],\n    color: 'amber', icon: 'fa-ad', readingTime: 8, tag: 'Publicité',\n    unsplashQuery: 'online advertising campaign ROI'\n  },\n  {\n    title: 'Agents IA autonomes : transformer vos processus métier en 2026',\n    slug: 'agents-ia-autonomes-processus-metier-2026',\n    keywords: 'agents IA, IA autonome entreprise, automatisation intelligente',\n    mainSolution: 'strategie-ia',\n    relatedSolutions: ['automation-n8n', 'data-erp', 'dsi-externalise'],\n    color: 'purple', icon: 'fa-brain', readingTime: 10, tag: 'IA & Agents',\n    unsplashQuery: 'artificial intelligence robot technology'\n  }\n];\n\nconst weekNumber = Math.floor((Date.now() - new Date('2026-01-01').getTime()) / (7 * 24 * 60 * 60 * 1000));\nconst topicIndex = weekNumber % TOPIC_IDEAS.length;\nconst topic = TOPIC_IDEAS[topicIndex];\nconst relatedData = topic.relatedSolutions.map(slug => SOLUTIONS.find(s => s.slug === slug)).filter(Boolean);\nconst today = new Date().toISOString().split('T')[0];\nconst todayFr = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });\n\nreturn [{\n  json: {\n    topic, relatedSolutions: relatedData, allSolutions: SOLUTIONS,\n    date: today, dateFr: todayFr,\n    fileName: topic.slug + '.html',\n    canonicalUrl: 'https://nathanibgui.com/blog/' + topic.slug\n  }\n}];"
+      },
+      "id": "topic-selector",
+      "name": "Selectionner Sujet",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [300, 400]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.unsplash.com/search/photos?query={{ encodeURIComponent($json.topic.unsplashQuery) }}&per_page=1&orientation=landscape",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Client-ID f4DKrO7Ej-0gzFtXNnvTF4udvGE1yizoUzUczV2yANM" }
+          ]
+        },
+        "options": { "timeout": 15000 }
+      },
+      "id": "unsplash-fetch",
+      "name": "Unsplash Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [600, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract Unsplash image data, fallback to default if API fails\nconst input = $input.first().json;\nconst topicData = $('Selectionner Sujet').first().json;\n\nlet imageUrl = 'https://nathanibgui.com/assets/images/nathanibguiProfile.png';\nlet imageAlt = topicData.topic.title;\nlet imageCredit = '';\n\ntry {\n  if (input.results && input.results.length > 0) {\n    const photo = input.results[0];\n    imageUrl = photo.urls.regular;\n    imageAlt = photo.alt_description || topicData.topic.title;\n    imageCredit = `Photo by ${photo.user.name} on Unsplash`;\n  }\n} catch(e) {\n  // Keep defaults\n}\n\nreturn [{\n  json: {\n    ...topicData,\n    image: { url: imageUrl, alt: imageAlt, credit: imageCredit }\n  }\n}];"
+      },
+      "id": "process-image",
+      "name": "Traiter Image",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": { "__rl": true, "value": "gpt-4o", "mode": "list" },
+        "messages": {
+          "values": [
+            {
+              "content": "=Tu es Nathan Ibgui, CIO Executive & Architecte de Profit. Tu rédiges un article de blog expert pour ton site nathanibgui.com.\n\nSujet : {{ $json.topic.title }}\nMots-clés SEO cibles : {{ $json.topic.keywords }}\nTemps de lecture : {{ $json.topic.readingTime }} minutes\nSolution principale liée : {{ $json.topic.mainSolution }}\nSolutions liées : {{ $json.relatedSolutions.map(s => s.slug).join(', ') }}\n\nRédige l'article COMPLET en français avec :\n1. Une introduction engageante (2-3 paragraphes)\n2. 4 à 6 sections principales avec h2 et sous-sections h3\n3. Des listes à puces et numbered lists pour la lisibilité\n4. 3-4 FAQ pertinentes à la fin\n5. Des liens internes naturels vers les solutions (utilise le format: <a href=\"../solutions/SLUG.html\" class=\"text-{{ $json.topic.color }}-400 hover:text-{{ $json.topic.color }}-300 underline underline-offset-2\">TEXTE</a>)\n\nRENVOIE UNIQUEMENT un objet JSON avec cette structure exacte (pas de markdown, pas de backticks) :\n{\n  \"metaDescription\": \"description SEO de 150-160 caractères\",\n  \"ogDescription\": \"description OG de 100-120 caractères\",\n  \"articleTags\": [\"tag1\", \"tag2\", \"tag3\", \"tag4\", \"tag5\"],\n  \"faq\": [{\"question\": \"...\", \"answer\": \"...\"}],\n  \"sections\": [\n    {\"title\": \"Titre de section\", \"content\": \"<p>Contenu HTML...</p>\"}\n  ],\n  \"introduction\": \"<p>Intro HTML...</p>\",\n  \"conclusion\": \"<p>Conclusion HTML...</p>\",\n  \"wordCount\": 2000\n}\n\nUtilise des caractères français (é, è, à, ç). Pas d'emojis. Contenu expert et concret, pas générique."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 8000,
+          "temperature": 0.7
+        }
+      },
+      "id": "openai-generate",
+      "name": "OpenAI Genere Article",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.4,
+      "position": [1200, 400],
+      "credentials": {
+        "openAiApi": {
+          "id": "uf1LtGvt5V72JFc3",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse AI response and build the full HTML page\nconst input = $input.first().json;\nconst topicData = $('Traiter Image').first().json;\nconst topic = topicData.topic;\nconst date = topicData.date;\nconst dateFr = topicData.dateFr;\nconst canonicalUrl = topicData.canonicalUrl;\nconst fileName = topicData.fileName;\nconst image = topicData.image;\n\n// Extract JSON from AI response (handle both OpenAI and Anthropic formats)\nlet responseText = '';\nif (input.message && input.message.content) {\n  responseText = input.message.content; // OpenAI format\n} else if (input.content && input.content[0] && input.content[0].text) {\n  responseText = input.content[0].text; // Anthropic format\n} else if (typeof input.text === 'string') {\n  responseText = input.text;\n} else {\n  responseText = JSON.stringify(input);\n}\n\nresponseText = responseText.replace(/^```json\\s*/, '').replace(/\\s*```$/, '').trim();\nconst article = JSON.parse(responseText);\n\n// Build FAQ JSON-LD\nconst faqJsonLd = {\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"FAQPage\",\n  \"mainEntity\": article.faq.map(f => ({\n    \"@type\": \"Question\",\n    \"name\": f.question,\n    \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": f.answer }\n  }))\n};\n\nconst articleTagsMeta = article.articleTags.map(t =>\n  `    <meta property=\"article:tag\" content=\"${t}\">`\n).join('\\n');\n\nconst sectionsHtml = article.sections.map(section => `\n        <section class=\"glass p-8 sm:p-10 rounded-3xl border border-white/5 mb-8\">\n            <h2 class=\"text-2xl sm:text-3xl font-black text-white mb-6\">${section.title}</h2>\n            <div class=\"text-slate-300 leading-relaxed space-y-4\">\n                ${section.content}\n            </div>\n        </section>`).join('\\n');\n\nconst faqHtml = article.faq.map(f => `\n            <div class=\"glass p-6 rounded-2xl border border-white/5\">\n                <h3 class=\"font-bold text-white mb-3\">${f.question}</h3>\n                <p class=\"text-sm text-slate-400 leading-relaxed\">${f.answer}</p>\n            </div>`).join('\\n');\n\nconst colorMap = {\n  purple: { radial: 'rgba(147, 51, 234, 0.15)', gradient: 'from-purple-400 to-purple-600' },\n  blue: { radial: 'rgba(59, 130, 246, 0.15)', gradient: 'from-blue-400 to-blue-600' },\n  green: { radial: 'rgba(34, 197, 94, 0.15)', gradient: 'from-green-400 to-green-600' },\n  red: { radial: 'rgba(239, 68, 68, 0.15)', gradient: 'from-red-400 to-red-600' },\n  indigo: { radial: 'rgba(99, 102, 241, 0.15)', gradient: 'from-indigo-400 to-indigo-600' },\n  cyan: { radial: 'rgba(6, 182, 212, 0.15)', gradient: 'from-cyan-400 to-cyan-600' },\n  pink: { radial: 'rgba(236, 72, 153, 0.15)', gradient: 'from-pink-400 to-pink-600' },\n  rose: { radial: 'rgba(244, 63, 94, 0.15)', gradient: 'from-rose-400 to-rose-600' },\n  orange: { radial: 'rgba(249, 115, 22, 0.15)', gradient: 'from-orange-400 to-orange-600' },\n  yellow: { radial: 'rgba(234, 179, 8, 0.15)', gradient: 'from-yellow-400 to-yellow-600' },\n  amber: { radial: 'rgba(245, 158, 11, 0.15)', gradient: 'from-amber-400 to-amber-600' }\n};\nconst colors = colorMap[topic.color] || colorMap.blue;\n\n// Hero image HTML\nconst heroImageHtml = image.url !== 'https://nathanibgui.com/assets/images/nathanibguiProfile.png'\n  ? `\\n        <!-- HERO IMAGE -->\\n        <div class=\"max-w-4xl mx-auto px-4 sm:px-8 mb-12\">\\n            <div class=\"rounded-3xl overflow-hidden border border-white/5\">\\n                <img src=\"${image.url}\" alt=\"${image.alt}\" class=\"w-full h-64 sm:h-80 md:h-96 object-cover\" loading=\"lazy\">\\n            </div>\\n            ${image.credit ? '<p class=\"text-[10px] text-slate-600 mt-2 text-center\">' + image.credit + '</p>' : ''}\\n        </div>`\n  : '';\n\nconst html = `<!DOCTYPE html>\n<html lang=\"fr\" class=\"scroll-smooth\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>${topic.title} | Nathan Ibgui</title>\n    <meta name=\"description\" content=\"${article.metaDescription}\">\n    <meta name=\"keywords\" content=\"${topic.keywords}\">\n    <meta name=\"author\" content=\"Nathan Ibgui\">\n    <meta name=\"robots\" content=\"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1\">\n    <link rel=\"canonical\" href=\"${canonicalUrl}\">\n${articleTagsMeta}\n    <meta property=\"og:type\" content=\"article\">\n    <meta property=\"og:url\" content=\"${canonicalUrl}\">\n    <meta property=\"og:title\" content=\"${topic.title}\">\n    <meta property=\"og:description\" content=\"${article.ogDescription}\">\n    <meta property=\"og:image\" content=\"${image.url}\">\n    <meta property=\"og:locale\" content=\"fr_FR\">\n    <meta property=\"og:site_name\" content=\"Nathan Ibgui - CIO Executive\">\n    <meta property=\"article:published_time\" content=\"${date}\">\n    <meta property=\"article:author\" content=\"Nathan Ibgui\">\n    <meta name=\"twitter:card\" content=\"summary_large_image\">\n    <meta name=\"twitter:title\" content=\"${topic.title}\">\n    <meta name=\"twitter:description\" content=\"${article.ogDescription}\">\n    <meta name=\"twitter:image\" content=\"${image.url}\">\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/assets/favicon.svg?v=2\">\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"/assets/favicon.ico?v=2\">\n    <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/assets/favicon-32x32.png?v=2\">\n    <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/assets/favicon-16x16.png?v=2\">\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/assets/apple-touch-icon.png?v=2\">\n    <link rel=\"manifest\" href=\"/assets/site.webmanifest\">\n    <meta name=\"theme-color\" content=\"#030712\">\n    <link rel=\"alternate\" hreflang=\"fr\" href=\"${canonicalUrl}\">\n    <link rel=\"alternate\" hreflang=\"x-default\" href=\"${canonicalUrl}\">\n    <script type=\"application/ld+json\">\n    { \"@context\": \"https://schema.org\", \"@type\": \"BlogPosting\", \"headline\": \"${topic.title}\", \"description\": \"${article.metaDescription}\", \"url\": \"${canonicalUrl}\", \"image\": \"${image.url}\", \"datePublished\": \"${date}\", \"dateModified\": \"${date}\", \"author\": { \"@type\": \"Person\", \"name\": \"Nathan Ibgui\", \"jobTitle\": \"CIO Executive\", \"url\": \"https://nathanibgui.com\" }, \"publisher\": { \"@type\": \"Person\", \"name\": \"Nathan Ibgui\" }, \"mainEntityOfPage\": { \"@type\": \"WebPage\", \"@id\": \"${canonicalUrl}\" }, \"wordCount\": \"${article.wordCount}\", \"timeRequired\": \"PT${topic.readingTime}M\" }\n    </script>\n    <script type=\"application/ld+json\">\n    { \"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [ { \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Accueil\", \"item\": \"https://nathanibgui.com/\" }, { \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Blog\", \"item\": \"https://nathanibgui.com/blog/\" }, { \"@type\": \"ListItem\", \"position\": 3, \"name\": \"${topic.title}\", \"item\": \"${canonicalUrl}\" } ] }\n    </script>\n    <script type=\"application/ld+json\">\n    ${JSON.stringify(faqJsonLd)}\n    </script>\n    <link rel=\"preconnect\" href=\"https://cdnjs.cloudflare.com\" crossorigin>\n    <style>\n    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/plus-jakarta-sans-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}\n    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/plus-jakarta-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}\n    @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/inter-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}\n    @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/inter-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}\n    </style>\n    <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme-mode',t);if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>\n    <link rel=\"stylesheet\" href=\"../css/tailwind.css?v=1\">\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\" media=\"print\" onload=\"this.media='all'\">\n    <noscript><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\"></noscript>\n    <link rel=\"stylesheet\" href=\"../css/theme.css?v=5\" media=\"print\" onload=\"this.media='all'\">\n    <noscript><link rel=\"stylesheet\" href=\"../css/theme.css?v=5\"></noscript>\n    <script src=\"../js/components.js?v=8\" defer></script>\n    <script defer src=\"https://unpkg.com/alpinejs@3.15.8/dist/cdn.min.js\"></script>\n    <script defer src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js\"></script>\n    <script defer src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js\"></script>\n    <link href=\"https://assets.calendly.com/assets/external/widget.css\" rel=\"stylesheet\" media=\"print\" onload=\"this.media='all'\">\n    <script src=\"https://assets.calendly.com/assets/external/widget.js\" type=\"text/javascript\" async></script>\n    <style>\n        [x-cloak]{display:none!important}\n        body{background-color:#030712;color:#f8fafc;overflow-x:hidden;-webkit-user-select:none;user-select:none}\n        input,textarea,select{-webkit-user-select:text;user-select:text}\n        [data-theme=\"light\"] body{background-color:#f8fafc!important;color:#1e293b!important}\n        [data-theme=\"light\"] .glass{background:rgba(255,255,255,.85)!important;border:1px solid rgba(0,0,0,.08)!important;box-shadow:0 4px 30px rgba(0,0,0,.06)!important}\n        [data-theme=\"light\"] .text-white{color:#0f172a!important}\n        [data-theme=\"light\"] .premium-logo{color:#0f172a!important}\n        [data-theme=\"light\"] .premium-logo span{color:#3b82f6!important}\n        .glass{background:rgba(10,16,32,0.65);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 30px rgba(0,0,0,0.15)}\n        .premium-logo{font-family:'Inter',sans-serif;font-weight:900;letter-spacing:-0.05em;font-size:1.6rem}\n        .premium-logo span{font-weight:200;color:#3b82f6}\n        .bg-gradient-radial{background:radial-gradient(circle at 50% 0%,${colors.radial} 0%,transparent 60%)}\n        button:focus-visible,a:focus-visible{outline:2px solid #3b82f6;outline-offset:2px}\n        @media(prefers-reduced-motion:reduce){.reveal-hero,.reveal-scroll{opacity:1!important;transform:none!important}}\n    </style>\n</head>\n<body x-data=\"{ mobileMenu: false }\">\n    <div id=\"site-header\"></div>\n    <main id=\"main-content\">\n        <nav class=\"pt-24 pb-4 px-4 sm:px-8 max-w-7xl mx-auto\" aria-label=\"Fil d'Ariane\">\n            <ol class=\"flex items-center gap-2 text-[11px] text-slate-500 font-medium\">\n                <li><a href=\"/\" class=\"hover:text-white transition-colors\">Accueil</a></li>\n                <li aria-hidden=\"true\"><i class=\"fas fa-chevron-right text-[8px] mx-1\"></i></li>\n                <li><a href=\"index.html\" class=\"hover:text-white transition-colors\">Blog</a></li>\n                <li aria-hidden=\"true\"><i class=\"fas fa-chevron-right text-[8px] mx-1\"></i></li>\n                <li class=\"text-${topic.color}-400\" aria-current=\"page\">${topic.title}</li>\n            </ol>\n        </nav>\n        <section class=\"py-20 sm:py-28 px-4 sm:px-8 bg-gradient-radial\">\n            <div class=\"max-w-4xl mx-auto\">\n                <div class=\"flex flex-wrap items-center gap-3 mb-6\">\n                    <span class=\"px-3 py-1 bg-${topic.color}-500/10 rounded-full text-[9px] font-black text-${topic.color}-400 uppercase tracking-widest\">${topic.tag}</span>\n                    <time class=\"text-[10px] text-slate-500 font-medium\" datetime=\"${date}\">${dateFr}</time>\n                    <span class=\"text-[10px] text-slate-500\">${topic.readingTime} min de lecture</span>\n                </div>\n                <h1 class=\"text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-white leading-tight\">${topic.title}</h1>\n                <div class=\"mt-6 flex items-center gap-4\">\n                    <div class=\"w-10 h-10 bg-${topic.color}-500/20 rounded-full flex items-center justify-center\"><span class=\"text-${topic.color}-400 font-black text-sm\">NI</span></div>\n                    <div><p class=\"text-sm font-bold text-white\">Nathan Ibgui</p><p class=\"text-xs text-slate-500\">CIO Executive & Architecte de Profit</p></div>\n                </div>\n            </div>\n        </section>\n${heroImageHtml}\n        <article class=\"py-12 sm:py-16 px-4 sm:px-8\">\n            <div class=\"max-w-4xl mx-auto\">\n                <div class=\"text-lg text-slate-300 leading-relaxed space-y-4 mb-12\">${article.introduction}</div>\n${sectionsHtml}\n                <div class=\"text-lg text-slate-300 leading-relaxed space-y-4 mt-12 mb-12\">${article.conclusion}</div>\n                <section class=\"mt-16 mb-12\" aria-label=\"Questions fréquentes\">\n                    <h2 class=\"text-2xl sm:text-3xl font-black text-white mb-8\">Questions Fréquentes</h2>\n                    <div class=\"space-y-4\">${faqHtml}</div>\n                </section>\n            </div>\n        </article>\n        <section class=\"py-20 sm:py-28 px-4 sm:px-8 bg-surface\">\n            <div class=\"max-w-3xl mx-auto text-center\">\n                <span class=\"text-${topic.color}-500 font-black uppercase tracking-[0.4em] text-[10px]\">Passez à l'Action</span>\n                <h2 class=\"text-3xl sm:text-4xl font-black tracking-tighter text-white mt-4\">Un Projet en <span class=\"text-transparent bg-clip-text bg-gradient-to-r ${colors.gradient}\">Tête ?</span></h2>\n                <p class=\"text-slate-400 mt-4 max-w-xl mx-auto\">Réservez un diagnostic de 30 minutes. Nous analyserons ensemble vos enjeux et identifierons les quick wins.</p>\n                <div class=\"mt-8\"><button onclick=\"Calendly.initPopupWidget({url:'https://calendly.com/ibguinathan/30min'});\" class=\"bg-cobalt-gradient text-white px-12 sm:px-16 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl shadow-blue-500/20 border border-white/20\">Réserver mon Diagnostic</button></div>\n            </div>\n        </section>\n    </main>\n    <div id=\"site-footer\"></div>\n    <script src=\"../js/theme.js?v=5\" defer></script>\n    <script>document.addEventListener('DOMContentLoaded',function(){if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){gsap.registerPlugin(ScrollTrigger);gsap.utils.toArray('.glass').forEach(function(el,i){gsap.from(el,{y:40,opacity:0,duration:0.6,delay:i*0.1,scrollTrigger:{trigger:el,start:'top 90%'}});});}});</script>\n</body>\n</html>`;\n\nreturn [{\n  json: {\n    html, fileName, topic, date, dateFr, canonicalUrl, article, image\n  }\n}];"
+      },
+      "id": "build-html",
+      "name": "Assembler HTML",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1500, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nconst htmlBuffer = Buffer.from(input.html, 'utf-8');\nreturn [{\n  json: input,\n  binary: {\n    data: {\n      data: htmlBuffer.toString('base64'),\n      mimeType: 'text/html',\n      fileName: input.fileName,\n      fileExtension: 'html'\n    }\n  }\n}];"
+      },
+      "id": "prepare-binary",
+      "name": "Convertir en Binaire",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1800, 400]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "path": "=/home/u234542620/websites/zOcu31T6k/public_html/blog/{{ $json.fileName }}",
+        "binaryPropertyName": "data"
+      },
+      "id": "sftp-upload",
+      "name": "SFTP Deploy Article",
+      "type": "n8n-nodes-base.ftp",
+      "typeVersion": 1,
+      "position": [2100, 400],
+      "credentials": {
+        "sftp": {
+          "id": "WZMzFNcPARYTOqQQ",
+          "name": "Hostinger SFTP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1q1FIr9cfFuW2EcQhK2ZFKFXixmMOeXM3r3zKrPFiUmc",
+          "mode": "list",
+          "cachedResultName": "LinkedIn Post Automation"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Blog",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{ $json.date }}",
+            "title": "={{ $json.topic.title }}",
+            "slug": "={{ $json.topic.slug }}",
+            "url": "={{ $json.canonicalUrl }}",
+            "tag": "={{ $json.topic.tag }}",
+            "keywords": "={{ $json.topic.keywords }}",
+            "readingTime": "={{ $json.topic.readingTime }}",
+            "wordCount": "={{ $json.article.wordCount }}",
+            "imageUrl": "={{ $json.image.url }}",
+            "status": "published"
+          },
+          "matchingColumns": []
+        },
+        "options": {}
+      },
+      "id": "sheets-log",
+      "name": "Logger dans Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [2400, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "mxdo3PZjCje5J8ji",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "6001952353",
+        "text": "=*Nouvel article blog publié - nathanibgui.com*\n\n*Titre :* {{ $json.topic.title }}\n*Tag :* {{ $json.topic.tag }}\n*URL :* {{ $json.canonicalUrl }}\n*Mots :* {{ $json.article.wordCount }} | *Lecture :* {{ $json.topic.readingTime }} min\n*Image :* {{ $json.image.url }}\n*Date :* {{ $json.date }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "telegram-notif",
+      "name": "Notification Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [2400, 500],
+      "credentials": {
+        "telegramApi": {
+          "id": "pNgteq2s7ZIUSgx8",
+          "name": "SeoKlyNathan Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Blog Automation Pipeline v2\n\n### Flow\n1. **Trigger** : Cron hebdo (lundi 9h) ou manuel\n2. **Sujet** : Rotation auto parmi 8 sujets\n3. **Unsplash** : Récupère image HD landscape\n4. **OpenAI** : Génère article complet (GPT-4o)\n5. **HTML Builder** : Assemble template + contenu + image\n6. **SFTP** : Déploie sur Hostinger\n7. **Google Sheets** : Log l'article (date, titre, URL, mots, image)\n8. **Telegram** : Notification de publication\n\n### Credentials utilisées\n- **OpenAI** : OpenAi account (GPT-4o)\n- **SFTP** : Hostinger SFTP (148.230.127.222:65002)\n- **Google Sheets** : Google Sheets account\n- **Telegram** : SeoKlyNathan Bot (chat 6001952353)\n- **Unsplash** : Remplacer YOUR_UNSPLASH_ACCESS_KEY\n\n### Pour utiliser Anthropic au lieu d'OpenAI\nRemplacer le node OpenAI par un HTTP Request vers api.anthropic.com\navec un Header Auth credential contenant x-api-key.\n\n### Google Sheet\nCréer un onglet 'Blog' dans le sheet LinkedIn Post Automation\navec les colonnes : date, title, slug, url, tag, keywords, readingTime, wordCount, imageUrl, status",
+        "height": 520,
+        "width": 460
+      },
+      "id": "sticky-note",
+      "name": "Documentation",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-350, 100]
+    }
+  ],
+  "connections": {
+    "Hebdo Lundi 9h": {
+      "main": [[{ "node": "Selectionner Sujet", "type": "main", "index": 0 }]]
+    },
+    "Declenchement Manuel": {
+      "main": [[{ "node": "Selectionner Sujet", "type": "main", "index": 0 }]]
+    },
+    "Selectionner Sujet": {
+      "main": [[{ "node": "Unsplash Image", "type": "main", "index": 0 }]]
+    },
+    "Unsplash Image": {
+      "main": [[{ "node": "Traiter Image", "type": "main", "index": 0 }]]
+    },
+    "Traiter Image": {
+      "main": [[{ "node": "OpenAI Genere Article", "type": "main", "index": 0 }]]
+    },
+    "OpenAI Genere Article": {
+      "main": [[{ "node": "Assembler HTML", "type": "main", "index": 0 }]]
+    },
+    "Assembler HTML": {
+      "main": [[{ "node": "Convertir en Binaire", "type": "main", "index": 0 }]]
+    },
+    "Convertir en Binaire": {
+      "main": [[{ "node": "SFTP Deploy Article", "type": "main", "index": 0 }]]
+    },
+    "SFTP Deploy Article": {
+      "main": [
+        [
+          { "node": "Logger dans Google Sheets", "type": "main", "index": 0 },
+          { "node": "Notification Telegram", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "tags": [{ "name": "blog" }, { "name": "automation" }, { "name": "seo" }],
+  "active": false,
+  "pinData": {}
+}
