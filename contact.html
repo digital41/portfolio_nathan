@@ -104,6 +104,10 @@
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>emailjs.init('6hYZ1iz7zgLGgNn8t');</script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -262,15 +266,33 @@
                     message: ''
                 },
                 submitted: false,
+                sending: false,
+                sendError: false,
                 get canNext1() { return this.formData.besoin !== '' },
                 get canNext2() { return this.formData.nom.trim() !== '' && this.formData.email.trim() !== '' },
                 nextStep() { if (this.step < 4) this.step++ },
                 prevStep() { if (this.step > 1) this.step-- },
                 submitForm() {
-                    this.step = 4;
-                    this.submitted = true;
-                    this.$nextTick(() => {
-                        this.$refs.contactForm.submit();
+                    this.sending = true;
+                    this.sendError = false;
+                    emailjs.send('service_so44t3i', 'template_cg0zj97', {
+                        besoin: this.formData.besoin,
+                        from_name: this.formData.nom,
+                        from_email: this.formData.email,
+                        entreprise: this.formData.entreprise || 'Non renseigné',
+                        taille: this.formData.taille || 'Non renseigné',
+                        telephone: this.formData.telephone || 'Non renseigné',
+                        budget: this.formData.budget || 'Non renseigné',
+                        message: this.formData.message || 'Aucun message',
+                        reply_to: this.formData.email
+                    }).then(() => {
+                        this.sending = false;
+                        this.submitted = true;
+                        this.step = 4;
+                    }).catch((err) => {
+                        this.sending = false;
+                        this.sendError = true;
+                        console.error('EmailJS error:', err);
                     });
                 }
             }">
@@ -310,20 +332,9 @@
                             </div>
 
                             <!-- Form -->
-                            <form x-ref="contactForm" :action="'https://formsubmit.co/' + _em" method="POST">
-                                <!-- Hidden fields for FormSubmit -->
-                                <input type="hidden" name="_next" value="https://nathanibgui.com/contact?sent=true">
-                                <input type="hidden" name="_captcha" value="true">
+                            <form x-ref="contactForm" @submit.prevent="submitForm()">
+                                <!-- Honeypot anti-spam -->
                                 <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-                                <input type="hidden" name="_subject" value="Nouveau contact portfolio">
-                                <input type="hidden" name="besoin" :value="formData.besoin">
-                                <input type="hidden" name="nom" :value="formData.nom">
-                                <input type="hidden" name="email" :value="formData.email">
-                                <input type="hidden" name="entreprise" :value="formData.entreprise">
-                                <input type="hidden" name="taille" :value="formData.taille">
-                                <input type="hidden" name="telephone" :value="formData.telephone">
-                                <input type="hidden" name="budget" :value="formData.budget">
-                                <input type="hidden" name="message" :value="formData.message">
 
                                 <!-- STEP 1: Votre Projet -->
                                 <div x-show="step === 1"
@@ -526,10 +537,12 @@
                                             class="glass px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-white/5 transition-all border border-white/5 text-slate-300 hover:text-white">
                                             <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i> Précédent
                                         </button>
-                                        <button type="button" @click="submitForm()"
-                                            class="bg-cobalt-gradient text-white px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/30 border border-white/10">
-                                            <i class="fas fa-paper-plane mr-2" aria-hidden="true"></i> Envoyer
+                                        <button type="submit" :disabled="sending"
+                                            class="bg-cobalt-gradient text-white px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/30 border border-white/10 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
+                                            <span x-show="!sending"><i class="fas fa-paper-plane mr-2" aria-hidden="true"></i> Envoyer</span>
+                                            <span x-show="sending" x-cloak><i class="fas fa-circle-notch fa-spin mr-2" aria-hidden="true"></i> Envoi...</span>
                                         </button>
+                                        <p x-show="sendError" x-cloak class="text-red-400 text-sm mt-3">Une erreur est survenue. Veuillez reessayer ou me contacter directement.</p>
                                     </div>
                                 </div>
 
@@ -687,18 +700,6 @@
             }
         });
 
-        // Auto-detect if coming back from FormSubmit redirect
-        if (window.location.search.includes('sent=true')) {
-            document.addEventListener('alpine:init', () => {
-                Alpine.nextTick(() => {
-                    const el = document.querySelector('[x-data]');
-                    if (el && el.__x) {
-                        el.__x.$data.step = 4;
-                        el.__x.$data.submitted = true;
-                    }
-                });
-            });
-        }
     </script>
     <!-- Theme System JS -->
     <script src="js/theme.js?v=5"></script>
