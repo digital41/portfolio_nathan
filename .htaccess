@@ -18,12 +18,6 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
 
-# --- Clean URLs: /contact -> /contact.html ---
-# Only rewrite extensionless paths (no dots = no .js/.css/.webp)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^.]+)$ $1.html [L]
-
 # --- Custom error pages ---
 ErrorDocument 404 /404.html
 
