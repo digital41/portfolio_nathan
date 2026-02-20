@@ -157,6 +157,18 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://nathanibgui.com/tools/simulateur-budget-it</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/tools/audit-ia-readiness</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://nathanibgui.com/mentions-legales</loc>
         <lastmod>2026-02-17</lastmod>
         <changefreq>yearly</changefreq>

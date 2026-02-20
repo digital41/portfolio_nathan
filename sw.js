@@ -34,7 +34,9 @@ var CORE_ASSETS = [
     '/blog/geo-guide-complet-referencement-ia-2026.html',
     '/blog/agents-ia-rag-entreprise-guide-pratique.html',
     '/tools/index.html',
-    '/tools/calculateur-roi-automatisation.html'
+    '/tools/calculateur-roi-automatisation.html',
+    '/tools/simulateur-budget-it.html',
+    '/tools/audit-ia-readiness.html'
 ];
 
 self.addEventListener('install', function (e) {

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Simulateur Budget IT pour PME | Nathan Ibgui</title>
+    <meta name="description" content="Le budget IT moyen d'une PME represente 3 a 6 % du chiffre d'affaires. Simulez le budget IT optimal pour votre entreprise selon votre secteur, taille et objectifs de transformation digitale.">
+    <meta name="keywords" content="budget IT PME, cout informatique entreprise, budget DSI, simulateur budget informatique, depenses IT par secteur, benchmark IT PME">
+    <meta name="author" content="Nathan Ibgui">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://nathanibgui.com/tools/simulateur-budget-it">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nathanibgui.com/tools/simulateur-budget-it">
+    <meta property="og:title" content="Simulateur Budget IT pour PME | Nathan Ibgui">
+    <meta property="og:description" content="Simulez le budget IT optimal pour votre PME selon votre secteur et taille. Benchmark gratuit.">
+    <meta property="og:image" content="https://nathanibgui.com/assets/images/nathanibguiProfile-og.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Nathan Ibgui - CIO Executive">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Simulateur Budget IT pour PME | Nathan Ibgui">
+    <meta name="twitter:description" content="Simulez le budget IT optimal pour votre PME selon votre secteur et taille.">
+    <meta name="twitter:image" content="https://nathanibgui.com/assets/images/nathanibguiProfile-og.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png?v=3">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png?v=3">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96x96.png?v=3">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png?v=3">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    <meta name="theme-color" content="#030712">
+
+    <link rel="alternate" hreflang="fr" href="https://nathanibgui.com/tools/simulateur-budget-it">
+    <link rel="alternate" hreflang="x-default" href="https://nathanibgui.com/tools/simulateur-budget-it">
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Simulateur Budget IT pour PME",
+        "description": "Outil gratuit pour estimer le budget informatique optimal d'une PME selon son secteur, sa taille et ses objectifs de transformation digitale.",
+        "url": "https://nathanibgui.com/tools/simulateur-budget-it",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "provider": {
+            "@type": "Person",
+            "name": "Nathan Ibgui",
+            "jobTitle": "CIO Executive",
+            "url": "https://nathanibgui.com",
+            "sameAs": ["https://fr.linkedin.com/in/nathan-ibgui"]
+        }
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quel pourcentage du CA une PME doit-elle consacrer a l'IT ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "En moyenne, les PME consacrent 3 a 6 % de leur chiffre d'affaires a l'IT. Les entreprises en phase de transformation digitale investissent 5 a 8 %. Les secteurs technologiques (SaaS, fintech) depassent souvent 10 %. Le Gartner recommande un minimum de 3,5 % pour maintenir la competitivite operationnelle."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Que comprend un budget IT d'entreprise ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un budget IT comprend 4 postes principaux : l'infrastructure (serveurs, reseau, cloud) pour 25-35 %, les logiciels et licences (ERP, CRM, SaaS) pour 20-30 %, les ressources humaines IT (equipe interne ou DSI externalise) pour 30-40 %, et la securite (cybersecurite, sauvegardes, conformite) pour 10-15 %. Les projets de transformation digitale representent un budget supplementaire de 15-25 %."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment reduire son budget IT sans perdre en performance ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Les 3 leviers les plus efficaces sont : migrer vers le cloud (reduction de 20-40 % des couts d'infrastructure), automatiser les taches repetitives avec n8n (economie de 10-20h/semaine par service), et externaliser la DSI (cout 30-50 % inferieur a une equipe interne equivalente). 72 % des PME qui optimisent ces 3 axes reduisent leur budget IT de 15-25 % la premiere annee."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Faut-il privilegier une equipe IT interne ou un DSI externalise ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pour les PME de moins de 100 salaries, le DSI externalise est plus rentable dans 80 % des cas. Un DSI interne coute 80 000 a 120 000 EUR/an charges comprises. Un DSI externalise coute 2 000 a 5 000 EUR/mois (24 000 a 60 000 EUR/an) tout en apportant une expertise plus large. Au-dela de 150 salaries, une equipe interne avec un DSI temps plein devient justifiee."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quel est le budget cybersecurite minimum pour une PME ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le budget cybersecurite minimum recommande est 10 a 15 % du budget IT total, soit environ 0,3 a 0,9 % du CA. Pour une PME de 5M EUR de CA, cela represente 15 000 a 45 000 EUR/an. Ce budget couvre l'antivirus/EDR, le firewall, les sauvegardes, la sensibilisation des employes et un audit annuel. Le cout moyen d'une cyberattaque pour une PME est de 25 000 EUR."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment justifier une augmentation du budget IT aupres de la direction ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Les 3 arguments les plus convaincants sont : le ROI mesurable (chaque euro investi en automatisation genere 3 a 8 EUR d'economies), la reduction des risques (le cout d'une panne IT est de 5 600 EUR/minute en moyenne pour une PME), et le benchmark sectoriel (comparez votre % IT/CA avec la moyenne du secteur). Presentez un business case sur 12 mois avec des metriques claires."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://nathanibgui.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Outils", "item": "https://nathanibgui.com/tools/" },
+            { "@type": "ListItem", "position": 3, "name": "Simulateur Budget IT", "item": "https://nathanibgui.com/tools/simulateur-budget-it" }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <style>
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/plus-jakarta-sans-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url(/assets/fonts/plus-jakarta-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/inter-900-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/inter-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    </style>
+    <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme-mode',t);if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
+    <link rel="stylesheet" href="../css/tailwind.css?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="../css/theme.css?v=5" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/theme.css?v=5"></noscript>
+    <script src="../js/components.js?v=8" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.15.8/dist/cdn.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+        body { background-color: #030712; color: #f8fafc; overflow-x: hidden; -webkit-user-select:none;user-select:none; }
+        input,textarea,select{-webkit-user-select:text;user-select:text}
+        [data-theme="light"] body{background-color:#f8fafc!important;color:#1e293b!important}
+        [data-theme="light"] .glass{background:rgba(255,255,255,.85)!important;border:1px solid rgba(0,0,0,.08)!important;box-shadow:0 4px 30px rgba(0,0,0,.06)!important}
+        [data-theme="light"] .text-white{color:#0f172a!important}
+        [data-theme="light"] .bg-dark{background-color:#fff!important}
+        [data-theme="light"] .premium-logo{color:#0f172a!important}
+        [data-theme="light"] .premium-logo span{color:#3b82f6!important}
+        .glass { background: rgba(10, 16, 32, 0.65); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15); }
+        .border-gradient-wrapper { position: relative; background: #0a1020; border-radius: 40px; z-index: 1; }
+        .border-gradient-wrapper::before { content: ""; position: absolute; inset: -1px; border-radius: 41px; padding: 1px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), transparent 60%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: -1; }
+        .premium-logo { font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: -0.05em; font-size: 1.6rem; }
+        .premium-logo span { font-weight: 200; color: #3b82f6; }
+        .bg-gradient-radial { background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 60%); }
+        button:focus-visible, a:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) { .reveal-hero, .reveal-scroll { opacity: 1 !important; transform: none !important; } }
+        details summary { cursor: pointer; list-style: none; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::marker { display: none; }
+        details[open] summary .faq-chevron { transform: rotate(180deg); }
+        .faq-chevron { transition: transform 0.3s ease; }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.1); outline: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #2563eb); cursor: pointer; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 0 12px rgba(59, 130, 246, 0.4); }
+        input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #2563eb); cursor: pointer; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 0 12px rgba(59, 130, 246, 0.4); }
+    </style>
+</head>
+<body x-data="{ mobileMenu: false }">
+
+    <div id="site-header"></div>
+
+    <main id="main-content">
+
+        <nav class="pt-24 pb-4 px-4 sm:px-8 max-w-7xl mx-auto" aria-label="Fil d'Ariane">
+            <ol class="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
+                <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+                <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
+                <li><a href="/tools/" class="hover:text-white transition-colors">Outils</a></li>
+                <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
+                <li class="text-blue-400 font-semibold" aria-current="page">Simulateur Budget IT</li>
+            </ol>
+        </nav>
+
+        <!-- HERO -->
+        <section class="bg-gradient-radial relative overflow-hidden pb-12 sm:pb-16" aria-label="Simulateur Budget IT">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-900/10 rounded-full blur-[200px] pointer-events-none" aria-hidden="true"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-8 pt-8 sm:pt-12 text-center relative z-10">
+                <div class="reveal-hero">
+                    <span class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass border border-blue-500/20 text-blue-400 text-[9px] font-black tracking-[0.2em] uppercase mb-8">
+                        <i class="fas fa-chart-bar"></i> Outil gratuit
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white mb-6">
+                        Simulateur
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+                            Budget IT
+                        </span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+                        Le budget IT moyen d'une PME represente 3 a 6 % du chiffre d'affaires. Comparez votre investissement au benchmark de votre secteur.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIMULATOR -->
+        <section class="px-4 sm:px-8 pb-16 sm:pb-24 -mt-4"
+                 x-data="{
+                     ca: 5,
+                     employes: 30,
+                     secteur: 'services',
+                     maturite: 'standard',
+                     benchmarks: {
+                         industrie:    { min: 1.5, moy: 2.5, max: 4.0 },
+                         services:     { min: 3.0, moy: 4.5, max: 7.0 },
+                         commerce:     { min: 2.0, moy: 3.5, max: 5.0 },
+                         sante:        { min: 3.5, moy: 5.0, max: 7.5 },
+                         tech:         { min: 6.0, moy: 8.0, max: 12.0 },
+                         construction: { min: 1.0, moy: 2.0, max: 3.5 }
+                     },
+                     maturiteMulti: { basique: 0.8, standard: 1.0, avance: 1.25, transformation: 1.5 },
+                     get bench() { return this.benchmarks[this.secteur] || this.benchmarks.services },
+                     get multi() { return this.maturiteMulti[this.maturite] || 1.0 },
+                     get budgetMinPct() { return (this.bench.min * this.multi).toFixed(1) },
+                     get budgetMoyPct() { return (this.bench.moy * this.multi).toFixed(1) },
+                     get budgetMaxPct() { return (this.bench.max * this.multi).toFixed(1) },
+                     get budgetMinEur() { return Math.round(this.ca * 1000000 * this.bench.min * this.multi / 100) },
+                     get budgetMoyEur() { return Math.round(this.ca * 1000000 * this.bench.moy * this.multi / 100) },
+                     get budgetMaxEur() { return Math.round(this.ca * 1000000 * this.bench.max * this.multi / 100) },
+                     get parEmploye() { return this.employes > 0 ? Math.round(this.budgetMoyEur / this.employes) : 0 },
+                     get repartition() {
+                         var b = this.budgetMoyEur;
+                         return {
+                             infra: Math.round(b * 0.30),
+                             logiciels: Math.round(b * 0.25),
+                             rh: Math.round(b * 0.33),
+                             secu: Math.round(b * 0.12)
+                         }
+                     },
+                     formatEur(n) { return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n) },
+                     secteurLabels: { industrie: 'Industrie / Manufacturing', services: 'Services / Conseil', commerce: 'Commerce / Distribution', sante: 'Sante / Pharma', tech: 'Tech / SaaS / Digital', construction: 'BTP / Construction' },
+                     maturiteLabels: { basique: 'Basique (maintenance)', standard: 'Standard (optimisation)', avance: 'Avance (digitalisation)', transformation: 'Transformation (IA, cloud-first)' }
+                 }"
+                 aria-label="Simulateur interactif">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid lg:grid-cols-5 gap-8">
+
+                    <!-- INPUTS -->
+                    <div class="lg:col-span-3 border-gradient-wrapper p-6 sm:p-8 md:p-10 reveal-scroll">
+                        <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white mb-8">
+                            <i class="fas fa-sliders text-blue-400 mr-2"></i>
+                            Votre entreprise
+                        </h2>
+                        <div class="space-y-8">
+                            <!-- CA -->
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <label for="ca" class="text-sm text-slate-300 font-semibold">
+                                        <i class="fas fa-euro-sign text-blue-400/60 mr-2"></i>Chiffre d'affaires annuel
+                                    </label>
+                                    <span class="text-white font-black text-lg tabular-nums"><span x-text="ca"></span> M&euro;</span>
+                                </div>
+                                <input type="range" id="ca" min="0.5" max="100" step="0.5" x-model.number="ca" aria-label="Chiffre d'affaires en millions d'euros">
+                                <div class="flex justify-between text-[10px] text-slate-600 mt-1"><span>500 K&euro;</span><span>100 M&euro;</span></div>
+                            </div>
+                            <!-- Employes -->
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <label for="employes" class="text-sm text-slate-300 font-semibold">
+                                        <i class="fas fa-users text-blue-400/60 mr-2"></i>Nombre de salaries
+                                    </label>
+                                    <span class="text-white font-black text-lg tabular-nums" x-text="employes"></span>
+                                </div>
+                                <input type="range" id="employes" min="5" max="500" step="5" x-model.number="employes" aria-label="Nombre de salaries">
+                                <div class="flex justify-between text-[10px] text-slate-600 mt-1"><span>5</span><span>500</span></div>
+                            </div>
+                            <!-- Secteur -->
+                            <div>
+                                <label class="text-sm text-slate-300 font-semibold block mb-3">
+                                    <i class="fas fa-building text-blue-400/60 mr-2"></i>Secteur d'activite
+                                </label>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                    <template x-for="(label, key) in secteurLabels" :key="key">
+                                        <button @click="secteur = key"
+                                                :class="secteur === key ? 'bg-blue-500/20 border-blue-500/40 text-blue-400' : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'"
+                                                class="px-3 py-2 rounded-xl text-xs font-semibold border transition-all text-left"
+                                                x-text="label"></button>
+                                    </template>
+                                </div>
+                            </div>
+                            <!-- Maturite -->
+                            <div>
+                                <label class="text-sm text-slate-300 font-semibold block mb-3">
+                                    <i class="fas fa-signal text-blue-400/60 mr-2"></i>Niveau de maturite digitale
+                                </label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <template x-for="(label, key) in maturiteLabels" :key="key">
+                                        <button @click="maturite = key"
+                                                :class="maturite === key ? 'bg-blue-500/20 border-blue-500/40 text-blue-400' : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'"
+                                                class="px-3 py-2 rounded-xl text-xs font-semibold border transition-all text-left"
+                                                x-text="label"></button>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RESULTS -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="glass rounded-3xl p-6 sm:p-8 border border-blue-500/10 reveal-scroll">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-bullseye text-blue-400"></i>
+                                </div>
+                                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Budget IT recommande</span>
+                            </div>
+                            <p class="text-3xl sm:text-4xl font-black text-blue-400 tabular-nums" x-text="formatEur(budgetMoyEur)"></p>
+                            <p class="text-sm text-slate-500 mt-2 tabular-nums">
+                                <span x-text="budgetMoyPct"></span> % du CA
+                            </p>
+                            <div class="flex items-center gap-4 mt-4 text-xs text-slate-500">
+                                <span>Min : <span class="text-slate-300 font-semibold" x-text="formatEur(budgetMinEur)"></span></span>
+                                <span>Max : <span class="text-slate-300 font-semibold" x-text="formatEur(budgetMaxEur)"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="glass rounded-3xl p-6 sm:p-8 border border-white/5 reveal-scroll">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-user text-amber-400"></i>
+                                </div>
+                                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Budget par employe</span>
+                            </div>
+                            <p class="text-3xl sm:text-4xl font-black text-white tabular-nums" x-text="formatEur(parEmploye)"></p>
+                            <p class="text-xs text-slate-500 mt-2">par an et par salarie</p>
+                        </div>
+
+                        <!-- Repartition -->
+                        <div class="glass rounded-3xl p-6 sm:p-8 border border-white/5 reveal-scroll">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="w-10 h-10 bg-purple-500/10 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-chart-pie text-purple-400"></i>
+                                </div>
+                                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Repartition recommandee</span>
+                            </div>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-slate-400"><i class="fas fa-server text-blue-400 mr-1"></i> Infrastructure & Cloud</span>
+                                        <span class="text-white font-semibold" x-text="formatEur(repartition.infra)"></span>
+                                    </div>
+                                    <div class="w-full bg-white/5 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width:30%"></div></div>
+                                    <span class="text-[10px] text-slate-600">~30 %</span>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-slate-400"><i class="fas fa-people-group text-emerald-400 mr-1"></i> RH IT / DSI</span>
+                                        <span class="text-white font-semibold" x-text="formatEur(repartition.rh)"></span>
+                                    </div>
+                                    <div class="w-full bg-white/5 rounded-full h-2"><div class="bg-emerald-500 h-2 rounded-full" style="width:33%"></div></div>
+                                    <span class="text-[10px] text-slate-600">~33 %</span>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-slate-400"><i class="fas fa-puzzle-piece text-amber-400 mr-1"></i> Logiciels & Licences</span>
+                                        <span class="text-white font-semibold" x-text="formatEur(repartition.logiciels)"></span>
+                                    </div>
+                                    <div class="w-full bg-white/5 rounded-full h-2"><div class="bg-amber-500 h-2 rounded-full" style="width:25%"></div></div>
+                                    <span class="text-[10px] text-slate-600">~25 %</span>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-slate-400"><i class="fas fa-shield-halved text-red-400 mr-1"></i> Cybersecurite</span>
+                                        <span class="text-white font-semibold" x-text="formatEur(repartition.secu)"></span>
+                                    </div>
+                                    <div class="w-full bg-white/5 rounded-full h-2"><div class="bg-red-500 h-2 rounded-full" style="width:12%"></div></div>
+                                    <span class="text-[10px] text-slate-600">~12 %</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="px-4 sm:px-8 py-16 sm:py-24" aria-label="Questions frequentes">
+            <div class="max-w-3xl mx-auto">
+                <span class="text-blue-400 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block text-center">FAQ</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tighter text-white mb-12 text-center">
+                    Questions <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">frequentes</span>
+                </h2>
+                <div class="space-y-4">
+                    <details class="glass rounded-2xl border border-white/5 reveal-scroll">
+                        <summary class="flex items-center justify-between p-6 text-white font-semibold text-sm sm:text-base">
+                            Quel pourcentage du CA consacrer a l'IT ?
+                            <i class="fas fa-chevron-down text-blue-400 text-xs faq-chevron ml-4 shrink-0"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                            En moyenne, les PME consacrent 3 a 6 % de leur CA a l'IT. Les entreprises en phase de transformation digitale investissent 5 a 8 %. Les secteurs technologiques depassent souvent 10 %. Le Gartner recommande un minimum de 3,5 % pour maintenir la competitivite.
+                        </div>
+                    </details>
+                    <details class="glass rounded-2xl border border-white/5 reveal-scroll">
+                        <summary class="flex items-center justify-between p-6 text-white font-semibold text-sm sm:text-base">
+                            Que comprend un budget IT d'entreprise ?
+                            <i class="fas fa-chevron-down text-blue-400 text-xs faq-chevron ml-4 shrink-0"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                            4 postes principaux : infrastructure et cloud (25-35 %), logiciels et licences (20-30 %), ressources humaines IT ou <a href="../solutions/dsi-externalise.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">DSI externalise</a> (30-40 %), et cybersecurite (10-15 %). Les projets de transformation representent un budget supplementaire de 15-25 %.
+                        </div>
+                    </details>
+                    <details class="glass rounded-2xl border border-white/5 reveal-scroll">
+                        <summary class="flex items-center justify-between p-6 text-white font-semibold text-sm sm:text-base">
+                            Comment reduire son budget IT sans perdre en performance ?
+                            <i class="fas fa-chevron-down text-blue-400 text-xs faq-chevron ml-4 shrink-0"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                            Les 3 leviers les plus efficaces : migrer vers le cloud (reduction de 20-40 % des couts), <a href="../solutions/automation-n8n.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">automatiser avec n8n</a> (economie de 10-20h/semaine), et externaliser la DSI (cout 30-50 % inferieur a une equipe interne). 72 % des PME qui optimisent ces 3 axes reduisent leur budget de 15-25 % la premiere annee.
+                        </div>
+                    </details>
+                    <details class="glass rounded-2xl border border-white/5 reveal-scroll">
+                        <summary class="flex items-center justify-between p-6 text-white font-semibold text-sm sm:text-base">
+                            Equipe IT interne ou DSI externalise ?
+                            <i class="fas fa-chevron-down text-blue-400 text-xs faq-chevron ml-4 shrink-0"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                            Pour les PME de moins de 100 salaries, le <a href="../solutions/dsi-externalise.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">DSI externalise</a> est plus rentable dans 80 % des cas. Un DSI interne coute 80 000 a 120 000 EUR/an. Un DSI externalise coute 24 000 a 60 000 EUR/an avec une expertise plus large. Au-dela de 150 salaries, une equipe interne devient justifiee.
+                        </div>
+                    </details>
+                    <details class="glass rounded-2xl border border-white/5 reveal-scroll">
+                        <summary class="flex items-center justify-between p-6 text-white font-semibold text-sm sm:text-base">
+                            Quel budget minimum pour la cybersecurite ?
+                            <i class="fas fa-chevron-down text-blue-400 text-xs faq-chevron ml-4 shrink-0"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                            Le minimum recommande est 10 a 15 % du budget IT total (0,3 a 0,9 % du CA). Pour une PME de 5 M EUR, cela represente 15 000 a 45 000 EUR/an. Le cout moyen d'une cyberattaque pour une PME est de 25 000 EUR. Un <a href="../solutions/cybersecurite-infrastructure.html" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">audit cybersecurite</a> est le meilleur point de depart.
+                        </div>
+                    </details>
+                    <details class="glass rounded-2xl border border-white/5 reveal-scroll">
+                        <summary class="flex items-center justify-between p-6 text-white font-semibold text-sm sm:text-base">
+                            Comment justifier un budget IT aupres de la direction ?
+                            <i class="fas fa-chevron-down text-blue-400 text-xs faq-chevron ml-4 shrink-0"></i>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                            Les 3 arguments cles : le ROI mesurable (1 EUR investi en automatisation genere 3 a 8 EUR), la reduction des risques (une panne IT coute 5 600 EUR/minute en moyenne), et le benchmark sectoriel (comparez votre % IT/CA avec la moyenne). Presentez un business case sur 12 mois avec des metriques claires.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-24 sm:py-32 px-4 sm:px-8 relative overflow-hidden" aria-label="Appel a l'action">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[200px] pointer-events-none" aria-hidden="true"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10 reveal-scroll">
+                <span class="text-blue-400 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Optimisez votre budget</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-white mb-6">
+                    Besoin d'un regard expert ?
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Parlons-en.</span>
+                </h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
+                    Un audit IT de 30 minutes pour identifier les postes de depenses a optimiser et les investissements prioritaires.
+                </p>
+                <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ibguinathan/30min'});"
+                    class="bg-cobalt-gradient text-white px-12 sm:px-16 py-6 rounded-full font-black text-sm uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl shadow-blue-500/20 border border-white/20"
+                    aria-label="Reserver un audit IT de 30 minutes">
+                    Reserver mon Audit IT
+                </button>
+                <p class="mt-6 text-[10px] text-slate-600 uppercase tracking-widest font-bold">30 minutes &bull; Sans engagement &bull; Plan d'action concret</p>
+            </div>
+        </section>
+
+        <!-- RELATED -->
+        <section class="px-4 sm:px-8 pb-24 sm:pb-32" aria-label="Solutions associees">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white mb-8 text-center reveal-scroll">Solutions associees</h2>
+                <div class="grid sm:grid-cols-3 gap-6">
+                    <a href="../solutions/dsi-externalise.html" class="glass p-6 rounded-3xl hover:bg-white/5 transition-all duration-300 block reveal-scroll group border border-white/5">
+                        <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-headset text-blue-400"></i></div>
+                        <h3 class="text-white font-bold mb-2 group-hover:text-blue-400 transition-colors">DSI Externalise</h3>
+                        <p class="text-slate-500 text-sm">Direction informatique a temps partage pour PME et ETI.</p>
+                    </a>
+                    <a href="../solutions/audit-performance-it.html" class="glass p-6 rounded-3xl hover:bg-white/5 transition-all duration-300 block reveal-scroll group border border-white/5">
+                        <div class="w-10 h-10 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-magnifying-glass-chart text-cyan-400"></i></div>
+                        <h3 class="text-white font-bold mb-2 group-hover:text-cyan-400 transition-colors">Audit Performance IT</h3>
+                        <p class="text-slate-500 text-sm">Diagnostic complet de votre infrastructure et recommandations.</p>
+                    </a>
+                    <a href="../solutions/cybersecurite-infrastructure.html" class="glass p-6 rounded-3xl hover:bg-white/5 transition-all duration-300 block reveal-scroll group border border-white/5">
+                        <div class="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-shield-halved text-red-400"></i></div>
+                        <h3 class="text-white font-bold mb-2 group-hover:text-red-400 transition-colors">Cybersecurite</h3>
+                        <p class="text-slate-500 text-sm">Protection des donnees, conformite RGPD, plan de continuite.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.from(".reveal-hero", { duration: 1.5, y: 100, opacity: 0, ease: "power4.out" });
+                gsap.utils.toArray(".reveal-scroll").forEach(function(section) {
+                    gsap.from(section, { scrollTrigger: { trigger: section, start: "top 85%" }, y: 50, opacity: 0, duration: 1, ease: "power3.out" });
+                });
+            }
+        });
+    </script>
+    <script src="../js/theme.js?v=5" defer></script>
+</body>
+</html>
