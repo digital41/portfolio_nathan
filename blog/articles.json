@@ -53,5 +53,49 @@
     "color": "orange",
     "icon": "fa-robot",
     "image": ""
+  },
+  {
+    "slug": "automatisation-processus-n8n-guide-pme",
+    "title": "n8n pour PME : le guide complet de l'automatisation des processus en 2026",
+    "description": "Cas d'usage, comparatif n8n vs Zapier vs Make, coûts et méthodologie de déploiement pour automatiser vos processus métier avec n8n.",
+    "date": "2026-02-20",
+    "readingTime": 14,
+    "tag": "Automation",
+    "color": "yellow",
+    "icon": "fa-cogs",
+    "image": ""
+  },
+  {
+    "slug": "n8n-ia-workflows-agents-automatises",
+    "title": "n8n + IA : construire des agents automatisés et des workflows intelligents",
+    "description": "Connectez n8n à OpenAI, Claude et Gemini pour créer des workflows augmentés par l'intelligence artificielle. 5 cas d'usage concrets.",
+    "date": "2026-02-20",
+    "readingTime": 10,
+    "tag": "Automation",
+    "color": "yellow",
+    "icon": "fa-robot",
+    "image": ""
+  },
+  {
+    "slug": "geo-guide-complet-referencement-ia-2026",
+    "title": "GEO : le guide définitif du référencement dans les moteurs IA en 2026",
+    "description": "Comment être cité par ChatGPT, Perplexity et Gemini. Les 5 piliers du GEO, guide pas à pas et étude de cas pour PME françaises.",
+    "date": "2026-02-20",
+    "readingTime": 15,
+    "tag": "SEO & IA",
+    "color": "orange",
+    "icon": "fa-book-open",
+    "image": ""
+  },
+  {
+    "slug": "agents-ia-rag-entreprise-guide-pratique",
+    "title": "Agents IA et RAG en entreprise : guide pratique pour déployer l'IA autonome",
+    "description": "Du chatbot interne à l'agent commercial autonome : cas d'usage, architecture RAG, comparatif modèles IA et budget pour PME.",
+    "date": "2026-02-20",
+    "readingTime": 12,
+    "tag": "Stratégie IA",
+    "color": "purple",
+    "icon": "fa-microchip",
+    "image": ""
   }
 ]

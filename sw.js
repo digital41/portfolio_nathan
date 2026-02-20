@@ -1,4 +1,4 @@
-var CACHE_NAME = 'ni-v7';
+var CACHE_NAME = 'ni-v9';
 var CORE_ASSETS = [
     '/',
     '/index.html',
@@ -25,7 +25,13 @@ var CORE_ASSETS = [
     '/blog/index.html',
     '/blog/ia-pme-guide-2026.html',
     '/blog/audit-it-checklist-30-points.html',
-    '/blog/seo-ia-generative-chatgpt-2026.html'
+    '/blog/seo-ia-generative-chatgpt-2026.html',
+    '/blog/impact-micro-influenceurs-strategie-marketing.html',
+    '/blog/google-ads-meta-ads-pme-roi-2026.html',
+    '/blog/automatisation-processus-n8n-guide-pme.html',
+    '/blog/n8n-ia-workflows-agents-automatises.html',
+    '/blog/geo-guide-complet-referencement-ia-2026.html',
+    '/blog/agents-ia-rag-entreprise-guide-pratique.html'
 ];
 
 self.addEventListener('install', function (e) {

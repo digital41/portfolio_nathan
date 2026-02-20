@@ -8,13 +8,13 @@
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/strategie-ia</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/automation-n8n</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -50,7 +50,7 @@
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/geo-referencement-ia</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -104,7 +104,7 @@
     </url>
     <url>
         <loc>https://nathanibgui.com/blog/seo-ia-generative-chatgpt-2026</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -117,6 +117,30 @@
     <url>
         <loc>https://nathanibgui.com/blog/google-ads-meta-ads-pme-roi-2026</loc>
         <lastmod>2026-02-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/automatisation-processus-n8n-guide-pme</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/n8n-ia-workflows-agents-automatises</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/geo-guide-complet-referencement-ia-2026</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/agents-ia-rag-entreprise-guide-pratique</loc>
+        <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
