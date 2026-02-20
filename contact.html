@@ -114,7 +114,9 @@
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
-    <!-- EmailJS removed - now handled server-side via n8n webhook -->
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>emailjs.init('6hYZ1iz7zgLGgNn8t');</script>
 
     <!-- reCAPTCHA v3 -->
     <script src="https://www.google.com/recaptcha/api.js?render=6LdbrW4sAAAAALm6t9NE22grG3xNs1QZZLVrXRSN"></script>
@@ -276,32 +278,25 @@
                     this.sendError = false;
                     grecaptcha.ready(() => {
                         grecaptcha.execute('6LdbrW4sAAAAALm6t9NE22grG3xNs1QZZLVrXRSN', { action: 'contact' }).then((token) => {
-                            fetch('https://n8n.srv1014329.hstgr.cloud/webhook/contact-form', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({
-                                    besoin: this.formData.besoin,
-                                    from_name: this.formData.nom,
-                                    from_email: this.formData.email,
-                                    entreprise: this.formData.entreprise || 'Non renseigné',
-                                    taille: this.formData.taille || 'Non renseigné',
-                                    telephone: this.formData.telephone || 'Non renseigné',
-                                    budget: this.formData.budget || 'Non renseigné',
-                                    message: this.formData.message || 'Aucun message',
-                                    'g-recaptcha-response': token
-                                })
-                            }).then(res => {
-                                if (res.ok) {
-                                    this.sending = false;
-                                    this.submitted = true;
-                                    this.step = 4;
-                                } else {
-                                    throw new Error('Server returned ' + res.status);
-                                }
+                            emailjs.send('service_so44t3i', 'template_cg0zj97', {
+                                besoin: this.formData.besoin,
+                                from_name: this.formData.nom,
+                                from_email: this.formData.email,
+                                entreprise: this.formData.entreprise || 'Non renseigné',
+                                taille: this.formData.taille || 'Non renseigné',
+                                telephone: this.formData.telephone || 'Non renseigné',
+                                budget: this.formData.budget || 'Non renseigné',
+                                message: this.formData.message || 'Aucun message',
+                                reply_to: this.formData.email,
+                                'g-recaptcha-response': token
+                            }).then(() => {
+                                this.sending = false;
+                                this.submitted = true;
+                                this.step = 4;
                             }).catch((err) => {
                                 this.sending = false;
                                 this.sendError = true;
-                                console.error('Form submission error:', err);
+                                console.error('EmailJS error:', err);
                             });
                         });
                     });
