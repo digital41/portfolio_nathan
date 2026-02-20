@@ -9,9 +9,10 @@ var SiteComponents = (function () {
     var path = location.pathname;
     var inSolutions = path.includes('/solutions/');
     var inBlog = path.includes('/blog/');
-    var inSub = inSolutions || inBlog;
+    var inTools = path.includes('/tools/');
+    var inSub = inSolutions || inBlog || inTools;
     var p = inSub ? '../' : '';                  // prefix to root
-    var s = inBlog ? '../solutions/' : (inSolutions ? '' : 'solutions/'); // prefix to solutions/
+    var s = inBlog ? '../solutions/' : (inTools ? '../solutions/' : (inSolutions ? '' : 'solutions/')); // prefix to solutions/
     var cur = path.split('/').pop().replace(/\.html$/, '') || 'index';
     var isIndex = cur === 'index' || cur === '' || cur === '/';
 

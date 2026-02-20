@@ -1,4 +1,4 @@
-var CACHE_NAME = 'ni-v9';
+var CACHE_NAME = 'ni-v10';
 var CORE_ASSETS = [
     '/',
     '/index.html',
@@ -11,6 +11,7 @@ var CORE_ASSETS = [
     '/js/ab-test.js',
     '/assets/favicon.ico',
     '/assets/images/nathanibguiProfile.webp',
+    '/assets/images/nathanibguiProfile-og.jpg',
     '/solutions/audit-performance-it.html',
     '/solutions/automation-n8n.html',
     '/solutions/cybersecurite-infrastructure.html',
@@ -31,7 +32,8 @@ var CORE_ASSETS = [
     '/blog/automatisation-processus-n8n-guide-pme.html',
     '/blog/n8n-ia-workflows-agents-automatises.html',
     '/blog/geo-guide-complet-referencement-ia-2026.html',
-    '/blog/agents-ia-rag-entreprise-guide-pratique.html'
+    '/blog/agents-ia-rag-entreprise-guide-pratique.html',
+    '/tools/calculateur-roi-automatisation.html'
 ];
 
 self.addEventListener('install', function (e) {
