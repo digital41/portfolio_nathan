@@ -276,30 +276,39 @@
                 submitForm() {
                     this.sending = true;
                     this.sendError = false;
-                    grecaptcha.ready(() => {
-                        grecaptcha.execute('6LdbrW4sAAAAALm6t9NE22grG3xNs1QZZLVrXRSN', { action: 'contact' }).then((token) => {
-                            emailjs.send('service_so44t3i', 'template_cg0zj97', {
-                                besoin: this.formData.besoin,
-                                from_name: this.formData.nom,
-                                from_email: this.formData.email,
-                                entreprise: this.formData.entreprise || 'Non renseigné',
-                                taille: this.formData.taille || 'Non renseigné',
-                                telephone: this.formData.telephone || 'Non renseigné',
-                                budget: this.formData.budget || 'Non renseigné',
-                                message: this.formData.message || 'Aucun message',
-                                reply_to: this.formData.email,
-                                'g-recaptcha-response': token
-                            }).then(() => {
-                                this.sending = false;
-                                this.submitted = true;
-                                this.step = 4;
-                            }).catch((err) => {
-                                this.sending = false;
-                                this.sendError = true;
-                                console.error('EmailJS error:', err);
-                            });
+                    const self = this;
+                    const params = {
+                        besoin: self.formData.besoin,
+                        from_name: self.formData.nom,
+                        from_email: self.formData.email,
+                        entreprise: self.formData.entreprise || 'Non renseigné',
+                        taille: self.formData.taille || 'Non renseigné',
+                        telephone: self.formData.telephone || 'Non renseigné',
+                        budget: self.formData.budget || 'Non renseigné',
+                        message: self.formData.message || 'Aucun message',
+                        reply_to: self.formData.email
+                    };
+                    function doSend(token) {
+                        if (token) params['g-recaptcha-response'] = token;
+                        emailjs.send('service_so44t3i', 'template_cg0zj97', params).then(() => {
+                            self.sending = false;
+                            self.submitted = true;
+                            self.step = 4;
+                        }).catch((err) => {
+                            self.sending = false;
+                            self.sendError = true;
+                            console.error('EmailJS error:', err);
                         });
-                    });
+                    }
+                    if (typeof grecaptcha !== 'undefined') {
+                        grecaptcha.ready(() => {
+                            grecaptcha.execute('6LdbrW4sAAAAALm6t9NE22grG3xNs1QZZLVrXRSN', { action: 'contact' })
+                                .then(doSend)
+                                .catch(() => doSend(''));
+                        });
+                    } else {
+                        doSend('');
+                    }
                 }
             }">
             <div class="max-w-7xl mx-auto">
