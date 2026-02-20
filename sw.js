@@ -33,6 +33,7 @@ var CORE_ASSETS = [
     '/blog/n8n-ia-workflows-agents-automatises.html',
     '/blog/geo-guide-complet-referencement-ia-2026.html',
     '/blog/agents-ia-rag-entreprise-guide-pratique.html',
+    '/tools/index.html',
     '/tools/calculateur-roi-automatisation.html'
 ];
 
