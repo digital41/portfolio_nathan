@@ -134,12 +134,12 @@
     @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/inter-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
     </style>
     <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme-mode',t);if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
-    <link rel="stylesheet" href="../css/tailwind.css?v=1">
+    <link rel="stylesheet" href="/css/tailwind.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="../css/theme.css?v=5" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/theme.css?v=5"></noscript>
-    <script src="../js/components.js?v=8" defer></script>
+    <link rel="stylesheet" href="/css/theme.css?v=5" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/theme.css?v=5"></noscript>
+    <script src="/js/components.js?v=8" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.15.8/dist/cdn.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -173,9 +173,9 @@
         <!-- BREADCRUMB -->
         <nav class="pt-24 pb-4 px-4 sm:px-8 max-w-7xl mx-auto" aria-label="Fil d'Ariane">
             <ol class="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-                <li><a href="../index.html" class="hover:text-white transition-colors">Accueil</a></li>
+                <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
                 <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
-                <li><a href="index.html" class="hover:text-white transition-colors">Blog</a></li>
+                <li><a href="/" class="hover:text-white transition-colors">Blog</a></li>
                 <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
                 <li class="text-yellow-400" aria-current="page">n8n + IA : Workflows Intelligents</li>
             </ol>
@@ -214,7 +214,7 @@
                     <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight mb-6">La convergence n8n + IA : pourquoi c'est un game changer</h2>
                     <div class="space-y-4 text-slate-300 leading-relaxed">
                         <p>L'automatisation classique via n8n excelle pour les tâches répétitives et prévisibles : si X alors Y. Mais 60 % des processus métier impliquent des décisions qui nécessitent du jugement humain — analyser le ton d'un email, classer un document ambigu, rédiger une réponse personnalisée. C'est exactement là que l'intelligence artificielle entre en jeu.</p>
-                        <p>En connectant n8n à des modèles de langage comme GPT-4, Claude ou Gemini, vous créez des workflows capables de comprendre, décider et agir de manière autonome. Un email client arrive ? L'IA analyse son contenu, évalue l'urgence, classe la demande et rédige un brouillon de réponse — le tout en quelques secondes, 24 heures sur 24. C'est la différence entre un automate et un <a href="../solutions/strategie-ia.html" class="text-yellow-400 hover:text-yellow-300 underline underline-offset-2">agent IA</a> véritablement intelligent.</p>
+                        <p>En connectant n8n à des modèles de langage comme GPT-4, Claude ou Gemini, vous créez des workflows capables de comprendre, décider et agir de manière autonome. Un email client arrive ? L'IA analyse son contenu, évalue l'urgence, classe la demande et rédige un brouillon de réponse — le tout en quelques secondes, 24 heures sur 24. C'est la différence entre un automate et un <a href="/solutions/strategie-ia" class="text-yellow-400 hover:text-yellow-300 underline underline-offset-2">agent IA</a> véritablement intelligent.</p>
                         <p>n8n est particulièrement bien positionné pour cette convergence. Son architecture événementielle, son support natif des API LLM (nœuds OpenAI, Anthropic, Google AI) et sa capacité à orchestrer des workflows complexes en font la plateforme idéale pour construire des agents IA opérationnels en production. En 2026, 35 % des workflows n8n en entreprise intègrent au moins un appel à un modèle d'IA.</p>
                     </div>
                 </section>
@@ -292,7 +292,7 @@
                         <p>Le RAG (Retrieval-Augmented Generation) est la technique qui permet à une IA de répondre à des questions en se basant sur vos données privées plutôt que sur ses connaissances générales. C'est la technologie derrière les chatbots internes les plus efficaces et les systèmes de recherche documentaire intelligents.</p>
                         <p><strong class="text-white">Comment ça marche concrètement.</strong> Vos documents (PDF, Word, pages web, emails) sont découpés en segments, convertis en vecteurs numériques (embeddings) et stockés dans une base vectorielle. Quand un utilisateur pose une question, le système recherche les segments les plus pertinents par similarité sémantique et les injecte dans le prompt du LLM. L'IA génère alors une réponse précise, sourcée et contextuelle.</p>
                         <p><strong class="text-white">Mise en place avec n8n.</strong> n8n intègre nativement les bases vectorielles Pinecone, Qdrant, Supabase et Weaviate. Un workflow d'indexation automatique surveille vos dossiers (Google Drive, SharePoint, Notion) et met à jour la base vectorielle dès qu'un document est ajouté ou modifié. Un second workflow gère les requêtes : réception de la question (Slack, email, formulaire web), recherche vectorielle, génération de la réponse et transmission à l'utilisateur.</p>
-                        <p>La combinaison RAG + <a href="../solutions/automation-n8n.html" class="text-yellow-400 hover:text-yellow-300 underline underline-offset-2">n8n</a> est particulièrement adaptée aux PME qui disposent de documentation métier dispersée et difficilement exploitable. En rendant cette connaissance interrogeable en langage naturel, vous transformez des archives passives en un actif stratégique vivant.</p>
+                        <p>La combinaison RAG + <a href="/solutions/automation-n8n" class="text-yellow-400 hover:text-yellow-300 underline underline-offset-2">n8n</a> est particulièrement adaptée aux PME qui disposent de documentation métier dispersée et difficilement exploitable. En rendant cette connaissance interrogeable en langage naturel, vous transformez des archives passives en un actif stratégique vivant.</p>
                     </div>
                 </section>
 
@@ -390,7 +390,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                     <!-- Related: Guide n8n PME -->
-                    <a href="automatisation-processus-n8n-guide-pme.html" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-yellow-500/30 block">
+                    <a href="/blog/automatisation-processus-n8n-guide-pme" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-yellow-500/30 block">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-12 h-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center text-yellow-400 text-xl group-hover:scale-110 transition-transform">
                                 <i class="fas fa-cogs" aria-hidden="true"></i>
@@ -403,7 +403,7 @@
                     </a>
 
                     <!-- Related: IA PME Guide (cross-cluster bridge) -->
-                    <a href="ia-pme-guide-2026.html" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-purple-500/30 block">
+                    <a href="/blog/ia-pme-guide-2026" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-purple-500/30 block">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-12 h-12 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition-transform">
                                 <i class="fas fa-brain" aria-hidden="true"></i>
@@ -423,7 +423,7 @@
 
     <div id="site-footer"></div>
 
-    <script src="../js/theme.js?v=5" defer></script>
+    <script src="/js/theme.js?v=5" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {

@@ -1,20 +1,16 @@
 /**
  * Shared Header & Footer Components
- * Auto-detects page context (root vs solutions/) via location.pathname
+ * Uses absolute paths for clean URL compatibility (directory-based structure)
  */
 var SiteComponents = (function () {
     'use strict';
 
-    // --- Auto-detect context ---
+    // --- Auto-detect current page ---
     var path = location.pathname;
-    var inSolutions = path.includes('/solutions/');
-    var inBlog = path.includes('/blog/');
-    var inTools = path.includes('/tools/');
-    var inSub = inSolutions || inBlog || inTools;
-    var p = inSub ? '../' : '';                  // prefix to root
-    var s = inBlog ? '../solutions/' : (inTools ? '../solutions/' : (inSolutions ? '' : 'solutions/')); // prefix to solutions/
-    var cur = path.split('/').pop().replace(/\.html$/, '') || 'index';
-    var isIndex = cur === 'index' || cur === '' || cur === '/';
+    var cleanPath = path.replace(/\/+$/, '').replace(/\/index\.html$/, '');
+    var segments = cleanPath.split('/').filter(Boolean);
+    var cur = segments[segments.length - 1] || 'index';
+    var isIndex = segments.length === 0;
 
     // Helper: link class with aria-current for active page
     function fLink(href, label, page) {
@@ -34,8 +30,8 @@ var SiteComponents = (function () {
             '<i class="' + icon + '" aria-hidden="true"></i> ' + label + '</a>';
     }
 
-    // --- Nav link prefix ---
-    var nav = isIndex ? '#' : p + 'index.html#';
+    // --- Nav links ---
+    var nav = isIndex ? '#' : '/#';
 
     // ==========================================================
     // HEADER
@@ -54,16 +50,14 @@ var SiteComponents = (function () {
         html += '<noscript><div style="background:#1e3a8a;color:white;text-align:center;padding:16px;font-family:sans-serif;">Ce site fonctionne mieux avec JavaScript activé. <a href="https://calendly.com/ibguinathan/30min" style="color:#93c5fd;text-decoration:underline;">Réservez directement votre consultation ici.</a></div></noscript>';
 
         if (isSimple) {
-            // Simple header: logo + theme toggle + back button
             html += '<header class="fixed top-0 w-full z-50 glass py-5 px-4 sm:px-8 flex justify-between items-center border-b border-white/5" style="background:rgba(11,17,32,0.92);backdrop-filter:blur(20px)" role="banner">';
-            html += '<a href="' + p + 'index.html" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>';
+            html += '<a href="/" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>';
             html += '<button class="theme-toggle" aria-label="Changer le thème"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>';
-            html += '<a href="' + p + 'index.html" class="bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10">Retour à l\'accueil</a>';
+            html += '<a href="/" class="bg-cobalt-gradient text-white px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-blue-900/40 border border-white/10">Retour à l\'accueil</a>';
             html += '</header>';
         } else {
-            // Full header: logo + nav + theme toggle + CTA + mobile menu
             html += '<header class="fixed top-0 w-full z-50 glass py-5 px-4 sm:px-8 flex justify-between items-center border-b border-white/5" style="background:rgba(11,17,32,0.92);backdrop-filter:blur(20px)" role="banner">';
-            html += '<a href="' + (isIndex ? '/' : p + 'index.html') + '" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>';
+            html += '<a href="/" class="premium-logo" aria-label="Nathan Ibgui - Accueil">Nathan<span>Ibgui.</span></a>';
 
             // Desktop nav
             html += '<nav class="hidden lg:flex gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500" aria-label="Navigation principale">';
@@ -71,7 +65,7 @@ var SiteComponents = (function () {
             html += '<a href="' + nav + 'audit" class="hover:text-white transition-colors duration-300">Diagnostic</a>';
             html += '<a href="' + nav + 'skills" class="hover:text-white transition-colors duration-300">Performance</a>';
             html += '<a href="' + nav + 'solutions" class="hover:text-white transition-colors duration-300">Solutions</a>';
-            html += '<a href="contact.html" class="hover:text-white transition-colors duration-300">Contact</a>';
+            html += '<a href="/contact" class="hover:text-white transition-colors duration-300">Contact</a>';
             html += '</nav>';
 
             // Right side: theme toggle + CTA + hamburger
@@ -89,7 +83,7 @@ var SiteComponents = (function () {
             html += '<a href="' + nav + 'audit" @click="mobileMenu = false" class="hover:text-white transition-colors">Diagnostic</a>';
             html += '<a href="' + nav + 'skills" @click="mobileMenu = false" class="hover:text-white transition-colors">Performance</a>';
             html += '<a href="' + nav + 'solutions" @click="mobileMenu = false" class="hover:text-white transition-colors">Solutions</a>';
-            html += '<a href="contact.html" @click="mobileMenu = false" class="hover:text-white transition-colors">Contact</a>';
+            html += '<a href="/contact" @click="mobileMenu = false" class="hover:text-white transition-colors">Contact</a>';
             html += '<button class="theme-toggle theme-toggle-mobile" @click="mobileMenu = false" aria-label="Changer le thème"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span>Thème</span></button>';
             html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="sm:hidden bg-cobalt-gradient text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest text-center" data-ab="header-cta"><span data-ab-text>Consultation Call</span></button>';
             html += '</nav>';
@@ -111,7 +105,7 @@ var SiteComponents = (function () {
 
         // Column 1: Brand
         html += '<div>';
-        html += '<a href="' + (isIndex ? '/' : p + 'index.html') + '" class="premium-logo inline-block mb-4">Nathan<span>Ibgui.</span></a>';
+        html += '<a href="/" class="premium-logo inline-block mb-4">Nathan<span>Ibgui.</span></a>';
         html += '<p class="text-sm text-slate-500 max-w-xs">CIO Executive & Architecte de Profit. Stratégie IA, automation et transformation digitale pour PME et ETI industrielles.</p>';
         html += '</div>';
 
@@ -119,12 +113,12 @@ var SiteComponents = (function () {
         html += '<div>';
         html += '<h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Solutions IT</h4>';
         html += '<nav aria-label="Solutions IT" class="flex flex-col gap-3">';
-        html += fLink(s + 'strategie-ia.html', 'Stratégie IA & Agents', 'strategie-ia');
-        html += fLink(s + 'automation-n8n.html', 'Automation n8n', 'automation-n8n');
-        html += fLink(s + 'audit-performance-it.html', 'Audit Performance IT', 'audit-performance-it');
-        html += fLink(s + 'dsi-externalise.html', 'DSI Externalisé', 'dsi-externalise');
-        html += fLink(s + 'data-erp.html', 'Data & ERP', 'data-erp');
-        html += fLink(s + 'cybersecurite-infrastructure.html', 'Cybersécurité & Cloud', 'cybersecurite-infrastructure');
+        html += fLink('/solutions/strategie-ia', 'Stratégie IA & Agents', 'strategie-ia');
+        html += fLink('/solutions/automation-n8n', 'Automation n8n', 'automation-n8n');
+        html += fLink('/solutions/audit-performance-it', 'Audit Performance IT', 'audit-performance-it');
+        html += fLink('/solutions/dsi-externalise', 'DSI Externalisé', 'dsi-externalise');
+        html += fLink('/solutions/data-erp', 'Data & ERP', 'data-erp');
+        html += fLink('/solutions/cybersecurite-infrastructure', 'Cybersécurité & Cloud', 'cybersecurite-infrastructure');
         html += '</nav>';
         html += '</div>';
 
@@ -132,11 +126,11 @@ var SiteComponents = (function () {
         html += '<div>';
         html += '<h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Marketing & Visibilité</h4>';
         html += '<nav aria-label="Marketing et Visibilité" class="flex flex-col gap-3">';
-        html += fLink(s + 'strategie-marketing-branding.html', 'Marketing & Branding', 'strategie-marketing-branding');
-        html += fLink(s + 'seo-acquisition-digitale.html', 'SEO & Référencement', 'seo-acquisition-digitale');
-        html += fLink(s + 'geo-referencement-ia.html', 'GEO Référencement IA', 'geo-referencement-ia');
-        html += fLink(s + 'google-business-profile.html', 'Google Business Profile', 'google-business-profile');
-        html += fLink(s + 'publicite-digitale.html', 'Publicité Digitale & Ads', 'publicite-digitale');
+        html += fLink('/solutions/strategie-marketing-branding', 'Marketing & Branding', 'strategie-marketing-branding');
+        html += fLink('/solutions/seo-acquisition-digitale', 'SEO & Référencement', 'seo-acquisition-digitale');
+        html += fLink('/solutions/geo-referencement-ia', 'GEO Référencement IA', 'geo-referencement-ia');
+        html += fLink('/solutions/google-business-profile', 'Google Business Profile', 'google-business-profile');
+        html += fLink('/solutions/publicite-digitale', 'Publicité Digitale & Ads', 'publicite-digitale');
         html += '</nav>';
         html += '</div>';
 
@@ -146,11 +140,11 @@ var SiteComponents = (function () {
         html += '<div class="flex flex-col gap-3">';
         html += fLinkIcon('https://fr.linkedin.com/in/nathan-ibgui', 'fab fa-linkedin', 'LinkedIn', '', true);
         html += fLinkIcon('https://www.instagram.com/nathan.ibgui/', 'fab fa-instagram', 'Instagram', '', true);
-        html += fLinkIcon(p + 'contact.html', 'fas fa-envelope', 'Contact', 'contact', false);
-        html += fLinkIcon((inBlog ? '' : p + 'blog/') + 'index.html', 'fas fa-newspaper', 'Blog', 'blog-index', false);
+        html += fLinkIcon('/contact', 'fas fa-envelope', 'Contact', 'contact', false);
+        html += fLinkIcon('/blog/', 'fas fa-newspaper', 'Blog', 'blog', false);
         html += '<hr class="border-white/5 my-2">';
-        html += fLink(p + 'mentions-legales.html', 'Mentions légales', 'mentions-legales');
-        html += '<a href="' + p + 'mentions-legales.html#confidentialite" class="text-sm text-slate-500 hover:text-white transition-colors">Politique de confidentialité</a>';
+        html += fLink('/mentions-legales', 'Mentions légales', 'mentions-legales');
+        html += '<a href="/mentions-legales#confidentialite" class="text-sm text-slate-500 hover:text-white transition-colors">Politique de confidentialité</a>';
         html += '</div>';
         html += '</div>';
 

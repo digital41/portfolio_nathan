@@ -11,6 +11,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Convert to clean URL directory structure
+        run: |
+          # Convert page.html → page/index.html for clean URLs on nginx
+          # Skip index.html files and 404.html
+          find . -name "*.html" ! -name "index.html" ! -name "404.html" -type f | while read file; do
+            dir="${file%.html}"
+            mkdir -p "$dir"
+            mv "$file" "$dir/index.html"
+            echo "Converted: $file → $dir/index.html"
+          done
+
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:

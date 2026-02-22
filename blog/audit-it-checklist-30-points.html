@@ -132,12 +132,12 @@
     @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/inter-900-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
     </style>
     <script>(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme-mode',t);if(t==='light')document.documentElement.setAttribute('data-theme','light');})();</script>
-    <link rel="stylesheet" href="../css/tailwind.css?v=1">
+    <link rel="stylesheet" href="/css/tailwind.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="../css/theme.css?v=5" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/theme.css?v=5"></noscript>
-    <script src="../js/components.js?v=8" defer></script>
+    <link rel="stylesheet" href="/css/theme.css?v=5" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/theme.css?v=5"></noscript>
+    <script src="/js/components.js?v=8" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.15.8/dist/cdn.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -171,9 +171,9 @@
         <!-- BREADCRUMB -->
         <nav class="pt-24 pb-4 px-4 sm:px-8 max-w-7xl mx-auto" aria-label="Fil d'Ariane">
             <ol class="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-                <li><a href="../index.html" class="hover:text-white transition-colors">Accueil</a></li>
+                <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
                 <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
-                <li><a href="index.html" class="hover:text-white transition-colors">Blog</a></li>
+                <li><a href="/" class="hover:text-white transition-colors">Blog</a></li>
                 <li aria-hidden="true"><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
                 <li class="text-green-400" aria-current="page">Audit IT : 30 Points Critiques</li>
             </ol>
@@ -210,13 +210,13 @@
                 <!-- INTRODUCTION -->
                 <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 mb-10">
                     <p class="text-slate-300 leading-relaxed mb-4">
-                        Dans la plupart des PME que j'accompagne en tant que <a href="../solutions/dsi-externalise.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">DSI externalisé</a>, le constat est souvent le même : le système d'information s'est construit par sédimentation, au fil des urgences et de la croissance. Personne n'a jamais pris le temps de faire un état des lieux global. Résultat : des vulnérabilités ignorées, des coûts cachés qui s'accumulent et des processus qui freinent l'activité au lieu de la porter.
+                        Dans la plupart des PME que j'accompagne en tant que <a href="/solutions/dsi-externalise" class="text-green-400 hover:text-green-300 underline underline-offset-2">DSI externalisé</a>, le constat est souvent le même : le système d'information s'est construit par sédimentation, au fil des urgences et de la croissance. Personne n'a jamais pris le temps de faire un état des lieux global. Résultat : des vulnérabilités ignorées, des coûts cachés qui s'accumulent et des processus qui freinent l'activité au lieu de la porter.
                     </p>
                     <p class="text-slate-300 leading-relaxed mb-4">
                         Un audit IT n'est pas un exercice théorique réservé aux grands groupes. C'est un diagnostic concret, structuré, qui révèle précisément où votre SI performe et où il vous expose. Pour une PME, c'est souvent le point de départ d'une transformation digitale réussie.
                     </p>
                     <p class="text-slate-300 leading-relaxed">
-                        J'ai condensé dans cet article les 30 points que je vérifie systématiquement lors d'un <a href="../solutions/audit-performance-it.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">audit de performance IT</a>. Cette checklist est organisée en cinq domaines et vous permet d'évaluer immédiatement la maturité de votre infrastructure, votre posture de sécurité, la santé de vos applications, l'efficacité de vos processus et la solidité de votre gouvernance IT.
+                        J'ai condensé dans cet article les 30 points que je vérifie systématiquement lors d'un <a href="/solutions/audit-performance-it" class="text-green-400 hover:text-green-300 underline underline-offset-2">audit de performance IT</a>. Cette checklist est organisée en cinq domaines et vous permet d'évaluer immédiatement la maturité de votre infrastructure, votre posture de sécurité, la santé de vos applications, l'efficacité de vos processus et la solidité de votre gouvernance IT.
                     </p>
                 </div>
 
@@ -281,7 +281,7 @@
                         </div>
                         <h2 id="domaine-secu" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Domaine 2 : Sécurité & Conformité</h2>
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">La sécurité est le domaine où les PME accumulent le plus de dette technique. Pour un accompagnement complet sur ces sujets, consultez notre offre de <a href="../solutions/cybersecurite-infrastructure.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">cybersécurité et infrastructure cloud</a>.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">La sécurité est le domaine où les PME accumulent le plus de dette technique. Pour un accompagnement complet sur ces sujets, consultez notre offre de <a href="/solutions/cybersecurite-infrastructure" class="text-green-400 hover:text-green-300 underline underline-offset-2">cybersécurité et infrastructure cloud</a>.</p>
                     <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 space-y-6">
 
                         <div class="flex gap-4">
@@ -351,7 +351,7 @@
                         </div>
                         <h2 id="domaine-apps" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Domaine 3 : Applications & Licences</h2>
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Le parc applicatif est souvent le parent pauvre de l'audit. Pour optimiser votre écosystème logiciel et votre <a href="../solutions/data-erp.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">gestion des données et ERP</a>, un état des lieux précis est la première étape.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Le parc applicatif est souvent le parent pauvre de l'audit. Pour optimiser votre écosystème logiciel et votre <a href="/solutions/data-erp" class="text-green-400 hover:text-green-300 underline underline-offset-2">gestion des données et ERP</a>, un état des lieux précis est la première étape.</p>
                     <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 space-y-6">
 
                         <div class="flex gap-4">
@@ -413,7 +413,7 @@
                         </div>
                         <h2 id="domaine-process" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Domaine 4 : Processus & Automatisation</h2>
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">L'automatisation est le levier le plus rapide pour améliorer la productivité. Découvrez comment l'<a href="../solutions/automation-n8n.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">automatisation des workflows</a> peut transformer vos opérations quotidiennes.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">L'automatisation est le levier le plus rapide pour améliorer la productivité. Découvrez comment l'<a href="/solutions/automation-n8n" class="text-green-400 hover:text-green-300 underline underline-offset-2">automatisation des workflows</a> peut transformer vos opérations quotidiennes.</p>
                     <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 space-y-6">
 
                         <div class="flex gap-4">
@@ -452,7 +452,7 @@
                             <i class="fas fa-check-circle text-green-400 mt-1 flex-shrink-0" aria-hidden="true"></i>
                             <div>
                                 <h3 class="text-white font-bold mb-1">23. Exploitation de l'IA dans les processus</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed">Avez-vous identifié les cas d'usage où l'intelligence artificielle pourrait accélérer vos opérations ? Classification automatique de documents, chatbots internes, prédiction de la demande : une <a href="../solutions/strategie-ia.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">stratégie IA</a> structurée permet des gains considérables.</p>
+                                <p class="text-slate-400 text-sm leading-relaxed">Avez-vous identifié les cas d'usage où l'intelligence artificielle pourrait accélérer vos opérations ? Classification automatique de documents, chatbots internes, prédiction de la demande : une <a href="/solutions/strategie-ia" class="text-green-400 hover:text-green-300 underline underline-offset-2">stratégie IA</a> structurée permet des gains considérables.</p>
                             </div>
                         </div>
 
@@ -475,7 +475,7 @@
                         </div>
                         <h2 id="domaine-gouv" class="text-2xl sm:text-3xl font-black text-white tracking-tight">Domaine 5 : Gouvernance & Budget</h2>
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">La gouvernance IT est ce qui sépare les PME qui subissent leur informatique de celles qui en font un avantage compétitif. Un <a href="../solutions/dsi-externalise.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">DSI externalisé</a> apporte la structuration nécessaire sans le coût d'un poste à temps plein.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">La gouvernance IT est ce qui sépare les PME qui subissent leur informatique de celles qui en font un avantage compétitif. Un <a href="/solutions/dsi-externalise" class="text-green-400 hover:text-green-300 underline underline-offset-2">DSI externalisé</a> apporte la structuration nécessaire sans le coût d'un poste à temps plein.</p>
                     <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5 space-y-6">
 
                         <div class="flex gap-4">
@@ -539,7 +539,7 @@
                     </div>
                     <div class="glass p-8 sm:p-10 rounded-3xl border border-white/5">
                         <p class="text-slate-300 leading-relaxed mb-4">
-                            Une checklist remplie n'a de valeur que si elle débouche sur un plan d'action concret. Voici la méthode que j'applique systématiquement après un <a href="../solutions/audit-performance-it.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">audit de performance IT</a> :
+                            Une checklist remplie n'a de valeur que si elle débouche sur un plan d'action concret. Voici la méthode que j'applique systématiquement après un <a href="/solutions/audit-performance-it" class="text-green-400 hover:text-green-300 underline underline-offset-2">audit de performance IT</a> :
                         </p>
                         <div class="space-y-4 mt-6">
                             <div class="flex gap-4">
@@ -610,7 +610,7 @@
                                 <i class="fas fa-chevron-down text-green-400 text-xs transition-transform" :class="{ 'rotate-180': open === 3 }" aria-hidden="true"></i>
                             </button>
                             <div x-show="open === 3" x-collapse x-cloak class="px-6 pb-6">
-                                <p class="text-slate-400 text-sm leading-relaxed">Les deux approches sont complémentaires. Un responsable IT interne peut assurer le suivi régulier des points techniques (sauvegardes, mises à jour, monitoring). En revanche, un regard externe apporte une objectivité indispensable sur la gouvernance, le benchmark sectoriel, la conformité réglementaire et l'identification des angles morts. Un <a href="../solutions/dsi-externalise.html" class="text-green-400 hover:text-green-300 underline underline-offset-2">DSI externalisé</a> combine les avantages des deux approches.</p>
+                                <p class="text-slate-400 text-sm leading-relaxed">Les deux approches sont complémentaires. Un responsable IT interne peut assurer le suivi régulier des points techniques (sauvegardes, mises à jour, monitoring). En revanche, un regard externe apporte une objectivité indispensable sur la gouvernance, le benchmark sectoriel, la conformité réglementaire et l'identification des angles morts. Un <a href="/solutions/dsi-externalise" class="text-green-400 hover:text-green-300 underline underline-offset-2">DSI externalisé</a> combine les avantages des deux approches.</p>
                             </div>
                         </div>
 
@@ -653,7 +653,7 @@
                 <div class="grid md:grid-cols-2 gap-6">
 
                     <!-- Article IA -->
-                    <a href="ia-pme-guide-2026.html" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-purple-500/30 block">
+                    <a href="/blog/ia-pme-guide-2026" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-purple-500/30 block">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-12 h-12 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition-transform">
                                 <i class="fas fa-brain" aria-hidden="true"></i>
@@ -666,7 +666,7 @@
                     </a>
 
                     <!-- Article SEO -->
-                    <a href="seo-ia-generative-chatgpt-2026.html" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-orange-500/30 block">
+                    <a href="/blog/seo-ia-generative-chatgpt-2026" class="glass p-8 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 hover:border-orange-500/30 block">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-12 h-12 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-400 text-xl group-hover:scale-110 transition-transform">
                                 <i class="fas fa-robot" aria-hidden="true"></i>
@@ -686,7 +686,7 @@
 
     <div id="site-footer"></div>
 
-    <script src="../js/theme.js?v=5" defer></script>
+    <script src="/js/theme.js?v=5" defer></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
