@@ -24,11 +24,9 @@ RewriteCond %{THE_REQUEST} \.html[\s?] [NC]
 RewriteCond %{REQUEST_URI} !(index|404)\.html$
 RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 
-# Serve .html file for extensionless URLs (internal rewrite)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html [L]
+# Serve .html file for extensionless URLs (explicit pattern matching)
+RewriteRule ^(solutions|blog|tools)/([^/\.]+)$ /$1/$2.html [L]
+RewriteRule ^(contact|mentions-legales)$ /$1.html [L]
 
 # --- Custom error pages ---
 ErrorDocument 404 /404.html
