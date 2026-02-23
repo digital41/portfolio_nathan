@@ -1,2 +1,3 @@
-# TEST 1 : Le serveur lit-il le .htaccess ?
-Header set X-Test "htaccess-works"
+# TEST 2 : Redirect simple
+# /test-htaccess doit rediriger vers /contact
+Redirect 301 /test-htaccess /contact
