@@ -1,3 +1,2 @@
-# TEST 2 : Redirect simple
-# /test-htaccess doit rediriger vers /contact
-Redirect 301 /test-htaccess /contact
+# Test basique - ErrorDocument (fonctionne sur tout serveur Apache/LiteSpeed)
+ErrorDocument 404 /404.html
