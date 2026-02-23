@@ -1,2 +1,4 @@
-# Test basique - ErrorDocument (fonctionne sur tout serveur Apache/LiteSpeed)
-ErrorDocument 404 /404.html
+# Plan Hostinger Agency Professional = nginx (hws)
+# Ce fichier est ignore par le serveur.
+# Les clean URLs fonctionnent via la structure dossier (page/index.html).
+# Les redirections se gerent dans hPanel > Website > Domains > Redirects.
