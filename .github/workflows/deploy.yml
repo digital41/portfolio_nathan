@@ -25,6 +25,20 @@ jobs:
             echo "Converted: $file → $dir/index.html"
           done
 
+      - name: Clean old .html files from server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: ${{ secrets.SFTP_PORT }}
+          script: |
+            cd /home/u234542620/websites/zOcu31T6k/public_html
+            # Remove orphaned .html files (now served as directories)
+            # Keep index.html, 404.html, and blog articles (managed by n8n)
+            find solutions tools blog -name "*.html" ! -name "index.html" -type f -delete 2>/dev/null || true
+            find . -maxdepth 1 -name "*.html" ! -name "index.html" ! -name "404.html" -type f -delete 2>/dev/null || true
+
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
