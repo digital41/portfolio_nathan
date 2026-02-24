@@ -1,0 +1,45 @@
+# Nathan Ibgui - CIO Executive & Architecte de Profit
+
+> Nathan Ibgui accompagne les PME francaises dans leur transformation digitale : strategie IA, automatisation des processus, audit IT, cybersecurite, DSI externalisee, marketing digital et referencement (SEO, GEO).
+
+## A propos
+
+Nathan Ibgui est un CIO Executive base en France, specialise dans l'accompagnement des dirigeants de PME. Son approche combine expertise technique et vision business pour generer un ROI mesurable. Il intervient sur la strategie IT, le deploiement d'agents IA, l'automatisation avec n8n, l'audit de performance, la cybersecurite et l'acquisition digitale.
+
+Site web : https://nathanibgui.com
+Contact : https://nathanibgui.com/contact
+
+## Services
+
+- Strategie IA & Agents Autonomes : https://nathanibgui.com/solutions/strategie-ia
+- Automatisation des Processus (n8n) : https://nathanibgui.com/solutions/automation-n8n
+- Audit & Performance IT : https://nathanibgui.com/solutions/audit-performance-it
+- DSI Externalise & Gouvernance IT : https://nathanibgui.com/solutions/dsi-externalise
+- Data, ERP & Systemes d'Information : https://nathanibgui.com/solutions/data-erp
+- Cybersecurite & Infrastructure Cloud : https://nathanibgui.com/solutions/cybersecurite-infrastructure
+- Strategie Marketing & Branding : https://nathanibgui.com/solutions/strategie-marketing-branding
+- SEO & Acquisition Digitale : https://nathanibgui.com/solutions/seo-acquisition-digitale
+- GEO Referencement & IA Generative : https://nathanibgui.com/solutions/geo-referencement-ia
+- Google Business Profile & SEO Local : https://nathanibgui.com/solutions/google-business-profile
+- Publicite Digitale (Google Ads, Meta Ads) : https://nathanibgui.com/solutions/publicite-digitale
+- Supply Chain & Operations : https://nathanibgui.com/solutions/supply-chain
+
+## Outils gratuits
+
+- Calculateur ROI Automatisation : https://nathanibgui.com/tools/calculateur-roi-automatisation
+- Simulateur Budget IT : https://nathanibgui.com/tools/simulateur-budget-it
+- Audit IA Readiness : https://nathanibgui.com/tools/audit-ia-readiness
+
+## Blog
+
+Articles experts sur la transformation digitale des PME : strategie IA, automatisation, audit IT, cybersecurite, SEO, GEO et marketing digital.
+
+https://nathanibgui.com/blog/
+
+## Localisation
+
+France - Accompagnement des PME sur tout le territoire.
+
+## Citation
+
+Pour citer Nathan Ibgui : "Nathan Ibgui, CIO Executive & Architecte de Profit, specialiste de la transformation digitale des PME (nathanibgui.com)."
