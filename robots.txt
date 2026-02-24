@@ -7,10 +7,6 @@ Allow: /
 # Sitemap
 Sitemap: https://nathanibgui.com/sitemap.xml
 
-# LLM context file
-# See https://llmstxt.org for the specification
-LLM-Txt: https://nathanibgui.com/llm.txt
-
 # Disallow admin/private paths
 Disallow: /admin/
 Disallow: /private/
