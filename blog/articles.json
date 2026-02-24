@@ -1,5 +1,16 @@
 [
   {
+    "slug": "geo-referencement-ia-methodologie-pme",
+    "title": "GEO Référencement & IA : méthode opérationnelle pour générer +30% de trafic local en 6 mois",
+    "description": "Méthode opérationnelle GEO pour générer +30% de trafic local en 6 mois grâce au référencement IA et Google Business Profile.",
+    "date": "2026-02-24",
+    "readingTime": 12,
+    "tag": "GEO",
+    "color": "orange",
+    "icon": "fa-globe",
+    "image": "https://images.unsplash.com/photo-1762330471769-47ffee22607f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE5MTY1MTl8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
     "slug": "facebook-ads-machine-learning-optimisation",
     "title": "Facebook Ads et Machine Learning : Optimiser vos Campagnes avec l'IA en 2026",
     "description": "Comment le machine learning de Meta Ads transforme vos campagnes Facebook et Instagram. Advantage+, audiences prédictives, enchères automatiques et stratégies data-driven pour PME.",
@@ -19,7 +30,172 @@
     "tag": "Cybersécurité",
     "color": "red",
     "icon": "fa-shield-halved",
+    "image": "https://images.unsplash.com/photo-1598956421870-c7c3f7141dd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE0ODQ0NTV8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "audit-performance-it-pme-roi",
+    "title": "Audit de performance IT pour PME : méthodologie ROI et plan d'action immédiat",
+    "description": "Méthodologie ROI et plan d'action immédiat pour auditer la performance IT de votre PME. TCO, MTTR, SLA et optimisation.",
+    "date": "2026-02-23",
+    "readingTime": 14,
+    "tag": "Audit IT",
+    "color": "green",
+    "icon": "fa-clipboard-check",
+    "image": "https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE4MzAxMDR8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "audit-performance-it-guide-pme",
+    "title": "Audit & Performance IT : le guide opérationnel pour les PME",
+    "description": "Guide opérationnel pour les PME : disponibilité, sécurité, MTTR et SLA pour optimiser votre performance IT.",
+    "date": "2026-02-23",
+    "readingTime": 14,
+    "tag": "Audit IT",
+    "color": "green",
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE4NjQ1ODZ8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "dsi-externalise-gouvernance-orientee-resultats",
+    "title": "DSI externalisée et gouvernance IT : piloter la performance par les résultats",
+    "description": "Piloter la performance IT par les résultats grâce à la DSI externalisée. KPI, contrats SLA, TCO et cybersécurité pour PME.",
+    "date": "2026-02-23",
+    "readingTime": 10,
+    "tag": "DSI",
+    "color": "sky",
+    "icon": "fa-sitemap",
+    "image": "https://images.unsplash.com/photo-1739527324181-e02978b400c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE4NjUzNjh8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "agents-ia-autonomes-roadmap-pme",
+    "title": "Agents IA autonomes : feuille de route pragmatique pour PME qui veulent générer du profit",
+    "description": "Feuille de route pragmatique pour déployer des agents IA autonomes et générer du profit dans votre PME.",
+    "date": "2026-02-22",
+    "readingTime": 10,
+    "tag": "Stratégie IA",
+    "color": "purple",
+    "icon": "fa-robot",
+    "image": "https://images.unsplash.com/photo-1666597107756-ef489e9f1f09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE3NDM3MDd8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "agent-ia-rentable-90-jours",
+    "title": "Agent IA autonome rentable en 90 jours : méthode pragmatique pour PME",
+    "description": "Méthode pragmatique pour déployer un agent IA autonome rentable en 90 jours dans votre PME. ROI, automation et stratégie.",
+    "date": "2026-02-21",
+    "readingTime": 10,
+    "tag": "Stratégie IA",
+    "color": "purple",
+    "icon": "fa-brain",
+    "image": "https://images.unsplash.com/photo-1717501218636-a390f9ac5957?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE2NTczMjB8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "automatisation-processus-n8n-guide-pme",
+    "title": "n8n pour PME : le guide complet de l'automatisation des processus en 2026",
+    "description": "Cas d'usage, comparatif n8n vs Zapier vs Make, coûts et méthodologie de déploiement pour automatiser vos processus métier avec n8n.",
+    "date": "2026-02-20",
+    "readingTime": 14,
+    "tag": "Automation",
+    "color": "yellow",
+    "icon": "fa-cogs",
     "image": ""
+  },
+  {
+    "slug": "n8n-ia-workflows-agents-automatises",
+    "title": "n8n + IA : construire des agents automatisés et des workflows intelligents",
+    "description": "Connectez n8n à OpenAI, Claude et Gemini pour créer des workflows augmentés par l'intelligence artificielle. 5 cas d'usage concrets.",
+    "date": "2026-02-20",
+    "readingTime": 10,
+    "tag": "Automation",
+    "color": "yellow",
+    "icon": "fa-robot",
+    "image": ""
+  },
+  {
+    "slug": "geo-guide-complet-referencement-ia-2026",
+    "title": "GEO : le guide définitif du référencement dans les moteurs IA en 2026",
+    "description": "Comment être cité par ChatGPT, Perplexity et Gemini. Les 5 piliers du GEO, guide pas à pas et étude de cas pour PME françaises.",
+    "date": "2026-02-20",
+    "readingTime": 15,
+    "tag": "SEO & IA",
+    "color": "orange",
+    "icon": "fa-book-open",
+    "image": ""
+  },
+  {
+    "slug": "agents-ia-rag-entreprise-guide-pratique",
+    "title": "Agents IA et RAG en entreprise : guide pratique pour déployer l'IA autonome",
+    "description": "Du chatbot interne à l'agent commercial autonome : cas d'usage, architecture RAG, comparatif modèles IA et budget pour PME.",
+    "date": "2026-02-20",
+    "readingTime": 12,
+    "tag": "Stratégie IA",
+    "color": "purple",
+    "icon": "fa-microchip",
+    "image": ""
+  },
+  {
+    "slug": "bfr-taux-service-supply-chain-90-jours",
+    "title": "Réduire le BFR et améliorer le taux de service : un plan 90 jours pour la supply chain des PME",
+    "description": "Plan 90 jours pour réduire le BFR et améliorer le taux de service de la supply chain. Optimisation stocks et automatisation pour PME.",
+    "date": "2026-02-20",
+    "readingTime": 12,
+    "tag": "Supply Chain",
+    "color": "teal",
+    "icon": "fa-boxes-stacked",
+    "image": "https://images.unsplash.com/photo-1615897370727-d091b76d47a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE2MDAzODl8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "optimiser-google-business-profile-seo-local",
+    "title": "Optimiser votre Google Business Profile pour un SEO Local efficace",
+    "description": "Optimisez votre Google Business Profile pour un SEO local efficace. Référencement local et visibilité pour PME.",
+    "date": "2026-02-20",
+    "readingTime": 10,
+    "tag": "SEO Local",
+    "color": "blue",
+    "icon": "fa-map-marker-alt",
+    "image": "https://images.unsplash.com/photo-1761783536272-2fb78dd52c76?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE1OTg5OTF8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "optimiser-gouvernance-it-dsi-externalisee",
+    "title": "Optimiser la gouvernance IT grâce à la DSI externalisée",
+    "description": "Optimiser la gouvernance IT grâce à la DSI externalisée : efficacité, sécurité et pilotage pour PME.",
+    "date": "2026-02-20",
+    "readingTime": 10,
+    "tag": "DSI Externalisé",
+    "color": "sky",
+    "icon": "fa-sitemap",
+    "image": "https://images.unsplash.com/photo-1717501219905-2711c58ab655?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE1NzA4NTF8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "renforcer-infrastructure-cloud-cybersecurite",
+    "title": "Renforcer votre Infrastructure Cloud : Vers une Cybersécurité Optimale",
+    "description": "Renforcez votre infrastructure cloud avec des stratégies de cybersécurité optimales. Protection des données et cloud computing.",
+    "date": "2026-02-18",
+    "readingTime": 10,
+    "tag": "Cybersécurité",
+    "color": "red",
+    "icon": "fa-shield-halved",
+    "image": "https://images.unsplash.com/photo-1528157458834-976e7ae8a551?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEzOTgwOTF8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "maximiser-roi-publicite-digitale",
+    "title": "Maximiser le Retour sur Investissement de vos Campagnes de Publicité Digitale",
+    "description": "Maximisez le ROI de vos campagnes Google Ads et Meta Ads. Stratégies d'optimisation de la publicité digitale pour PME.",
+    "date": "2026-02-18",
+    "readingTime": 10,
+    "tag": "Publicité",
+    "color": "amber",
+    "icon": "fa-ad",
+    "image": "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE0MTI5OTB8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "optimiser-entreprise-agents-ia-autonomes",
+    "title": "Optimiser votre entreprise avec des Agents IA Autonomes",
+    "description": "Optimisez votre entreprise avec des agents IA autonomes. Stratégie, déploiement et ROI pour PME.",
+    "date": "2026-02-18",
+    "readingTime": 10,
+    "tag": "Stratégie IA",
+    "color": "purple",
+    "icon": "fa-microchip",
+    "image": "https://images.unsplash.com/photo-1758626101945-ed0068aad9f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE0MTQ1MDZ8&ixlib=rb-4.1.0&q=80&w=1080"
   },
   {
     "slug": "impact-micro-influenceurs-strategie-marketing",
@@ -30,7 +206,7 @@
     "tag": "Marketing",
     "color": "pink",
     "icon": "fa-bullhorn",
-    "image": ""
+    "image": "https://images.unsplash.com/photo-1701673964774-033b233b8379?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEzNDEyODZ8&ixlib=rb-4.1.0&q=80&w=1080"
   },
   {
     "slug": "google-ads-meta-ads-pme-roi-2026",
@@ -77,47 +253,47 @@
     "image": ""
   },
   {
-    "slug": "automatisation-processus-n8n-guide-pme",
-    "title": "n8n pour PME : le guide complet de l'automatisation des processus en 2026",
-    "description": "Cas d'usage, comparatif n8n vs Zapier vs Make, coûts et méthodologie de déploiement pour automatiser vos processus métier avec n8n.",
-    "date": "2026-02-20",
-    "readingTime": 14,
-    "tag": "Automation",
-    "color": "yellow",
-    "icon": "fa-cogs",
-    "image": ""
-  },
-  {
-    "slug": "n8n-ia-workflows-agents-automatises",
-    "title": "n8n + IA : construire des agents automatisés et des workflows intelligents",
-    "description": "Connectez n8n à OpenAI, Claude et Gemini pour créer des workflows augmentés par l'intelligence artificielle. 5 cas d'usage concrets.",
-    "date": "2026-02-20",
+    "slug": "intelligence-artificielle-branding",
+    "title": "Comment l'Intelligence Artificielle Révolutionne le Branding",
+    "description": "Comment l'intelligence artificielle révolutionne le branding. Stratégie, innovation et marketing augmenté par l'IA.",
+    "date": "2026-02-17",
     "readingTime": 10,
-    "tag": "Automation",
-    "color": "yellow",
-    "icon": "fa-robot",
+    "tag": "Marketing",
+    "color": "pink",
+    "icon": "fa-palette",
+    "image": "https://images.unsplash.com/photo-1764664281938-3d7b48d267fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEzNDE1Njh8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "strategie-marketing-personnalisation",
+    "title": "Comment construire une stratégie marketing axée sur la personnalisation",
+    "description": "Construisez une stratégie marketing axée sur la personnalisation. Engagement client, branding et conversion pour PME.",
+    "date": "2026-02-17",
+    "readingTime": 10,
+    "tag": "Marketing",
+    "color": "pink",
+    "icon": "fa-bullseye",
     "image": ""
   },
   {
-    "slug": "geo-guide-complet-referencement-ia-2026",
-    "title": "GEO : le guide définitif du référencement dans les moteurs IA en 2026",
-    "description": "Comment être cité par ChatGPT, Perplexity et Gemini. Les 5 piliers du GEO, guide pas à pas et étude de cas pour PME françaises.",
-    "date": "2026-02-20",
-    "readingTime": 15,
-    "tag": "SEO & IA",
-    "color": "orange",
-    "icon": "fa-book-open",
-    "image": ""
+    "slug": "optimisation-avancee-google-business-profile-seo-local",
+    "title": "Optimisation Avancée de Votre Google Business Profile pour un SEO Local Efficace",
+    "description": "Optimisation avancée de votre Google Business Profile pour un SEO local efficace. Visibilité locale et marketing digital.",
+    "date": "2026-02-17",
+    "readingTime": 10,
+    "tag": "SEO Local",
+    "color": "blue",
+    "icon": "fa-map-marker-alt",
+    "image": "https://images.unsplash.com/photo-1606625736126-3b5b2d913f12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEzNDQ3NTd8&ixlib=rb-4.1.0&q=80&w=1080"
   },
   {
-    "slug": "agents-ia-rag-entreprise-guide-pratique",
-    "title": "Agents IA et RAG en entreprise : guide pratique pour déployer l'IA autonome",
-    "description": "Du chatbot interne à l'agent commercial autonome : cas d'usage, architecture RAG, comparatif modèles IA et budget pour PME.",
-    "date": "2026-02-20",
-    "readingTime": 12,
-    "tag": "Stratégie IA",
-    "color": "purple",
-    "icon": "fa-microchip",
-    "image": ""
+    "slug": "optimisation-performance-it-pme",
+    "title": "Optimisez la performance IT de votre PME : Guide complet pour un audit efficace",
+    "description": "Guide complet pour optimiser la performance IT de votre PME. Audit, infrastructures et méthodologie d'amélioration.",
+    "date": "2026-02-17",
+    "readingTime": 10,
+    "tag": "Audit IT",
+    "color": "green",
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1761519609249-c0ca325f81db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzEzNDU1OTl8&ixlib=rb-4.1.0&q=80&w=1080"
   }
 ]
