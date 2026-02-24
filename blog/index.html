@@ -162,7 +162,7 @@
                          return pages;
                      },
                      scrollToFilters() { document.getElementById('filters').scrollIntoView({ behavior: 'smooth', block: 'start' }); },
-                     setFilter(f) { this.filter = f; this.page = 1; this.$nextTick(() => this.scrollToFilters()); },
+                     setFilter(f) { this.filter = f; this.page = 1; },
                      formatDate(d) {
                          return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
                      }
