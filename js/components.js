@@ -3,11 +3,6 @@
  * Uses absolute paths for clean URL compatibility (directory-based structure)
  */
 
-// Force HTTPS redirect (Hostinger nginx — no server-side toggle available)
-if (location.protocol === 'http:') {
-    location.replace('https://' + location.host + location.pathname + location.search + location.hash);
-}
-
 var SiteComponents = (function () {
     'use strict';
 
