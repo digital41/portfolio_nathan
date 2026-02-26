@@ -65,7 +65,7 @@ var SiteComponents = (function () {
             html += '<a href="' + nav + 'audit" class="hover:text-white transition-colors duration-300">Diagnostic</a>';
             html += '<a href="' + nav + 'skills" class="hover:text-white transition-colors duration-300">Performance</a>';
             html += '<a href="' + nav + 'solutions" class="hover:text-white transition-colors duration-300">Solutions</a>';
-            html += '<a href="/contact" class="hover:text-white transition-colors duration-300">Contact</a>';
+            html += '<a href="/contact/" class="hover:text-white transition-colors duration-300">Contact</a>';
             html += '</nav>';
 
             // Right side: theme toggle + CTA + hamburger
@@ -83,7 +83,7 @@ var SiteComponents = (function () {
             html += '<a href="' + nav + 'audit" @click="mobileMenu = false" class="hover:text-white transition-colors">Diagnostic</a>';
             html += '<a href="' + nav + 'skills" @click="mobileMenu = false" class="hover:text-white transition-colors">Performance</a>';
             html += '<a href="' + nav + 'solutions" @click="mobileMenu = false" class="hover:text-white transition-colors">Solutions</a>';
-            html += '<a href="/contact" @click="mobileMenu = false" class="hover:text-white transition-colors">Contact</a>';
+            html += '<a href="/contact/" @click="mobileMenu = false" class="hover:text-white transition-colors">Contact</a>';
             html += '<button class="theme-toggle theme-toggle-mobile" @click="mobileMenu = false" aria-label="Changer le thème"><i class="fas fa-moon"></i><i class="fas fa-sun"></i><span>Thème</span></button>';
             html += '<button onclick="Calendly.initPopupWidget({url: \'https://calendly.com/ibguinathan/30min\'});" class="sm:hidden bg-cobalt-gradient text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest text-center" data-ab="header-cta"><span data-ab-text>Consultation Call</span></button>';
             html += '</nav>';
@@ -113,12 +113,12 @@ var SiteComponents = (function () {
         html += '<div>';
         html += '<h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Solutions IT</h4>';
         html += '<nav aria-label="Solutions IT" class="flex flex-col gap-3">';
-        html += fLink('/solutions/strategie-ia', 'Stratégie IA & Agents', 'strategie-ia');
-        html += fLink('/solutions/automation-n8n', 'Automation n8n', 'automation-n8n');
-        html += fLink('/solutions/audit-performance-it', 'Audit Performance IT', 'audit-performance-it');
-        html += fLink('/solutions/dsi-externalise', 'DSI Externalisé', 'dsi-externalise');
-        html += fLink('/solutions/data-erp', 'Data & ERP', 'data-erp');
-        html += fLink('/solutions/cybersecurite-infrastructure', 'Cybersécurité & Cloud', 'cybersecurite-infrastructure');
+        html += fLink('/solutions/strategie-ia/', 'Stratégie IA & Agents', 'strategie-ia');
+        html += fLink('/solutions/automation-n8n/', 'Automation n8n', 'automation-n8n');
+        html += fLink('/solutions/audit-performance-it/', 'Audit Performance IT', 'audit-performance-it');
+        html += fLink('/solutions/dsi-externalise/', 'DSI Externalisé', 'dsi-externalise');
+        html += fLink('/solutions/data-erp/', 'Data & ERP', 'data-erp');
+        html += fLink('/solutions/cybersecurite-infrastructure/', 'Cybersécurité & Cloud', 'cybersecurite-infrastructure');
         html += '</nav>';
         html += '</div>';
 
@@ -126,11 +126,11 @@ var SiteComponents = (function () {
         html += '<div>';
         html += '<h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Marketing & Visibilité</h4>';
         html += '<nav aria-label="Marketing et Visibilité" class="flex flex-col gap-3">';
-        html += fLink('/solutions/strategie-marketing-branding', 'Marketing & Branding', 'strategie-marketing-branding');
-        html += fLink('/solutions/seo-acquisition-digitale', 'SEO & Référencement', 'seo-acquisition-digitale');
-        html += fLink('/solutions/geo-referencement-ia', 'GEO Référencement IA', 'geo-referencement-ia');
-        html += fLink('/solutions/google-business-profile', 'Google Business Profile', 'google-business-profile');
-        html += fLink('/solutions/publicite-digitale', 'Publicité Digitale & Ads', 'publicite-digitale');
+        html += fLink('/solutions/strategie-marketing-branding/', 'Marketing & Branding', 'strategie-marketing-branding');
+        html += fLink('/solutions/seo-acquisition-digitale/', 'SEO & Référencement', 'seo-acquisition-digitale');
+        html += fLink('/solutions/geo-referencement-ia/', 'GEO Référencement IA', 'geo-referencement-ia');
+        html += fLink('/solutions/google-business-profile/', 'Google Business Profile', 'google-business-profile');
+        html += fLink('/solutions/publicite-digitale/', 'Publicité Digitale & Ads', 'publicite-digitale');
         html += '</nav>';
         html += '</div>';
 
@@ -140,11 +140,11 @@ var SiteComponents = (function () {
         html += '<div class="flex flex-col gap-3">';
         html += fLinkIcon('https://fr.linkedin.com/in/nathan-ibgui', 'fab fa-linkedin', 'LinkedIn', '', true);
         html += fLinkIcon('https://www.instagram.com/nathan.ibgui/', 'fab fa-instagram', 'Instagram', '', true);
-        html += fLinkIcon('/contact', 'fas fa-envelope', 'Contact', 'contact', false);
+        html += fLinkIcon('/contact/', 'fas fa-envelope', 'Contact', 'contact', false);
         html += fLinkIcon('/blog/', 'fas fa-newspaper', 'Blog', 'blog', false);
         html += '<hr class="border-white/5 my-2">';
-        html += fLink('/mentions-legales', 'Mentions légales', 'mentions-legales');
-        html += '<a href="/mentions-legales#confidentialite" class="text-sm text-slate-500 hover:text-white transition-colors">Politique de confidentialité</a>';
+        html += fLink('/mentions-legales/', 'Mentions légales', 'mentions-legales');
+        html += '<a href="/mentions-legales/#confidentialite" class="text-sm text-slate-500 hover:text-white transition-colors">Politique de confidentialité</a>';
         html += '</div>';
         html += '</div>';
 
