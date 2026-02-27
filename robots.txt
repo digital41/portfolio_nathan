@@ -6,6 +6,7 @@ Allow: /
 
 # Sitemap
 Sitemap: https://nathanibgui.com/sitemap.xml
+Sitemap: https://nathanibgui.com/sitemap-images.xml
 
 # Disallow admin/private paths
 Disallow: /admin/

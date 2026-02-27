@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://nathanibgui.com/</loc>
+        <image:image>
+            <image:loc>https://nathanibgui.com/assets/images/nathanibguiProfile.webp</image:loc>
+            <image:title>Nathan Ibgui - CIO Executive et Architecte de Profit</image:title>
+            <image:caption>Portrait professionnel de Nathan Ibgui, directeur des systemes d'information et consultant en transformation digitale pour PME et ETI industrielles.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://nathanibgui.com/assets/images/nathanibguiProfile-og.jpg</image:loc>
+            <image:title>Nathan Ibgui - Strategie IA et Transformation Digitale</image:title>
+            <image:caption>Image de partage social de Nathan Ibgui, specialiste en strategie IA, automation n8n et cybersecurite pour entreprises.</image:caption>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/solutions/dsi-externalise/</loc>
+        <image:image>
+            <image:loc>https://nathanibgui.com/assets/images/nathanibguiProfile.webp</image:loc>
+            <image:title>Nathan Ibgui - DSI Externalise pour PME et ETI</image:title>
+            <image:caption>Nathan Ibgui, DSI externalise et CIO de KLY Groupe, specialise en gouvernance IT orientee resultats pour PME industrielles.</image:caption>
+        </image:image>
+    </url>
+</urlset>
