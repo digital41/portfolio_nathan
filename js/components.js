@@ -182,6 +182,32 @@ var SiteComponents = (function () {
     if (f) f.outerHTML = footer();
 
     // ==========================================================
+    // Auto-inject Solutions links on blog article pages
+    // ==========================================================
+    var isBlogArticle = path.indexOf('/blog/') === 0 && segments.length >= 2 && cur !== 'blog';
+    if (isBlogArticle && !document.querySelector('.solutions-links-auto')) {
+        var solHtml = '<section class="py-16 px-4 sm:px-8 border-t border-white/5 solutions-links-auto" aria-label="Solutions">';
+        solHtml += '<div class="max-w-5xl mx-auto">';
+        solHtml += '<h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight text-center mb-10">Nos solutions pour votre entreprise</h2>';
+        solHtml += '<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">';
+        solHtml += '<a href="/solutions/strategie-ia/" class="glass p-6 rounded-3xl hover:bg-white/5 transition-all duration-300 block group border border-white/5">';
+        solHtml += '<div class="w-10 h-10 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-brain text-purple-400"></i></div>';
+        solHtml += '<h3 class="text-white font-bold mb-2 group-hover:text-purple-400 transition-colors">Strat\u00e9gie IA & Agents</h3>';
+        solHtml += '<p class="text-slate-500 text-sm">Agents IA autonomes, RAG, d\u00e9ploiement en entreprise.</p></a>';
+        solHtml += '<a href="/solutions/automation-n8n/" class="glass p-6 rounded-3xl hover:bg-white/5 transition-all duration-300 block group border border-white/5">';
+        solHtml += '<div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-robot text-yellow-400"></i></div>';
+        solHtml += '<h3 class="text-white font-bold mb-2 group-hover:text-yellow-400 transition-colors">Automation n8n</h3>';
+        solHtml += '<p class="text-slate-500 text-sm">Workflows automatis\u00e9s, int\u00e9gration CRM-ERP, orchestration API.</p></a>';
+        solHtml += '<a href="/solutions/data-erp/" class="glass p-6 rounded-3xl hover:bg-white/5 transition-all duration-300 block group border border-white/5">';
+        solHtml += '<div class="w-10 h-10 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-database text-cyan-400"></i></div>';
+        solHtml += '<h3 class="text-white font-bold mb-2 group-hover:text-cyan-400 transition-colors">Data & ERP</h3>';
+        solHtml += '<p class="text-slate-500 text-sm">Int\u00e9gration de donn\u00e9es, migration ERP, tableaux de bord.</p></a>';
+        solHtml += '</div></div></section>';
+        var mainEl = document.querySelector('main') || document.getElementById('main-content');
+        if (mainEl) mainEl.insertAdjacentHTML('beforeend', solHtml);
+    }
+
+    // ==========================================================
     // GA4 + Consent Mode v2 + RGPD Banner (granular)
     // ==========================================================
     var GA_ID = 'G-5XZNNYLM69';
