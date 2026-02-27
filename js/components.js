@@ -182,21 +182,33 @@ var SiteComponents = (function () {
     if (f) f.outerHTML = footer();
 
     // ==========================================================
-    // GA4 + RGPD Consent Banner
+    // GA4 + Consent Mode v2 + RGPD Banner
     // ==========================================================
     var GA_ID = 'G-5XZNNYLM69';
 
-    function loadGA4() {
-        if (document.getElementById('ga4-script')) return;
-        var s = document.createElement('script');
-        s.id = 'ga4-script';
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-        document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', GA_ID);
+    // Consent Mode v2: set default to denied BEFORE loading gtag
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+    });
+
+    // Load GA4 immediately (in cookieless mode until consent)
+    var gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(gaScript);
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+
+    function grantConsent() {
+        gtag('consent', 'update', {
+            analytics_storage: 'granted'
+        });
     }
 
     function showConsentBanner() {
@@ -216,7 +228,7 @@ var SiteComponents = (function () {
         document.getElementById('rgpd-accept').addEventListener('click', function () {
             localStorage.setItem('rgpd-consent', 'accepted');
             banner.remove();
-            loadGA4();
+            grantConsent();
         });
         document.getElementById('rgpd-decline').addEventListener('click', function () {
             localStorage.setItem('rgpd-consent', 'declined');
@@ -224,10 +236,10 @@ var SiteComponents = (function () {
         });
     }
 
-    // Check consent state
+    // Check stored consent state
     var consent = localStorage.getItem('rgpd-consent');
     if (consent === 'accepted') {
-        loadGA4();
+        grantConsent();
     } else if (!consent) {
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', showConsentBanner);
