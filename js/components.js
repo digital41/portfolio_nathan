@@ -181,5 +181,60 @@ var SiteComponents = (function () {
     var f = document.getElementById('site-footer');
     if (f) f.outerHTML = footer();
 
+    // ==========================================================
+    // GA4 + RGPD Consent Banner
+    // ==========================================================
+    var GA_ID = 'G-5XZNNYLM69';
+
+    function loadGA4() {
+        if (document.getElementById('ga4-script')) return;
+        var s = document.createElement('script');
+        s.id = 'ga4-script';
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+    }
+
+    function showConsentBanner() {
+        if (document.getElementById('rgpd-banner')) return;
+        var banner = document.createElement('div');
+        banner.id = 'rgpd-banner';
+        banner.setAttribute('role', 'dialog');
+        banner.setAttribute('aria-label', 'Consentement cookies');
+        banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:10000;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;font-family:Inter,sans-serif;font-size:13px;color:#cbd5e1;border-top:1px solid rgba(255,255,255,0.08);background:rgba(10,16,32,0.96);backdrop-filter:blur(16px)';
+        banner.innerHTML = '<p style="margin:0;max-width:600px;line-height:1.5">Ce site utilise des cookies pour mesurer l\'audience via Google Analytics. <a href="/mentions-legales/#confidentialite" style="color:#60a5fa;text-decoration:underline">En savoir plus</a></p>'
+            + '<div style="display:flex;gap:8px">'
+            + '<button id="rgpd-accept" style="padding:8px 20px;border-radius:9999px;border:none;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer">Accepter</button>'
+            + '<button id="rgpd-decline" style="padding:8px 20px;border-radius:9999px;border:1px solid rgba(255,255,255,0.15);background:transparent;color:#94a3b8;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer">Refuser</button>'
+            + '</div>';
+        document.body.appendChild(banner);
+
+        document.getElementById('rgpd-accept').addEventListener('click', function () {
+            localStorage.setItem('rgpd-consent', 'accepted');
+            banner.remove();
+            loadGA4();
+        });
+        document.getElementById('rgpd-decline').addEventListener('click', function () {
+            localStorage.setItem('rgpd-consent', 'declined');
+            banner.remove();
+        });
+    }
+
+    // Check consent state
+    var consent = localStorage.getItem('rgpd-consent');
+    if (consent === 'accepted') {
+        loadGA4();
+    } else if (!consent) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', showConsentBanner);
+        } else {
+            showConsentBanner();
+        }
+    }
+
     return { header: header, footer: footer };
 })();
