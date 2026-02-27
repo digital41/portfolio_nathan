@@ -182,11 +182,12 @@ var SiteComponents = (function () {
     if (f) f.outerHTML = footer();
 
     // ==========================================================
-    // GA4 + Consent Mode v2 + RGPD Banner
+    // GA4 + Consent Mode v2 + RGPD Banner (granular)
     // ==========================================================
     var GA_ID = 'G-5XZNNYLM69';
+    var CONSENT_KEY = 'rgpd-consent-v2';
 
-    // Consent Mode v2: set default to denied BEFORE loading gtag
+    // Consent Mode v2: set all to denied BEFORE loading gtag
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('consent', 'default', {
@@ -197,7 +198,7 @@ var SiteComponents = (function () {
         wait_for_update: 500
     });
 
-    // Load GA4 immediately (in cookieless mode until consent)
+    // Load GA4 immediately (cookieless mode until consent granted)
     var gaScript = document.createElement('script');
     gaScript.async = true;
     gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
@@ -205,42 +206,131 @@ var SiteComponents = (function () {
     gtag('js', new Date());
     gtag('config', GA_ID);
 
-    function grantConsent() {
+    function applyConsent(prefs) {
         gtag('consent', 'update', {
-            analytics_storage: 'granted'
+            analytics_storage: prefs.analytics ? 'granted' : 'denied',
+            ad_storage: prefs.marketing ? 'granted' : 'denied',
+            ad_user_data: prefs.marketing ? 'granted' : 'denied',
+            ad_personalization: prefs.marketing ? 'granted' : 'denied'
         });
+    }
+
+    function saveConsent(prefs) {
+        localStorage.setItem(CONSENT_KEY, JSON.stringify(prefs));
+        applyConsent(prefs);
+    }
+
+    // --- Shared styles ---
+    var S = {
+        wrap: 'position:fixed;bottom:0;left:0;right:0;z-index:10000;font-family:Inter,sans-serif;font-size:13px;color:#cbd5e1;border-top:1px solid rgba(255,255,255,0.08);background:rgba(10,16,32,0.97);backdrop-filter:blur(16px)',
+        btnAccept: 'padding:8px 20px;border-radius:9999px;border:none;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer',
+        btnOutline: 'padding:8px 20px;border-radius:9999px;border:1px solid rgba(255,255,255,0.15);background:transparent;color:#94a3b8;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer',
+        toggle: 'position:relative;width:44px;height:24px;border-radius:12px;cursor:pointer;transition:background 0.2s;border:none;padding:0',
+        toggleDot: 'position:absolute;top:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left 0.2s;pointer-events:none'
+    };
+
+    function makeToggle(id, checked, disabled) {
+        var bg = checked ? '#2563eb' : '#334155';
+        var left = checked ? '22px' : '2px';
+        var opacity = disabled ? 'opacity:0.5;cursor:default' : '';
+        return '<button id="' + id + '" role="switch" aria-checked="' + checked + '"'
+            + (disabled ? ' disabled' : '')
+            + ' style="' + S.toggle + ';background:' + bg + ';' + opacity + '">'
+            + '<span style="' + S.toggleDot + ';left:' + left + '"></span></button>';
     }
 
     function showConsentBanner() {
         if (document.getElementById('rgpd-banner')) return;
-        var banner = document.createElement('div');
-        banner.id = 'rgpd-banner';
-        banner.setAttribute('role', 'dialog');
-        banner.setAttribute('aria-label', 'Consentement cookies');
-        banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:10000;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;font-family:Inter,sans-serif;font-size:13px;color:#cbd5e1;border-top:1px solid rgba(255,255,255,0.08);background:rgba(10,16,32,0.96);backdrop-filter:blur(16px)';
-        banner.innerHTML = '<p style="margin:0;max-width:600px;line-height:1.5">Ce site utilise des cookies pour mesurer l\'audience via Google Analytics. <a href="/mentions-legales/#confidentialite" style="color:#60a5fa;text-decoration:underline">En savoir plus</a></p>'
-            + '<div style="display:flex;gap:8px">'
-            + '<button id="rgpd-accept" style="padding:8px 20px;border-radius:9999px;border:none;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer">Accepter</button>'
-            + '<button id="rgpd-decline" style="padding:8px 20px;border-radius:9999px;border:1px solid rgba(255,255,255,0.15);background:transparent;color:#94a3b8;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer">Refuser</button>'
-            + '</div>';
-        document.body.appendChild(banner);
+        var el = document.createElement('div');
+        el.id = 'rgpd-banner';
+        el.setAttribute('role', 'dialog');
+        el.setAttribute('aria-label', 'Gestion des cookies');
+        el.style.cssText = S.wrap + ';padding:20px 24px';
+        el.innerHTML = '<div style="max-width:800px;margin:0 auto">'
+            + '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">'
+            + '<p style="margin:0;max-width:520px;line-height:1.6">Nous utilisons des cookies pour mesurer l\'audience et ameliorer votre experience. Vous pouvez choisir les categories a accepter. <a href="/mentions-legales/#confidentialite" style="color:#60a5fa;text-decoration:underline">Politique de confidentialite</a></p>'
+            + '<div style="display:flex;gap:8px;flex-wrap:wrap">'
+            + '<button id="rgpd-accept-all" style="' + S.btnAccept + '">Tout accepter</button>'
+            + '<button id="rgpd-customize" style="' + S.btnOutline + '">Personnaliser</button>'
+            + '<button id="rgpd-decline-all" style="' + S.btnOutline + '">Tout refuser</button>'
+            + '</div></div></div>';
+        document.body.appendChild(el);
 
-        document.getElementById('rgpd-accept').addEventListener('click', function () {
-            localStorage.setItem('rgpd-consent', 'accepted');
-            banner.remove();
-            grantConsent();
+        document.getElementById('rgpd-accept-all').addEventListener('click', function () {
+            saveConsent({ essential: true, analytics: true, marketing: true });
+            el.remove();
         });
-        document.getElementById('rgpd-decline').addEventListener('click', function () {
-            localStorage.setItem('rgpd-consent', 'declined');
-            banner.remove();
+        document.getElementById('rgpd-decline-all').addEventListener('click', function () {
+            saveConsent({ essential: true, analytics: false, marketing: false });
+            el.remove();
+        });
+        document.getElementById('rgpd-customize').addEventListener('click', function () {
+            showPreferences(el);
         });
     }
 
-    // Check stored consent state
-    var consent = localStorage.getItem('rgpd-consent');
-    if (consent === 'accepted') {
-        grantConsent();
-    } else if (!consent) {
+    function showPreferences(bannerEl) {
+        if (bannerEl) bannerEl.remove();
+        var el = document.createElement('div');
+        el.id = 'rgpd-banner';
+        el.setAttribute('role', 'dialog');
+        el.setAttribute('aria-label', 'Preferences cookies');
+        el.style.cssText = S.wrap + ';padding:24px;max-height:80vh;overflow-y:auto';
+
+        var cats = [
+            { id: 'essential', label: 'Essentiels', desc: 'Navigation, theme, securite. Toujours actifs.', on: true, locked: true },
+            { id: 'analytics', label: 'Analytiques', desc: 'Google Analytics — mesure d\'audience anonyme, pages vues, parcours utilisateur.', on: false, locked: false },
+            { id: 'marketing', label: 'Marketing', desc: 'Publicite ciblee et personnalisation. Non utilise actuellement.', on: false, locked: false }
+        ];
+
+        var html = '<div style="max-width:600px;margin:0 auto">';
+        html += '<h3 style="margin:0 0 16px;font-size:16px;font-weight:800;color:#f1f5f9">Gestion des cookies</h3>';
+        for (var i = 0; i < cats.length; i++) {
+            var c = cats[i];
+            html += '<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid rgba(255,255,255,0.06)">';
+            html += '<div style="flex:1;padding-right:16px"><strong style="color:#e2e8f0">' + c.label + '</strong><p style="margin:4px 0 0;font-size:12px;color:#64748b;line-height:1.4">' + c.desc + '</p></div>';
+            html += makeToggle('rgpd-toggle-' + c.id, c.on, c.locked);
+            html += '</div>';
+        }
+        html += '<div style="display:flex;gap:8px;justify-content:flex-end;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06)">';
+        html += '<button id="rgpd-save" style="' + S.btnAccept + '">Enregistrer mes choix</button>';
+        html += '<button id="rgpd-pref-all" style="' + S.btnOutline + '">Tout accepter</button>';
+        html += '</div></div>';
+        el.innerHTML = html;
+        document.body.appendChild(el);
+
+        // Wire toggles
+        ['analytics', 'marketing'].forEach(function (cat) {
+            var btn = document.getElementById('rgpd-toggle-' + cat);
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                var on = this.getAttribute('aria-checked') === 'true';
+                this.setAttribute('aria-checked', String(!on));
+                this.style.background = !on ? '#2563eb' : '#334155';
+                this.querySelector('span').style.left = !on ? '22px' : '2px';
+            });
+        });
+
+        document.getElementById('rgpd-save').addEventListener('click', function () {
+            var prefs = {
+                essential: true,
+                analytics: document.getElementById('rgpd-toggle-analytics').getAttribute('aria-checked') === 'true',
+                marketing: document.getElementById('rgpd-toggle-marketing').getAttribute('aria-checked') === 'true'
+            };
+            saveConsent(prefs);
+            el.remove();
+        });
+        document.getElementById('rgpd-pref-all').addEventListener('click', function () {
+            saveConsent({ essential: true, analytics: true, marketing: true });
+            el.remove();
+        });
+    }
+
+    // Check stored consent
+    var stored = localStorage.getItem(CONSENT_KEY);
+    if (stored) {
+        try { applyConsent(JSON.parse(stored)); } catch (e) {}
+    } else {
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', showConsentBanner);
         } else {
