@@ -29,3 +29,6 @@ package-lock.json
 
 # Hostinger FTP dump (not versioned)
 public_html/
+
+# Managed by n8n workflow (not versioned)
+blog/articles.json
