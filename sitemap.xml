@@ -2,169 +2,307 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://nathanibgui.com/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/strategie-ia/</loc>
-        <lastmod>2026-02-20</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/automation-n8n/</loc>
-        <lastmod>2026-02-20</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/audit-performance-it/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/dsi-externalise/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/data-erp/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/cybersecurite-infrastructure/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/strategie-marketing-branding/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/geo-referencement-ia/</loc>
-        <lastmod>2026-02-20</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/seo-acquisition-digitale/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/google-business-profile/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/publicite-digitale/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/solutions/supply-chain/</loc>
-        <lastmod>2026-02-18</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/contact/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/blog/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/ia-pme-guide-2026/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <loc>https://nathanibgui.com/tools/</loc>
+        <lastmod>2026-03-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/tools/calculateur-roi-automatisation/</loc>
+        <lastmod>2026-03-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/tools/simulateur-budget-it/</loc>
+        <lastmod>2026-03-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/tools/audit-ia-readiness/</loc>
+        <lastmod>2026-03-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/strategie-marketing-digital-complet-2026/</loc>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/audit-it-checklist-30-points/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <loc>https://nathanibgui.com/blog/transformation-digitale-pme-guide-complet/</loc>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/seo-ia-generative-chatgpt-2026/</loc>
-        <lastmod>2026-02-20</lastmod>
+        <loc>https://nathanibgui.com/blog/chatgpt-pour-entreprises-guide-complet/</loc>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/impact-micro-influenceurs-strategie-marketing/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <loc>https://nathanibgui.com/blog/facture-electronique-obligatoire-2026/</loc>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/google-ads-meta-ads-pme-roi-2026/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <loc>https://nathanibgui.com/blog/chatgpt-entreprise-guide-complet/</loc>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/automatisation-processus-n8n-guide-pme/</loc>
-        <lastmod>2026-02-20</lastmod>
+        <loc>https://nathanibgui.com/blog/erp-guide-complet-pme/</loc>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/n8n-ia-workflows-agents-automatises/</loc>
-        <lastmod>2026-02-20</lastmod>
+        <loc>https://nathanibgui.com/blog/n8n-vs-zapier-vs-make-comparatif/</loc>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/geo-guide-complet-referencement-ia-2026/</loc>
-        <lastmod>2026-02-20</lastmod>
+        <loc>https://nathanibgui.com/blog/cybersecurite-entreprise-guide-complet/</loc>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/agents-ia-rag-entreprise-guide-pratique/</loc>
-        <lastmod>2026-02-20</lastmod>
+        <loc>https://nathanibgui.com/blog/optimiser-gestion-temps-entreprise-n8n/</loc>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/facebook-ads-machine-learning-optimisation/</loc>
-        <lastmod>2026-02-23</lastmod>
+        <loc>https://nathanibgui.com/blog/auditer-moderniser-si-legacy/</loc>
+        <lastmod>2026-03-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/securiser-infrastructure-cloud-avancees/</loc>
-        <lastmod>2026-02-23</lastmod>
+        <loc>https://nathanibgui.com/blog/optimisation-performance-it-pme/</loc>
+        <lastmod>2026-03-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/audit-performance-it-guide-pme/</loc>
-        <lastmod>2026-02-23</lastmod>
+        <loc>https://nathanibgui.com/blog/ameliorez-otre-cash-avec-le-stocks/</loc>
+        <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/dsi-externalise-gouvernance-orientee-resultats/</loc>
-        <lastmod>2026-02-23</lastmod>
+        <loc>https://nathanibgui.com/blog/strategie-donnees-locales-pour-llm/</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/automatiser-facturation-relances-encaissements/</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/seo-technique-core-web-vitals-pme/</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/donnees-structurees-geo-ia/</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/business-case-agents-ia-pme/</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/automatiser-sav-retours-n8n/</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/gbp-experimentation-test-and-learn-local-seo/</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/rebranding-pme-strategie-1/</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/micro-fulfilment-geo-inventaire-pme/</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/reduire-cac-seo-paid-hybride/</loc>
+        <lastmod>2026-03-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/securiser-ci-cd-pipelines-pme-cloud/</loc>
+        <lastmod>2026-03-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/gbp-attributs-qa-conversion-locale/</loc>
+        <lastmod>2026-03-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/audit-performance-it-optimisation-facture-cloud-90-jours/</loc>
+        <lastmod>2026-03-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/automatiser-relance-paiement-n8n/</loc>
+        <lastmod>2026-03-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/publicite-locale-omnicanale-ia/</loc>
+        <lastmod>2026-03-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/securiser-iac-cloud-pour-pme/</loc>
+        <lastmod>2026-02-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/gouvernance-slo-okr-dsi-externalisee/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/stock-securite-sku-service-level-driven/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/supply-chain-moteur-de-croissance/</loc>
+        <lastmod>2026-02-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://nathanibgui.com/blog/conformite-rgpd-automatisation-n8n/</loc>
+        <lastmod>2026-02-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -193,206 +331,86 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/conformite-rgpd-automatisation-n8n/</loc>
-        <lastmod>2026-02-27</lastmod>
+        <loc>https://nathanibgui.com/blog/facebook-ads-machine-learning-optimisation/</loc>
+        <lastmod>2026-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/supply-chain-moteur-de-croissance/</loc>
-        <lastmod>2026-02-27</lastmod>
+        <loc>https://nathanibgui.com/blog/securiser-infrastructure-cloud-avancees/</loc>
+        <lastmod>2026-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/stock-securite-sku-service-level-driven/</loc>
-        <lastmod>2026-02-27</lastmod>
+        <loc>https://nathanibgui.com/blog/audit-performance-it-guide-pme/</loc>
+        <lastmod>2026-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/gouvernance-slo-okr-dsi-externalisee/</loc>
-        <lastmod>2026-02-27</lastmod>
+        <loc>https://nathanibgui.com/blog/dsi-externalise-gouvernance-orientee-resultats/</loc>
+        <lastmod>2026-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/securiser-iac-cloud-pour-pme/</loc>
-        <lastmod>2026-02-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/publicite-locale-omnicanale-ia/</loc>
-        <lastmod>2026-03-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/automatiser-relance-paiement-n8n/</loc>
-        <lastmod>2026-03-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/audit-performance-it-optimisation-facture-cloud-90-jours/</loc>
-        <lastmod>2026-03-03</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/gbp-attributs-qa-conversion-locale/</loc>
-        <lastmod>2026-03-04</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/securiser-ci-cd-pipelines-pme-cloud/</loc>
-        <lastmod>2026-03-04</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/reduire-cac-seo-paid-hybride/</loc>
-        <lastmod>2026-03-05</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/micro-fulfilment-geo-inventaire-pme/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/rebranding-pme-strategie-1/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/gbp-experimentation-test-and-learn-local-seo/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/automatiser-sav-retours-n8n/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/business-case-agents-ia-pme/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/donnees-structurees-geo-ia/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/seo-technique-core-web-vitals-pme/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/automatiser-facturation-relances-encaissements/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/strategie-donnees-locales-pour-llm/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/ameliorez-otre-cash-avec-le-stocks/</loc>
-        <lastmod>2026-03-06</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/optimisation-performance-it-pme/</loc>
-        <lastmod>2026-03-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/auditer-moderniser-si-legacy/</loc>
-        <lastmod>2026-03-08</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/blog/optimiser-gestion-temps-entreprise-n8n/</loc>
-        <lastmod>2026-03-09</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://nathanibgui.com/tools/</loc>
+        <loc>https://nathanibgui.com/blog/automatisation-processus-n8n-guide-pme/</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/tools/calculateur-roi-automatisation/</loc>
+        <loc>https://nathanibgui.com/blog/n8n-ia-workflows-agents-automatises/</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/tools/simulateur-budget-it/</loc>
+        <loc>https://nathanibgui.com/blog/geo-guide-complet-referencement-ia-2026/</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/tools/audit-ia-readiness/</loc>
+        <loc>https://nathanibgui.com/blog/agents-ia-rag-entreprise-guide-pratique/</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/facture-electronique-obligatoire-2026/</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://nathanibgui.com/blog/impact-micro-influenceurs-strategie-marketing/</loc>
+        <lastmod>2026-02-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/chatgpt-entreprise-guide-complet/</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://nathanibgui.com/blog/google-ads-meta-ads-pme-roi-2026/</loc>
+        <lastmod>2026-02-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/erp-guide-complet-pme/</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://nathanibgui.com/blog/ia-pme-guide-2026/</loc>
+        <lastmod>2026-02-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/n8n-vs-zapier-vs-make-comparatif/</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://nathanibgui.com/blog/audit-it-checklist-30-points/</loc>
+        <lastmod>2026-02-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://nathanibgui.com/blog/cybersecurite-entreprise-guide-complet/</loc>
-        <lastmod>2026-03-09</lastmod>
+        <loc>https://nathanibgui.com/blog/seo-ia-generative-chatgpt-2026/</loc>
+        <lastmod>2026-02-17</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://nathanibgui.com/mentions-legales/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-03-09</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
