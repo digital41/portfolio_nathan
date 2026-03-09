@@ -1,0 +1,882 @@
+================================================================================
+  BONNES PRATIQUES SITE WEB - TEMPLATE REUTILISABLE
+  Extraites du projet nathanibgui.com (site statique premium)
+  Date: Mars 2026
+================================================================================
+
+TABLE DES MATIERES
+------------------
+1.  Architecture & Structure de fichiers
+2.  Head HTML - Checklist SEO complete
+3.  Structured Data (JSON-LD)
+4.  Open Graph & Twitter Cards
+5.  Favicon - Kit complet
+6.  Systeme de theme Dark/Light
+7.  Accessibilite (A11y)
+8.  Performance & Chargement
+9.  Navigation centralisee (Header/Footer)
+10. Design System CSS
+11. Animations & Motion
+12. Formulaires & Interactivite
+13. RGPD & Consentement Cookies
+14. Securite Frontend
+15. Maillage interne (SEO)
+16. Sitemap & Robots.txt
+17. Service Worker & PWA
+18. Analytics & Tracking
+19. Responsive & Mobile
+20. Conventions de code
+
+
+================================================================================
+1. ARCHITECTURE & STRUCTURE DE FICHIERS
+================================================================================
+
+Structure recommandee pour un site statique multi-pages :
+
+/
+|-- index.html                      # Page d'accueil
+|-- contact.html (ou contact/)      # Page contact
+|-- mentions-legales.html           # Obligations legales
+|-- 404.html                        # Page erreur personnalisee
+|-- robots.txt                      # Directives moteurs de recherche
+|-- sitemap.xml                     # Plan du site
+|-- sitemap-images.xml              # Sitemap images (optionnel)
+|
+|-- /solutions/                     # Pages services/solutions
+|   |-- service-1.html
+|   |-- service-2.html
+|
+|-- /blog/                          # Articles de blog
+|   |-- index.html                  # Page listing
+|   |-- article-slug.html           # Articles individuels
+|
+|-- /tools/                         # Outils interactifs (calculateurs, etc.)
+|   |-- index.html
+|   |-- outil-slug.html
+|
+|-- /assets/
+|   |-- /images/                    # Images optimisees (WebP + fallback JPG)
+|   |-- /fonts/                     # Polices auto-hebergees (woff2)
+|   |-- favicon.svg                 # Favicon vectoriel
+|   |-- favicon.ico                 # Fallback ICO
+|   |-- favicon-16x16.png           # Tailles multiples
+|   |-- favicon-32x32.png
+|   |-- favicon-48x48.png
+|   |-- favicon-96x96.png
+|   |-- favicon-192x192.png
+|   |-- apple-touch-icon.png        # iOS 180x180
+|   |-- site.webmanifest            # PWA manifest
+|
+|-- /css/
+|   |-- tailwind.css                # Framework CSS (ou custom)
+|   |-- theme.css                   # Surcharges dark/light mode
+|
+|-- /js/
+|   |-- components.js               # Header/Footer centralises
+|   |-- theme.js                    # Logique dark/light toggle
+|   |-- main.js                     # Animations, interactions
+
+
+Principes :
+- URLs propres avec trailing slash (/solutions/strategie-ia/)
+- Pas de build tools si le site reste simple (CDN pour Tailwind, Alpine, GSAP)
+- Versionner les assets avec ?v=N pour le cache busting
+
+
+================================================================================
+2. HEAD HTML - CHECKLIST SEO COMPLETE
+================================================================================
+
+Chaque page DOIT contenir dans le <head> :
+
+--- Essentiels ---
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Titre unique | Nom du site]</title>
+<meta name="description" content="[Description unique 150-160 caracteres]">
+<meta name="keywords" content="[mot-cle-1, mot-cle-2, ...]">
+<meta name="author" content="[Nom]">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://[domaine]/[chemin]/">
+
+--- Langue ---
+<html lang="fr" class="scroll-smooth">
+<link rel="alternate" hreflang="fr" href="https://[domaine]/[chemin]/">
+<link rel="alternate" hreflang="x-default" href="https://[domaine]/[chemin]/">
+
+--- Couleur theme ---
+<meta name="theme-color" content="#030712">
+
+Notes :
+- Le <title> doit etre unique par page, descriptif, < 60 caracteres
+- La meta description doit etre unique, engageante, 150-160 caracteres
+- Le canonical doit TOUJOURS correspondre a l'URL exacte de la page
+- max-image-preview:large = permet a Google d'afficher de grandes miniatures
+- max-snippet:-1 = pas de limite de longueur dans les extraits
+- Page mentions legales : meta robots = "noindex, follow"
+- Page 404 : meta robots = "noindex, nofollow"
+
+
+================================================================================
+3. STRUCTURED DATA (JSON-LD)
+================================================================================
+
+Ajouter des donnees structurees sur CHAQUE page pour enrichir les resultats
+Google (rich snippets, knowledge panel, FAQ).
+
+--- Page d'accueil ---
+- WebSite (nom, url, publisher)
+- Person (nom, jobTitle, image, sameAs, worksFor, knowsAbout)
+- ProfessionalService (nom, services, avis, note, adresse)
+
+--- Pages solutions/services ---
+- Service (name, description, provider, serviceType, hasOfferCatalog)
+- FAQPage (questions/reponses de la section FAQ)
+- BreadcrumbList (fil d'Ariane)
+
+--- Page contact ---
+- ContactPage (mainEntity: Person)
+- BreadcrumbList
+
+--- Articles de blog ---
+- Article (headline, author, datePublished, dateModified, image)
+- BreadcrumbList
+
+--- Outils/Applications ---
+- WebApplication (name, applicationCategory, operatingSystem)
+- BreadcrumbList
+
+Template JSON-LD generique :
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "[Type]",
+    "name": "[Nom]",
+    "description": "[Description]",
+    "url": "https://[domaine]/[chemin]/",
+    "provider": {
+        "@type": "Person",
+        "name": "[Nom]",
+        "url": "https://[domaine]"
+    }
+}
+</script>
+
+BreadcrumbList (a mettre sur toute page sauf accueil) :
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://[domaine]/" },
+        { "@type": "ListItem", "position": 2, "name": "[Section]", "item": "https://[domaine]/[section]/" },
+        { "@type": "ListItem", "position": 3, "name": "[Page courante]" }
+    ]
+}
+</script>
+
+FAQPage (sur les pages avec une section FAQ) :
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "[Question ?]",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "[Reponse complete.]"
+            }
+        }
+    ]
+}
+</script>
+
+
+================================================================================
+4. OPEN GRAPH & TWITTER CARDS
+================================================================================
+
+A placer dans le <head> de CHAQUE page :
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://[domaine]/[chemin]/">
+<meta property="og:title" content="[Titre]">
+<meta property="og:description" content="[Description courte]">
+<meta property="og:image" content="https://[domaine]/assets/images/[image-og].jpg">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="[Nom du site]">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[Titre]">
+<meta name="twitter:description" content="[Description courte]">
+<meta name="twitter:image" content="https://[domaine]/assets/images/[image-og].jpg">
+
+Notes :
+- L'image OG doit faire 1200x630px minimum (idealement JPG)
+- og:type = "website" pour les pages, "article" pour les articles de blog
+- Chaque page doit avoir son propre titre et description OG
+
+
+================================================================================
+5. FAVICON - KIT COMPLET
+================================================================================
+
+Generer toutes les tailles depuis un SVG source :
+
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png?v=2">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png?v=3">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png?v=3">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96x96.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=2">
+<link rel="manifest" href="/assets/site.webmanifest">
+
+Le fichier site.webmanifest :
+{
+  "name": "[Nom du site]",
+  "short_name": "[Nom court]",
+  "icons": [
+    { "src": "/assets/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/favicon-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#030712",
+  "background_color": "#030712",
+  "display": "standalone"
+}
+
+
+================================================================================
+6. SYSTEME DE THEME DARK/LIGHT
+================================================================================
+
+--- Anti-FOUC (Flash Of Unstyled Content) ---
+Script INLINE dans le <head> AVANT tout CSS :
+
+<script>
+(function(){
+  var t = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme-mode', t);
+  if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+})();
+</script>
+
+--- Logique JS (theme.js) ---
+- Stocker le choix dans localStorage (cle: 'theme')
+- 2 modes : 'dark' et 'light'
+- Appliquer via data-theme-mode et data-theme sur <html>
+- Bouton toggle avec icone qui change (fa-moon / fa-sun)
+- Tooltip dynamique sur le bouton
+
+--- CSS (theme.css) ---
+Strategie : surcharger avec [data-theme="light"] selecteurs
+
+[data-theme="light"] body { background-color: #f8fafc; color: #1e293b; }
+[data-theme="light"] .glass { background: rgba(255,255,255,0.85); }
+[data-theme="light"] .text-white { color: #0f172a; }
+[data-theme="light"] .text-slate-400 { color: #475569; }
+[data-theme="light"] .border-white\/5 { border-color: rgba(0,0,0,0.08); }
+[data-theme="light"] input, textarea { background: #f8fafc; color: #1e293b; }
+
+Notes :
+- Toujours ajouter transition sur body/glass/logo pour un changement fluide :
+  [data-theme-mode] body { transition: background-color .3s, color .3s; }
+- Respecter prefers-reduced-motion: reduce pour les transitions
+- Le bouton theme-toggle doit avoir aria-label dynamique
+
+
+================================================================================
+7. ACCESSIBILITE (A11y)
+================================================================================
+
+--- Skip to content ---
+Premiere chose dans le <body> :
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4
+   focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-6
+   focus:py-3 focus:rounded-lg focus:font-bold">
+   Aller au contenu principal
+</a>
+
+Le main doit avoir id="main-content".
+
+--- Landmarks semantiques ---
+<header role="banner">       # Navigation principale
+<main id="main-content">     # Contenu principal
+<footer role="contentinfo">  # Pied de page
+<nav aria-label="[Nom]">     # Navigations (principale, mobile, footer)
+<section aria-label="[Nom]"> # Sections thematiques
+
+--- ARIA ---
+- aria-label sur les boutons sans texte (icones)
+- aria-current="page" sur le lien actif dans la navigation
+- aria-hidden="true" sur les elements decoratifs (icones, blobs)
+- aria-expanded sur les boutons toggle (menu mobile)
+- role="dialog" + aria-label sur les modals/popups
+- role="switch" + aria-checked sur les toggles
+
+--- Focus visible ---
+button:focus-visible, a:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+--- Images ---
+- Toujours un alt descriptif (pas juste "photo")
+- Les images decoratives : alt="" ou aria-hidden="true"
+- width et height explicites pour eviter le CLS
+
+--- Noscript fallback ---
+<noscript>
+  <div>Ce site fonctionne mieux avec JavaScript active.
+    <a href="[lien-direct]">Acces direct.</a>
+  </div>
+</noscript>
+
+--- Screen reader only ---
+Cacher visuellement mais garder accessible :
+.sr-only { position: absolute; width: 1px; height: 1px;
+           padding: 0; margin: -1px; overflow: hidden;
+           clip: rect(0,0,0,0); border: 0; }
+
+Quand un element decore repete du contenu, mettre aria-hidden="true" sur le
+decoratif et une version .sr-only pour les lecteurs d'ecran.
+
+
+================================================================================
+8. PERFORMANCE & CHARGEMENT
+================================================================================
+
+--- Preconnect ---
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+--- Preload LCP (Largest Contentful Paint) ---
+<link rel="preload" as="image" type="image/webp"
+      href="/assets/images/hero.webp" fetchpriority="high">
+
+--- Polices auto-hebergees ---
+Declarer en @font-face inline dans le <head> avec :
+- font-display: swap (afficher le texte immediatement)
+- Format woff2 uniquement (meilleure compression)
+- unicode-range pour charger seulement les glyphes necessaires
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url(/assets/fonts/plus-jakarta-sans-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, ...;
+}
+
+--- CSS non-critique en async ---
+<link rel="stylesheet" href="/css/theme.css?v=6" media="print"
+      onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/css/theme.css?v=6"></noscript>
+
+--- JS ---
+- defer sur les scripts non-critiques (Alpine, GSAP, components)
+- async sur les scripts independants (Calendly, analytics)
+- Pas de scripts render-blocking
+
+--- Images ---
+- Format WebP avec fallback JPG via <picture> :
+  <picture>
+    <source srcset="image.webp" type="image/webp">
+    <img src="image.jpg" alt="..." width="700" height="1050" loading="lazy">
+  </picture>
+- loading="lazy" sur toutes les images sauf le hero (LCP)
+- fetchpriority="high" sur l'image hero
+- width/height explicites pour eviter le CLS
+
+--- Cache busting ---
+Versionner les assets : ?v=12 sur les CSS/JS
+Incrementer a chaque modification deployee.
+
+--- GSAP Fallback ---
+Si GSAP ne charge pas, les elements doivent quand meme apparaitre :
+.reveal-hero, .reveal-scroll {
+    animation: gsapFallback 0s 4s both;
+}
+@keyframes gsapFallback {
+    to { opacity: 1; transform: none; }
+}
+
+
+================================================================================
+9. NAVIGATION CENTRALISEE (Header/Footer)
+================================================================================
+
+Pattern : un seul fichier JS (components.js) qui genere le header et le footer
+par injection dans des divs placeholder.
+
+HTML de chaque page :
+<div id="site-header"></div>
+<main id="main-content">...</main>
+<div id="site-footer"></div>
+
+JS (components.js) :
+var h = document.getElementById('site-header');
+if (h) h.outerHTML = header();
+var f = document.getElementById('site-footer');
+if (f) f.outerHTML = footer();
+
+Avantages :
+- Modifier le menu/footer en UN seul endroit
+- aria-current="page" automatique selon l'URL
+- Ajout conditionnel de liens selon le contexte (blog, solutions, outils)
+- Navigation simplifiee pour les pages internes (ancres #) vs externes (/#)
+
+Le footer contient :
+- Logo + description
+- Colonnes de liens organises par categorie
+- Liens reseaux sociaux (target="_blank" rel="noopener noreferrer")
+- Mentions legales + politique de confidentialite
+- Copyright avec annee
+
+Le header contient :
+- Logo (lien vers /)
+- Navigation desktop (hidden lg:flex)
+- Navigation mobile (toggle Alpine.js)
+- Bouton theme toggle
+- CTA principal (Calendly popup)
+- Skip-to-content + noscript fallback
+
+
+================================================================================
+10. DESIGN SYSTEM CSS
+================================================================================
+
+--- Glass morphism ---
+.glass {
+    background: rgba(10, 16, 32, 0.65);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+--- Gradient border (effet premium) ---
+.border-gradient-wrapper {
+    position: relative;
+    background: #0a1020;
+    border-radius: 22px;
+}
+.border-gradient-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 23px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(59,130,246,0.4), transparent 60%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+--- Texte avec glow ---
+.text-glow { text-shadow: 0 0 40px rgba(46, 81, 162, 0.6); }
+
+ATTENTION : eviter text-transparent bg-clip-text pour les gros titres.
+Cette technique CSS rend le texte flou/fade dans certains navigateurs
+(surtout Chromium). Preferer une couleur solide (ex: text-emerald-400).
+
+--- Logo premium ---
+.premium-logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    font-size: 1.6rem;
+}
+.premium-logo span { font-weight: 200; color: #3b82f6; }
+
+--- Skill cards avec accent dynamique ---
+.skill-card { --accent: 59, 130, 246; }
+.skill-icon { background: rgba(var(--accent), 0.08); }
+.skill-card:hover { transform: scale(1.02); }
+
+Utiliser des variables CSS --accent en RGB pour pouvoir
+appliquer des opacites differentes via rgba().
+
+--- Typographie ---
+Polices recommandees :
+- Titres : Plus Jakarta Sans (700-800)
+- Corps : Plus Jakarta Sans (300-400)
+- Code/Terminal : Fira Code (monospace)
+- Logo : Inter (900)
+
+Classes de taille responsive :
+text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+
+
+================================================================================
+11. ANIMATIONS & MOTION
+================================================================================
+
+--- GSAP + ScrollTrigger ---
+Librairies CDN :
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
+
+Pattern d'animation au scroll :
+gsap.utils.toArray('.reveal-scroll').forEach(el => {
+    gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 85%' },
+        y: 40, opacity: 0, duration: 0.8
+    });
+});
+
+--- Reduced motion ---
+TOUJOURS respecter les preferences utilisateur :
+@media (prefers-reduced-motion: reduce) {
+    .marquee-content { animation: none; }
+    .reveal-hero, .reveal-scroll { opacity: 1; transform: none; }
+    * { transition: none !important; }
+}
+
+--- View Transitions API ---
+Pour des transitions de page fluides (navigation) :
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: fade-out .2s ease-in; }
+::view-transition-new(root) { animation: fade-in .3s ease-out; }
+
+Nommer les elements persistants :
+.premium-logo { view-transition-name: site-logo; }
+header { view-transition-name: site-header; }
+footer { view-transition-name: site-footer; }
+
+--- Typewriter effect ---
+Realise en Alpine.js avec x-data et setTimeout/setInterval.
+Ajouter une animation cursor-blink :
+.cursor-blink { animation: blink 1s step-end infinite; }
+
+--- Marquee defilant ---
+.marquee-content { animation: scroll 30s linear infinite; }
+@keyframes scroll { from { translateX(0) } to { translateX(-50%) } }
+
+
+================================================================================
+12. FORMULAIRES & INTERACTIVITE
+================================================================================
+
+--- Alpine.js ---
+<script defer src="https://unpkg.com/alpinejs@3.x/dist/cdn.min.js"></script>
+
+Utilisations :
+- Menu mobile toggle : x-data="{ mobileMenu: false }"
+- Modals/popups : x-show, x-transition, @click.away
+- Formulaires avec validation : x-data="{ ...formData }"
+- Calculateurs interactifs : x-model, x-text, computed values
+
+--- Calendly integration ---
+En popup (non-bloquant) :
+<link href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet" media="print" onload="this.media='all'">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+Bouton :
+<button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/...'});">
+    Reserver
+</button>
+
+--- [x-cloak] ---
+Eviter le flash de contenu Alpine non-initialise :
+[x-cloak] { display: none !important; }
+
+
+================================================================================
+13. RGPD & CONSENTEMENT COOKIES
+================================================================================
+
+--- Banniere de consentement ---
+Implementer dans components.js (pas de dependance externe).
+
+Principes :
+- Afficher au premier chargement si pas de consentement stocke
+- 3 boutons : "Tout accepter", "Personnaliser", "Tout refuser"
+- Panneau de personnalisation avec toggles par categorie :
+  - Essentiels (toujours actifs, non desactivables)
+  - Analytiques (Google Analytics)
+  - Marketing (publicite ciblee)
+- Stocker le choix dans localStorage
+- Utiliser gtag('consent', 'default/update', {...}) pour Google
+
+--- Google Tag Manager consent mode v2 ---
+Avant le chargement de GA :
+gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+});
+
+Apres acceptation :
+gtag('consent', 'update', {
+    analytics_storage: 'granted'
+});
+
+--- Lien vers politique de confidentialite ---
+Toujours present dans la banniere et dans le footer.
+
+
+================================================================================
+14. SECURITE FRONTEND
+================================================================================
+
+--- Protection anti-copie (dissuasion) ---
+- Desactiver clic droit : document.addEventListener('contextmenu', e => e.preventDefault())
+- Bloquer Ctrl+U/S/C/A et F12
+- Desactiver le drag : document.addEventListener('dragstart', e => e.preventDefault())
+- CSS : user-select: none sur body (sauf inputs)
+
+body { user-select: none; }
+input, textarea, select { user-select: text; }
+
+Note : ce n'est qu'une dissuasion, pas une vraie protection.
+
+--- Liens externes ---
+Toujours : target="_blank" rel="noopener noreferrer"
+
+--- WhatsApp widget ---
+Lien direct : https://wa.me/[numero-sans-plus]
+Position fixed, bottom-right, z-index eleve.
+
+
+================================================================================
+15. MAILLAGE INTERNE (SEO)
+================================================================================
+
+--- Principe ---
+Chaque page doit pointer vers 2-3 autres pages du site minimum.
+Le but est de distribuer le "jus SEO" et faciliter le crawl.
+
+--- Methodes appliquees ---
+
+1. Footer global : liens vers toutes les solutions + contact + blog
+   (automatique via components.js)
+
+2. Section "Articles associes" / "Solutions associees" en bas des pages :
+   3 cards vers des pages thematiquement liees
+
+   <a href="/solutions/automation-n8n/" class="glass p-6 rounded-3xl
+      hover:bg-white/5 transition-all block group border border-white/5">
+       <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center
+            justify-center mb-4">
+           <i class="fas fa-robot text-yellow-400"></i>
+       </div>
+       <h3 class="text-white font-bold mb-2 group-hover:text-yellow-400
+           transition-colors">[Titre]</h3>
+       <p class="text-slate-500 text-sm">[Description courte]</p>
+   </a>
+
+3. Bloc solutions auto-injecte sur les articles de blog
+   (via components.js : detection du path /blog/ et injection dynamique)
+
+4. Liens contextuels dans le contenu redactionnel
+   (mots-cles vers les pages solutions correspondantes)
+
+5. Navigation header : liens vers les sections principales
+   + lien "Outils" pour les outils gratuits
+
+6. Breadcrumb JSON-LD sur chaque sous-page
+
+
+================================================================================
+16. SITEMAP & ROBOTS.TXT
+================================================================================
+
+--- sitemap.xml ---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://[domaine]/</loc>
+        <lastmod>2026-02-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <!-- Pages solutions : priority 0.9, changefreq monthly -->
+    <!-- Pages blog : priority 0.7, changefreq monthly -->
+    <!-- Pages outils : priority 0.8, changefreq monthly -->
+    <!-- Contact : priority 0.8 -->
+    <!-- Mentions legales : priority 0.3, changefreq yearly -->
+</urlset>
+
+Regles de priority :
+- 1.0 : accueil
+- 0.9 : pages solutions/services
+- 0.8 : outils, contact, blog index
+- 0.7 : articles de blog
+- 0.3 : mentions legales
+
+--- robots.txt ---
+User-agent: *
+Allow: /
+
+Sitemap: https://[domaine]/sitemap.xml
+Sitemap: https://[domaine]/sitemap-images.xml
+
+Disallow: /admin/
+Disallow: /private/
+
+NE PAS oublier de soumettre le sitemap dans Google Search Console.
+
+
+================================================================================
+17. SERVICE WORKER & PWA
+================================================================================
+
+Enregistrer un service worker pour le mode offline/cache :
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+}
+
+Le sw.js gere :
+- Cache des assets statiques (CSS, JS, polices, images)
+- Strategie cache-first pour les assets, network-first pour le HTML
+- Page offline de fallback
+
+
+================================================================================
+18. ANALYTICS & TRACKING
+================================================================================
+
+--- Google Analytics 4 ---
+- Charger via script dynamique (pas dans le HTML)
+- Respecter le consent mode v2 (voir section RGPD)
+- ID a configurer : G-XXXXXXXXXX
+
+--- Umami (analytics respectueux de la vie privee) ---
+<script defer src="https://cloud.umami.is/script.js"
+        data-website-id="[ID]"></script>
+
+Avantage : pas de cookies, conforme RGPD sans banniere.
+
+--- A/B Testing ---
+Utiliser data-ab="[nom-test]" et data-ab-text sur les elements a tester.
+Permet de changer facilement le texte des CTA.
+
+
+================================================================================
+19. RESPONSIVE & MOBILE
+================================================================================
+
+--- Breakpoints Tailwind ---
+sm: 640px  | md: 768px  | lg: 1024px  | xl: 1280px
+
+--- Principes ---
+- Mobile-first : classes de base = mobile, puis sm:, md:, lg:
+- Navigation : hamburger menu en dessous de lg: (1024px)
+- Padding adaptatif : px-4 sm:px-8
+- Grilles : grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+- Texte : text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+
+--- Optimisations mobile (theme.css) ---
+@media (max-width: 639px) {
+    /* Reduire les paddings excessifs */
+    section[class*="py-32"] { padding-top: 4rem; padding-bottom: 4rem; }
+
+    /* Tronquer les textes longs */
+    .border-gradient-wrapper p.text-slate-400 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Masquer les descriptions secondaires */
+    .reveal-scroll.text-center > p { display: none; }
+}
+
+--- Scrollbar custom ---
+::-webkit-scrollbar-track { background: #0a1020; }
+::-webkit-scrollbar-thumb { background: #1e293b; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+
+================================================================================
+20. CONVENTIONS DE CODE
+================================================================================
+
+--- HTML ---
+- Indentation : 4 espaces
+- Attributs dans l'ordre : id, class, style, data-*, aria-*, events
+- Fermer toutes les balises auto-fermantes : <img ... >
+- Pas d'emojis dans le code sauf demande explicite
+
+--- CSS ---
+- Utiliser Tailwind en priorite (classes utilitaires)
+- CSS custom uniquement pour ce que Tailwind ne couvre pas
+- Nommage BEM pour les composants custom (.skill-card, .skill-icon)
+- Pas de !important sauf pour les surcharges de theme
+
+--- JavaScript ---
+- Pas de framework lourd (pas de React/Vue) pour un site vitrine
+- Alpine.js pour l'interactivite legere
+- IIFE pour encapsuler le code (var SiteComponents = (function(){...})())
+- Preferer defer sur les scripts
+
+--- Git ---
+- Commits en anglais, messages concis
+- Format : "type: description" (fix:, feat:, perf:, docs:)
+- Co-authored-by si collaboration avec IA
+
+--- Nommage des fichiers ---
+- kebab-case pour les fichiers HTML : strategie-ia.html
+- Pas de majuscules, pas d'accents dans les noms de fichiers
+- Slugs descriptifs et SEO-friendly
+
+--- Deploiement ---
+- Versionner les assets CSS/JS avec ?v=N
+- Incrementer la version a chaque deploiement
+- Tester en navigation privee apres deploiement (cache)
+
+
+================================================================================
+CHECKLIST RAPIDE NOUVELLE PAGE
+================================================================================
+
+[ ] DOCTYPE html + lang="fr" + class="scroll-smooth"
+[ ] charset UTF-8 + viewport
+[ ] <title> unique (< 60 car.)
+[ ] meta description unique (150-160 car.)
+[ ] meta keywords
+[ ] meta author
+[ ] meta robots (index,follow ou noindex selon le cas)
+[ ] canonical URL
+[ ] hreflang fr + x-default
+[ ] Open Graph (type, url, title, description, image, locale, site_name)
+[ ] Twitter Cards (card, title, description, image)
+[ ] Favicon kit complet (8 tailles + apple-touch + manifest)
+[ ] theme-color
+[ ] JSON-LD (type adapte + BreadcrumbList + FAQPage si FAQ)
+[ ] Anti-FOUC script inline dans <head>
+[ ] @font-face inline (woff2, font-display: swap)
+[ ] CSS avec media="print" onload="this.media='all'" + noscript fallback
+[ ] JS avec defer
+[ ] [x-cloak] { display: none !important; }
+[ ] body x-data="{ mobileMenu: false }"
+[ ] <div id="site-header"></div>
+[ ] <main id="main-content">
+[ ] <div id="site-footer"></div>
+[ ] Skip-to-content (dans components.js)
+[ ] Noscript fallback (dans components.js)
+[ ] aria-label sur toutes les sections
+[ ] alt descriptif sur toutes les images
+[ ] Liens internes vers 2-3 pages liees
+[ ] Tester Lighthouse (Performance, A11y, SEO, Best Practices)
+[ ] Ajouter l'URL dans sitemap.xml
+[ ] Verifier dans Google Search Console apres deploiement
+
+
+================================================================================
+FIN DU DOCUMENT
+================================================================================
