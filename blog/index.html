@@ -321,8 +321,8 @@
                 <div id="filters" class="mb-10">
                     <!-- Search bar -->
                     <div class="max-w-md mx-auto mb-6">
-                        <div class="relative">
-                            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm" aria-hidden="true"></i>
+                        <div class="relative flex items-center">
+                            <i class="fas fa-search absolute left-4 text-slate-500 text-sm pointer-events-none" aria-hidden="true"></i>
                             <input type="text" x-model="search" @input="page = 1"
                                    placeholder="Rechercher un article..."
                                    class="search-input w-full pl-11 pr-4 py-3 rounded-2xl text-sm text-white placeholder-slate-500 focus:outline-none"
@@ -331,7 +331,7 @@
                     </div>
 
                     <!-- Category pills -->
-                    <div class="tag-scroll flex items-center gap-2 overflow-x-auto pb-2 justify-start sm:justify-center px-1">
+                    <div class="tag-scroll flex items-center gap-2 overflow-x-auto pb-2 justify-center px-1">
                         <button @click="setFilter('all')"
                                 :class="filter === 'all' ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
                                 class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all whitespace-nowrap flex-shrink-0">
@@ -354,7 +354,7 @@
                 </p>
 
                 <!-- ARTICLE LIST -->
-                <div class="space-y-3">
+                <div class="space-y-6">
                     <template x-for="article in paginated" :key="article.slug">
                         <a :href="'/blog/' + article.slug + '/'"
                            class="glass p-5 sm:p-6 rounded-2xl hover:bg-white/5 transition-all group border border-white/5 block relative overflow-hidden"
