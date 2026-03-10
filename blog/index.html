@@ -108,12 +108,23 @@
         [data-theme="light"] .bg-dark{background-color:#fff!important}
         [data-theme="light"] .premium-logo{color:#0f172a!important}
         [data-theme="light"] .premium-logo span{color:#3b82f6!important}
+        [data-theme="light"] .search-input{background:rgba(0,0,0,.04)!important;border-color:rgba(0,0,0,.12)!important;color:#1e293b!important}
+        [data-theme="light"] .search-input::placeholder{color:#94a3b8!important}
         .glass { background: rgba(10, 16, 32, 0.65); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15); }
         .premium-logo { font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: -0.05em; font-size: 1.6rem; }
         .premium-logo span { font-weight: 200; color: #3b82f6; }
         .bg-gradient-radial { background: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.15) 0%, transparent 60%); }
         button:focus-visible, a:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
         @media (prefers-reduced-motion: reduce) { .reveal-hero, .reveal-scroll { opacity: 1 !important; transform: none !important; } }
+
+        .search-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; }
+        .search-input:focus { background: rgba(255,255,255,0.08); border-color: rgba(59,130,246,0.5); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+        .tag-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+        .tag-scroll::-webkit-scrollbar { display: none; }
+        .card-img { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .group:hover .card-img { transform: scale(1.05); }
+        .featured-gradient { background: linear-gradient(to top, rgba(3,7,18,0.95) 0%, rgba(3,7,18,0.6) 40%, transparent 100%); }
+        [data-theme="light"] .featured-gradient { background: linear-gradient(to top, rgba(248,250,252,0.95) 0%, rgba(248,250,252,0.6) 40%, transparent 100%); }
     </style>
 </head>
 <body x-data="{ mobileMenu: false }">
@@ -131,90 +142,282 @@
             </ol>
         </nav>
 
-        <!-- HERO -->
-        <section class="py-20 sm:py-28 px-4 sm:px-8 bg-gradient-radial" aria-label="Blog Nathan Ibgui">
+        <!-- HERO (compact) -->
+        <section class="pt-8 pb-12 sm:pt-12 sm:pb-16 px-4 sm:px-8 bg-gradient-radial" aria-label="Blog Nathan Ibgui">
             <div class="max-w-7xl mx-auto text-center">
                 <span class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Insights & Guides</span>
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-white">
                     Le Blog <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Expert.</span>
                 </h1>
-                <p class="text-slate-400 mt-6 max-w-2xl mx-auto text-lg font-light">Guides pratiques, analyses et retours d'experience sur la transformation digitale des PME.</p>
+                <p class="text-slate-400 mt-4 max-w-2xl mx-auto text-base sm:text-lg font-light">Guides pratiques, analyses et retours d'experience sur la transformation digitale des PME.</p>
             </div>
         </section>
 
-        <!-- ARTICLES (Dynamic from articles.json) -->
-        <section class="py-16 sm:py-20 px-4 sm:px-8" aria-label="Articles du blog"
+        <!-- ARTICLES -->
+        <section class="pb-16 sm:pb-20 px-4 sm:px-8" aria-label="Articles du blog"
                  x-data="{
                      articles: [],
                      filter: 'all',
+                     search: '',
                      page: 1,
-                     perPage: 6,
-                     get tags() { return [...new Set(this.articles.map(a => a.tag))]; },
+                     perPage: 9,
+
+                     /* Tag consolidation map: raw tag -> clean category */
+                     tagMap: {
+                         'Intelligence Artificielle': 'IA & Automatisation',
+                         'Strat\u00e9gie IA': 'IA & Automatisation',
+                         'Strategie IA': 'IA & Automatisation',
+                         'Automatisation': 'IA & Automatisation',
+                         'Automatisation Processus': 'IA & Automatisation',
+                         'automation': 'IA & Automatisation',
+                         'Automation': 'IA & Automatisation',
+                         'automation-n8n': 'IA & Automatisation',
+
+                         'SEO': 'SEO & Marketing',
+                         'SEO Local': 'SEO & Marketing',
+                         'SEO-Acquisition': 'SEO & Marketing',
+                         'SEO & Acquisition': 'SEO & Marketing',
+                         'SEO & IA': 'SEO & Marketing',
+                         'GEO': 'SEO & Marketing',
+                         'GEO & IA': 'SEO & Marketing',
+                         'Marketing Digital': 'SEO & Marketing',
+                         'Marketing': 'SEO & Marketing',
+                         'branding': 'SEO & Marketing',
+                         'Google Business Profile': 'SEO & Marketing',
+                         'GBP Avanc\u00e9': 'SEO & Marketing',
+
+                         'Publicit\u00e9 Digitale': 'Publicite & Ads',
+                         'Publicite Digitale': 'Publicite & Ads',
+                         'Publicit\u00e9 & IA': 'Publicite & Ads',
+                         'Publicit\u00e9': 'Publicite & Ads',
+                         'Publicite': 'Publicite & Ads',
+
+                         'Transformation Digitale': 'Transformation Digitale',
+                         'Management de Si': 'Transformation Digitale',
+                         'Technologie': 'Transformation Digitale',
+
+                         'ERP': 'ERP & Data',
+                         'Data & ERP': 'ERP & Data',
+                         'Outils PME': 'ERP & Data',
+
+                         'Cybersecurite': 'Cybersecurite & Cloud',
+                         'Cybers\u00e9curit\u00e9': 'Cybersecurite & Cloud',
+                         'cybersecurite-cloud': 'Cybersecurite & Cloud',
+
+                         'Supply Chain': 'Supply Chain & Ops',
+
+                         'Audit IT': 'Audit & DSI',
+                         'Audit & Performance IT': 'Audit & DSI',
+                         'Performance IT': 'Audit & DSI',
+                         'audit-performance-it': 'Audit & DSI',
+                         'DSI externalis\u00e9e': 'Audit & DSI',
+                         'DSI': 'Audit & DSI'
+                     },
+
+                     categoryIcons: {
+                         'IA & Automatisation': 'fa-robot',
+                         'SEO & Marketing': 'fa-chart-line',
+                         'Publicite & Ads': 'fa-bullhorn',
+                         'Transformation Digitale': 'fa-rocket',
+                         'ERP & Data': 'fa-database',
+                         'Cybersecurite & Cloud': 'fa-shield-halved',
+                         'Supply Chain & Ops': 'fa-truck-fast',
+                         'Audit & DSI': 'fa-clipboard-check'
+                     },
+
+                     categoryColors: {
+                         'IA & Automatisation': 'blue',
+                         'SEO & Marketing': 'green',
+                         'Publicite & Ads': 'orange',
+                         'Transformation Digitale': 'purple',
+                         'ERP & Data': 'yellow',
+                         'Cybersecurite & Cloud': 'red',
+                         'Supply Chain & Ops': 'cyan',
+                         'Audit & DSI': 'indigo'
+                     },
+
+                     getCategory(article) {
+                         return this.tagMap[article.tag] || article.tag;
+                     },
+
+                     getCategoryColor(article) {
+                         var cat = this.getCategory(article);
+                         return this.categoryColors[cat] || 'blue';
+                     },
+
+                     getCategoryIcon(article) {
+                         var cat = this.getCategory(article);
+                         return this.categoryIcons[cat] || 'fa-file-alt';
+                     },
+
+                     get categories() {
+                         var cats = {};
+                         this.articles.forEach(a => {
+                             var c = this.getCategory(a);
+                             cats[c] = (cats[c] || 0) + 1;
+                         });
+                         return Object.entries(cats).sort((a,b) => b[1] - a[1]).map(e => e[0]);
+                     },
+
                      get filtered() {
-                         let list = this.filter === 'all' ? this.articles : this.articles.filter(a => a.tag === this.filter);
+                         var list = this.articles;
+                         if (this.filter !== 'all') {
+                             list = list.filter(a => this.getCategory(a) === this.filter);
+                         }
+                         if (this.search.trim()) {
+                             var q = this.search.trim().toLowerCase();
+                             list = list.filter(a =>
+                                 a.title.toLowerCase().includes(q) ||
+                                 (a.description || '').toLowerCase().includes(q) ||
+                                 (a.tag || '').toLowerCase().includes(q)
+                             );
+                         }
                          return list.sort((a, b) => new Date(b.date) - new Date(a.date));
                      },
+
                      get totalPages() { return Math.ceil(this.filtered.length / this.perPage); },
                      get paginated() { return this.filtered.slice((this.page - 1) * this.perPage, this.page * this.perPage); },
                      get pageNumbers() {
-                         const pages = [];
-                         for (let i = 1; i <= this.totalPages; i++) pages.push(i);
+                         var pages = [];
+                         var tp = this.totalPages;
+                         var cp = this.page;
+                         if (tp <= 7) { for (var i = 1; i <= tp; i++) pages.push(i); }
+                         else {
+                             pages.push(1);
+                             if (cp > 3) pages.push('...');
+                             for (var i = Math.max(2, cp - 1); i <= Math.min(tp - 1, cp + 1); i++) pages.push(i);
+                             if (cp < tp - 2) pages.push('...');
+                             pages.push(tp);
+                         }
                          return pages;
                      },
+
                      scrollToFilters() { document.getElementById('filters').scrollIntoView({ behavior: 'smooth', block: 'start' }); },
                      setFilter(f) { this.filter = f; this.page = 1; },
                      formatDate(d) {
-                         return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+                         return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
+                     },
+
+                     colorMap: {
+                         blue: { bg: '#3b82f6', text: '#60a5fa', light: '#3b82f615' },
+                         green: { bg: '#22c55e', text: '#4ade80', light: '#22c55e15' },
+                         orange: { bg: '#f97316', text: '#fb923c', light: '#f9731615' },
+                         purple: { bg: '#a855f7', text: '#c084fc', light: '#a855f715' },
+                         yellow: { bg: '#eab308', text: '#facc15', light: '#eab30815' },
+                         red: { bg: '#ef4444', text: '#f87171', light: '#ef444415' },
+                         cyan: { bg: '#06b6d4', text: '#22d3ee', light: '#06b6d415' },
+                         indigo: { bg: '#6366f1', text: '#818cf8', light: '#6366f115' }
+                     },
+
+                     getColor(article) {
+                         var c = this.getCategoryColor(article);
+                         return this.colorMap[c] || this.colorMap.blue;
                      }
                  }"
                  x-init="fetch('articles.json').then(r => r.json()).then(d => articles = d)">
 
-            <div class="max-w-5xl mx-auto">
+            <div class="max-w-6xl mx-auto">
 
-                <!-- FILTERS -->
-                <div id="filters" class="flex flex-wrap items-center gap-3 mb-10 justify-center">
-                    <button @click="setFilter('all')"
-                            :class="filter === 'all' ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
-                            class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all">
-                        Tous
-                    </button>
-                    <template x-for="tag in tags" :key="tag">
-                        <button @click="setFilter(tag)"
-                                :class="filter === tag ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
-                                class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border transition-all"
-                                x-text="tag">
+                <!-- SEARCH + FILTERS -->
+                <div id="filters" class="mb-10">
+                    <!-- Search bar -->
+                    <div class="max-w-lg mx-auto mb-6">
+                        <div class="relative">
+                            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm" aria-hidden="true"></i>
+                            <input type="text" x-model="search" @input="page = 1"
+                                   placeholder="Rechercher un article..."
+                                   class="search-input w-full pl-11 pr-4 py-3 rounded-2xl text-sm text-white placeholder-slate-500 focus:outline-none"
+                                   aria-label="Rechercher un article">
+                        </div>
+                    </div>
+
+                    <!-- Category pills (horizontal scroll on mobile) -->
+                    <div class="tag-scroll flex items-center gap-2 overflow-x-auto pb-2 justify-start sm:justify-center px-1">
+                        <button @click="setFilter('all')"
+                                :class="filter === 'all' ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
+                                class="px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider border transition-all whitespace-nowrap flex-shrink-0">
+                            <i class="fas fa-th-large mr-1.5" aria-hidden="true"></i>Tous
+                            <span class="ml-1 opacity-60" x-text="articles.length"></span>
                         </button>
-                    </template>
+                        <template x-for="cat in categories" :key="cat">
+                            <button @click="setFilter(cat)"
+                                    :class="filter === cat ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
+                                    class="px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider border transition-all whitespace-nowrap flex-shrink-0"
+                                    x-text="cat">
+                            </button>
+                        </template>
+                    </div>
                 </div>
 
                 <!-- COUNT -->
-                <p class="text-slate-500 text-sm mb-6 text-center" x-text="filtered.length + ' article' + (filtered.length > 1 ? 's' : '') + (totalPages > 1 ? ' — page ' + page + '/' + totalPages : '')"></p>
+                <p class="text-slate-500 text-sm mb-8 text-center">
+                    <span x-text="filtered.length"></span> article<span x-show="filtered.length > 1">s</span>
+                    <span x-show="totalPages > 1"> &mdash; page <span x-text="page"></span>/<span x-text="totalPages"></span></span>
+                    <span x-show="search.trim()" class="text-blue-400"> pour &laquo;<span x-text="search.trim()"></span>&raquo;</span>
+                </p>
 
-                <!-- ARTICLE CARDS -->
-                <div class="space-y-8">
-                    <template x-for="article in paginated" :key="article.slug">
-                        <a :href="'/blog/' + article.slug" class="glass p-8 sm:p-10 rounded-3xl hover:bg-white/5 transition-all group border border-white/5 block">
-                            <div class="flex gap-6 md:gap-8">
-                                <!-- Icon -->
-                                <div class="flex-shrink-0">
-                                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform"
-                                         :class="'bg-' + article.color + '-500/10 text-' + article.color + '-400'">
-                                        <i :class="'fas ' + article.icon" aria-hidden="true"></i>
-                                    </div>
+                <!-- FEATURED ARTICLE (first one, only on page 1 with no search) -->
+                <template x-if="page === 1 && !search.trim() && filtered.length > 0">
+                    <a :href="'/blog/' + filtered[0].slug + '/'" class="group block mb-10 rounded-3xl overflow-hidden border border-white/5 hover:border-white/15 transition-all duration-300 relative">
+                        <div class="relative h-64 sm:h-80 md:h-96 overflow-hidden">
+                            <img :src="filtered[0].image || 'https://images.unsplash.com/photo-1526666923127-b2970f64b422?w=1080'" :alt="filtered[0].title"
+                                 class="card-img w-full h-full object-cover" loading="lazy">
+                            <div class="featured-gradient absolute inset-0"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-10">
+                                <div class="flex flex-wrap items-center gap-3 mb-3">
+                                    <span class="px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest"
+                                          :style="'background:' + getColor(filtered[0]).light + '; color:' + getColor(filtered[0]).text"
+                                          x-text="getCategory(filtered[0])"></span>
+                                    <time class="text-[11px] text-slate-400 font-medium" :datetime="filtered[0].date" x-text="formatDate(filtered[0].date)"></time>
+                                    <span class="text-[11px] text-slate-400"><i class="fas fa-clock mr-1" aria-hidden="true"></i><span x-text="filtered[0].readingTime + ' min'"></span></span>
                                 </div>
-                                <!-- Content -->
-                                <div class="flex-grow">
-                                    <div class="flex flex-wrap items-center gap-3 mb-3">
-                                        <span class="px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest"
-                                              :class="'bg-' + article.color + '-500/10 text-' + article.color + '-400'"
-                                              x-text="article.tag"></span>
-                                        <time class="text-[10px] text-slate-500 font-medium" :datetime="article.date" x-text="formatDate(article.date)"></time>
-                                        <span class="text-[10px] text-slate-500" x-text="article.readingTime + ' min de lecture'"></span>
-                                    </div>
-                                    <h2 class="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-blue-300 transition-colors" x-text="article.title"></h2>
-                                    <p class="text-sm text-slate-400 leading-relaxed mb-4" x-text="article.description"></p>
-                                    <span class="text-blue-400 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">Lire l'article <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></span>
+                                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight group-hover:text-blue-300 transition-colors" x-text="filtered[0].title"></h2>
+                                <p class="text-slate-400 mt-3 max-w-2xl text-sm sm:text-base leading-relaxed line-clamp-2" x-text="filtered[0].description"></p>
+                                <span class="inline-flex items-center gap-2 mt-4 text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors"
+                                      :style="'color:' + getColor(filtered[0]).text">
+                                    Lire l'article <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </template>
+
+                <!-- ARTICLE GRID -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <template x-for="(article, idx) in (page === 1 && !search.trim() ? paginated.slice(1) : paginated)" :key="article.slug">
+                        <a :href="'/blog/' + article.slug + '/'" class="group glass rounded-2xl overflow-hidden border border-white/5 hover:border-white/15 transition-all duration-300 flex flex-col">
+                            <!-- Image -->
+                            <div class="relative h-44 overflow-hidden" x-show="article.image">
+                                <img :src="article.image" :alt="article.title" class="card-img w-full h-full object-cover" loading="lazy">
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-2.5 py-1 rounded-full text-[8px] font-black uppercase tracking-widest backdrop-blur-md"
+                                          :style="'background:' + getColor(article).bg + '30; color:' + getColor(article).text + '; border: 1px solid ' + getColor(article).bg + '40'"
+                                          x-text="getCategory(article)"></span>
                                 </div>
+                            </div>
+                            <!-- No-image fallback icon -->
+                            <div class="relative h-44 overflow-hidden flex items-center justify-center" x-show="!article.image"
+                                 :style="'background: linear-gradient(135deg, ' + getColor(article).bg + '10, ' + getColor(article).bg + '05)'">
+                                <i :class="'fas ' + getCategoryIcon(article)" class="text-5xl opacity-20" :style="'color:' + getColor(article).text" aria-hidden="true"></i>
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-2.5 py-1 rounded-full text-[8px] font-black uppercase tracking-widest"
+                                          :style="'background:' + getColor(article).bg + '20; color:' + getColor(article).text"
+                                          x-text="getCategory(article)"></span>
+                                </div>
+                            </div>
+                            <!-- Content -->
+                            <div class="p-5 sm:p-6 flex flex-col flex-grow">
+                                <div class="flex items-center gap-3 mb-3 text-[10px] text-slate-500">
+                                    <time :datetime="article.date" x-text="formatDate(article.date)"></time>
+                                    <span>&bull;</span>
+                                    <span x-text="article.readingTime + ' min'"></span>
+                                </div>
+                                <h2 class="text-base sm:text-lg font-black text-white mb-2 leading-snug group-hover:text-blue-300 transition-colors line-clamp-2" x-text="article.title"></h2>
+                                <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-grow line-clamp-3" x-text="article.description"></p>
+                                <span class="text-[10px] font-bold uppercase tracking-widest group-hover:text-white transition-colors"
+                                      :style="'color:' + getColor(article).text">
+                                    Lire <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
+                                </span>
                             </div>
                         </a>
                     </template>
@@ -228,12 +431,13 @@
                             aria-label="Page precedente">
                         <i class="fas fa-chevron-left text-xs" aria-hidden="true"></i>
                     </button>
-                    <template x-for="p in pageNumbers" :key="p">
-                        <button @click="page = p; $nextTick(() => scrollToFilters())"
-                                :class="page === p ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10'"
+                    <template x-for="(p, i) in pageNumbers" :key="'p'+i">
+                        <button @click="if(p !== '...') { page = p; $nextTick(() => scrollToFilters()); }"
+                                :class="p === page ? 'bg-blue-500/20 text-blue-400 border-blue-500/40' : (p === '...' ? 'cursor-default text-slate-600 border-transparent' : 'bg-white/5 text-slate-400 border-white/10 hover:bg-white/10')"
                                 class="w-10 h-10 rounded-full border flex items-center justify-center text-sm font-bold transition-all"
                                 x-text="p"
-                                :aria-current="page === p ? 'page' : false">
+                                :disabled="p === '...'"
+                                :aria-current="p === page ? 'page' : false">
                         </button>
                     </template>
                     <button @click="page = Math.min(totalPages, page + 1); $nextTick(() => scrollToFilters())" :disabled="page === totalPages"
@@ -245,8 +449,13 @@
                 </nav>
 
                 <!-- EMPTY STATE -->
-                <div x-show="filtered.length === 0" class="text-center py-16">
-                    <p class="text-slate-500 text-lg">Aucun article dans cette categorie pour le moment.</p>
+                <div x-show="filtered.length === 0" class="text-center py-20">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-2xl text-slate-600" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-slate-500 text-lg font-bold">Aucun article trouve</p>
+                    <p class="text-slate-600 text-sm mt-2">Essayez un autre terme ou une autre categorie.</p>
+                    <button @click="search = ''; filter = 'all'" class="mt-4 text-blue-400 text-sm font-bold hover:text-blue-300 transition-colors">Reinitialiser les filtres</button>
                 </div>
 
             </div>
@@ -278,7 +487,7 @@
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             gsap.registerPlugin(ScrollTrigger);
             gsap.utils.toArray('.glass').forEach(function (el, i) {
-                gsap.from(el, { y: 40, opacity: 0, duration: 0.6, delay: i * 0.1, scrollTrigger: { trigger: el, start: 'top 90%' } });
+                gsap.from(el, { y: 30, opacity: 0, duration: 0.5, delay: i * 0.05, scrollTrigger: { trigger: el, start: 'top 92%' } });
             });
         }
     });
