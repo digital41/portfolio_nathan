@@ -1,5 +1,38 @@
 [
   {
+    "slug": "cloud-computing-entreprise-avantages-strategies",
+    "title": "Cloud Computing en Entreprise : Avantages et Stratégies pour 2024",
+    "description": "Découvrez comment le cloud computing transforme les entreprises avec ses avantages et stratégies clés en 2024.",
+    "date": "2026-03-10",
+    "readingTime": 15,
+    "tag": "Technologie",
+    "color": "blue",
+    "icon": "fa-chart-line",
+    "image": "https://images.unsplash.com/photo-1508780709619-79562169bc64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzMxMzQ2Mzh8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "comparatif-erp-pme-2026",
+    "title": "Comparatif ERP pour PME : Choisir le Meilleur Outil en 2026",
+    "description": "Decouvrez le comparatif ERP 2026 pour PME et choisissez la solution ideale pour optimiser vos operations.",
+    "date": "2026-03-10",
+    "readingTime": 20,
+    "tag": "ERP",
+    "color": "blue",
+    "icon": "fa-chart-line",
+    "image": "https://images.unsplash.com/photo-1637664067109-a6a00840d894?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzMxMjYwODF8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "meilleurs-outils-crm-pme-2024",
+    "title": "Les 10 Meilleurs Outils CRM pour les PME en 2024",
+    "description": "Decouvrez les 10 meilleurs outils CRM pour optimiser la gestion client dans votre PME en 2024. Un guide pratique et compare.",
+    "date": "2026-03-09",
+    "readingTime": 12,
+    "tag": "Outils PME",
+    "color": "blue",
+    "icon": "fa-chart-line",
+    "image": "https://images.unsplash.com/photo-1568952433726-3896e3881c65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzMwNzc1MjR8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
     "slug": "strategie-marketing-digital-complet-2026",
     "title": "Stratégie Marketing Digital : Guide Complet 2026",
     "description": "Un guide complet sur la stratégie marketing digital en 2026 pour les PME. Découvrez les dernières tendances, outils et méthodologies.",
