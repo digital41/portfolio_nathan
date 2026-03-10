@@ -1,5 +1,38 @@
 [
   {
+    "slug": "optimisation-data-erp-pme",
+    "title": "Optimiser l'Utilisation des Données ERP pour les PME : Guide Pratique",
+    "description": "Découvrez comment les PME peuvent améliorer l'efficacité des données ERP. Conseils experts pour une gestion optimisée.",
+    "date": "2026-03-10",
+    "readingTime": 14,
+    "tag": "Management de Si",
+    "color": "#007BFF",
+    "icon": "fa-database",
+    "image": "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzMxMzY5OTd8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "automatiser-processus-architecture-informatique",
+    "title": "Automatiser vos Processus : Architecture Informatique pour PMEs",
+    "description": "Decouvrez comment automatiser vos processus avec une architecture informatique efficace. Guide complet pour les dirigeants de PME.",
+    "date": "2026-03-10",
+    "readingTime": 12,
+    "tag": "Transformation Digitale",
+    "color": "#3498db",
+    "icon": "fa-robot",
+    "image": "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzMxMzY0MjN8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "slug": "strategies-referencement-local-google-my-business",
+    "title": "Stratégies de Référencement Local avec Google My Business",
+    "description": "Optimisez votre visibilité locale avec Google My Business. Découvrez des stratégies efficaces pour votre référencement SEO local.",
+    "date": "2026-03-10",
+    "readingTime": 15,
+    "tag": "SEO Local",
+    "color": "#4CAF50",
+    "icon": "fa-map-marked-alt",
+    "image": "https://images.unsplash.com/photo-1697952431907-8542919a16b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzMxMzYyMzZ8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
     "slug": "cloud-computing-entreprise-avantages-strategies",
     "title": "Cloud Computing en Entreprise : Avantages et Stratégies pour 2024",
     "description": "Découvrez comment le cloud computing transforme les entreprises avec ses avantages et stratégies clés en 2024.",
