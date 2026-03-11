@@ -1,5 +1,16 @@
 [
   {
+    "slug": "developpement-etape-par-etape-d-un-plan-de-sauvegarde-de-donnees-efficace",
+    "title": "Développement étape par étape d'un plan de sauvegarde de données efficace",
+    "description": "Découvrez comment développer un plan de sauvegarde de données robuste et efficace pour protéger votre entreprise contre les pertes de données.",
+    "date": "2026-03-11",
+    "readingTime": 15,
+    "tag": "Cybersecurité",
+    "color": "#FF5733",
+    "icon": "fa-shield-alt",
+    "image": "https://images.unsplash.com/photo-1585079374502-415f8516dcc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzMyMTI0MzF8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
     "slug": "strategie-erp-personnalisation",
     "title": "Optimiser Votre ERP Grâce à une Personnalisation Efficace",
     "description": "Découvrez comment la personnalisation de votre ERP peut améliorer les performances de votre PME en {{ new Date().getFullYear() }}.",
