@@ -1,5 +1,16 @@
 [
   {
+    "slug": "integrer-intelligence-artificielle-marketing",
+    "title": "Comment Intégrer l'Intelligence Artificielle dans Votre Stratégie Marketing",
+    "description": "Découvrez comment exploiter l'intelligence artificielle pour optimiser votre stratégie marketing et augmenter vos résultats.",
+    "date": "2026-03-13",
+    "readingTime": 15,
+    "tag": "Marketing",
+    "color": "#ff6600",
+    "icon": "fa-robot",
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzMzODUyMjV8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
     "slug": "integration-intelligente-erp-pour-pme",
     "title": "L'intégration intelligente de l'ERP pour les PME",
     "description": "Découvrez comment une intégration ERP bien pensée peut révolutionner les processus de votre PME.",
