@@ -1,5 +1,16 @@
 [
   {
+    "slug": "impact-strategie-ia-tpe-pme",
+    "title": "Comment la Stratégie IA Transforme les TPE et PME",
+    "description": "Découvrez comment l'IA révolutionne les TPE et PME. Guide complet incluant étapes pratiques et exemples concrets.",
+    "date": "2026-03-14",
+    "readingTime": 12,
+    "tag": "Transformation Digitale",
+    "color": "#004f7c",
+    "icon": "fa-brain",
+    "image": "https://images.unsplash.com/photo-1597733336794-12d05021d510?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MzI3NTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzM0NzE2NzN8&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
     "slug": "integrer-intelligence-artificielle-marketing",
     "title": "Comment Intégrer l'Intelligence Artificielle dans Votre Stratégie Marketing",
     "description": "Découvrez comment exploiter l'intelligence artificielle pour optimiser votre stratégie marketing et augmenter vos résultats.",
